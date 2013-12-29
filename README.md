@@ -4,7 +4,7 @@ COWOA Module for Zen Cart
 ## This is a development version of COWOA only
 #### If you are looking to install the latest version from zencart please visit [this page](http://www.zen-cart.com/downloads.php?do=file&id=1416)
 
-If you need basic installation help, and the included readme does not help you, please visit [the COWOA Support Thread](http://www.zen-cart.com/showthread.php?196995-COWOA-Updated-and-Combined-for-ZC-v1-5-x)
+If you need basic installation help, and the included readme does not help you, please visit the [COWOA Support Thread](http://www.zen-cart.com/showthread.php?196995-COWOA-Updated-and-Combined-for-ZC-v1-5-x)
 
 This module lets your customer checkout without having to register an account on your store. (Guest checkout)
 
