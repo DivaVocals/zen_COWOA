@@ -1,0 +1,525 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+
+  <meta name="ROBOTS" content="nofollow,noindex">  
+  <meta name="ROBOTS" content="noarchive">  
+  <meta http-equiv="pragma" content="no-cache">  
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">  
+  <meta http-equiv="content-language" content="en">  
+  <meta name="description" content="COWOA lets your customer checkout without having to register an account on your store.">
+  <title>COWOA 2.4</title>
+    
+  <link rel="stylesheet" type="text/css" href="includes/css/stylesheet.css">  
+  <script type="text/javascript" src="includes/jscript/jscript_tabs.js"></script></head><body>
+<div id="wrapper">
+<h2>COWOA 2.4</h2>
+
+<!--<p>Support thread: <a href="http://www.zen-cart.com/showthread.php?196995" target="_blank">http://www.zen-cart.com/showthread.php?196995</a><br />
+Download link: <a href="http://http://www.zen-cart.com/downloads.php?do=file&id=1416" target="_blank">http://http://www.zen-cart.com/downloads.php?do=file&id=1416</a></p>-->
+
+<div id="slidetabsmenu" style="display: none;">
+<ul>
+  <li> <a onClick="expandcontent('sc1', this)" href="javascript:void(0)"><span>Purpose </span></a></li>
+  <li> <a onClick="expandcontent('sc2', this)" href="javascript:void(0)"><span>Installation</span></a></li>
+  <li> <a onClick="expandcontent('sc3', this)" href="javascript:void(0)"><span>How to Use</span></a></li>
+  <li> <a onClick="expandcontent('sc4', this)" href="javascript:void(0)"><span>Upgrading from v2.3 t v2.4</span></a></li>
+  <li> <a onClick="expandcontent('sc5', this)" href="javascript:void(0)"><span>Credits &amp; History</span></a></li>
+  <li> <a onClick="expandcontent('sc6', this)" href="javascript:void(0)"><span>License</span></a></li>
+</ul>
+</div>
+<br style="clear: both;">
+
+<!--Begin tabcontainer-->
+<div id="tabcontentcontainer">
+
+<!--Begin sc1-->
+<div class="tabcontent" id="sc1" style="display: block;">
+<div class="textcontent">
+<div class="regularlist">
+
+<h3>PURPOSE</h3>
+<div class="regularlist">
+<ul>
+	<li><strong>COWOA 2.4</strong> lets your customer checkout without having to register an account on your store.<br /></li>
+	<li>Please check your host's PHP version. This module will NOT work for hosting configurations using PHP versions older than 5.2.x</li>
+	<li>COWOA v2.4 was tested for Zen Cart 1.5.0 and Zen Cart 1.5.1 compatibility only.<br /> Any issues which arise when attempting to use this module with Zen Cart v1.3.9 may be attributed to the differences between the older Zen Cart versions.</li>
+	<li>If you are still running an older version of Zen Cart we strongly recommend that you upgrade as there have been many security enhancements made in Zen Cart v1.5 and v1.5.1.</li>
+</ul>
+</div>
+<div class="regularlist">
+<ul>
+  <div class="boldemphasis">
+    <li>COWOA v2.4 IS NOT COMPATIBLE WITH VERSIONS OF ZEN CART PRIOR TO ZEN CART 1.5.0!!</li>
+    <li>There will be no support provided for Zen Cart v1.3.9 with v2.4 of COWOA.</li>
+</div>
+</ul>
+</div>	
+
+<p><b>*** READ EVERYTHING IN THIS README BEFORE YOU BEGIN ***</b></p>
+
+<p>After following the installation instructions (and any additional instructions as needed), it isvery strongly recommended that you read through the ENTIRE "<strong>How to Use</strong>" section. There you will find out exactly what <strong>COWOA</strong> does.</p>
+
+
+<p>Ready to get started? Just follow the installation instructions.</p>
+
+Any questions, just hit the forums: <a href="http://www.zen-cart.com/showthread.php?196995" target="_blank">http://www.zen-cart.com/showthread.php?196995</a>
+<br /><br />
+
+</div>
+</div>
+</div>
+<!--End sc1-->
+
+<!--Begin sc2-->
+<div class="tabcontent" id="sc2" style="display: block;">
+<div class="textcontent">
+<div class="regularlist">
+<h3>INSTALLATION</h3>
+
+<p>There are three folders in the fileset</p>
+
+<ul>
+	<li>_docs</li>
+	<li>New_Installation</li>
+	<li>Upgrade-2-3_to_2-4</li>
+</ul>
+
+<div class="boldemphasis">
+<p>*** READ EVERYTHING IN THIS README BEFORE YOU BEGIN ***</p>
+
+<p>***** BACKUP YOUR STORE AND YOUR DATABASE BEFORE YOU BEGIN*****</p>
+</div>
+
+<fieldset>
+<legend>New Installation For Zen Cart v1.5 And v.1.5.1</legend>
+
+Brand New Installation Of COWOA: </p>
+<ol>
+  <li>Download and Unzip the package contents to a temp directory</li>
+  <li>Change and Rename  the <strong>YOUR_ADMIN</strong> inside the <strong>New_Installation/1_Store_Files</strong>folder to match the name of your shop's admin folder name.. Let me repeat
+  this as this is the one step in a module install that most OFTEN gets overlooked/missed: <br /><br />
+  <div class="boldemphasis">Change and Rename the Admin_Folder inside the New_Installation folder to match the name of your shop's admin folder name..</div></li>
+  <li>Change and Rename all the <strong>YOUR_TEMPLATE</strong> folder names in the <strong>New_Installation/1_Store_Files/includes</strong> folders to match the name of your template's folder name<br /><br />
+
+  <li>Upload ALL the files in the <strong>New_Installation/1_Store_Files</strong> folder to your store directory. The directory structure within these folders is like your Zen Cart store's folder structure if you have renamed them correctly.
+  For most FTP clients the directory structure of the /includes directory should be preserved, and the files should "fall" into their proper places. If your FTP client isn't capable of this, you might have to manually place each file according to where they appear in this module.</li>
+
+<li> Install the SQL Patch. To do this, open up the file <strong>COWOA_Full_Install.sql</strong> in a text editor to copy and paste the file. In your admin panel, open Tools -> Install SQL Patches. Copy the query from COWOA_Full_Install.sql into the text box and hit 'send'. This will add 
+the necessary COWOA fields and setup COWOA inthe Configuration Section. It will also set Split Login to True which is necessary for this mod to work.</li>
+
+  </ol>
+</fieldset>
+<legend>Core Zen Cart files Modified:</legend>
+<fieldset>
+
+<p>There are 25 Zen Cart Core files that are over-written for this module<strong>. </strong>If you have any other Modules installed that uses these files, compare and merge the files and look for the COWOA word that is before all of the entries,
+just copy and paste those lines into your files. Some have very minor changes, others have a lot of additions</p>
+
+<div class="boldemphasis">IMPORTANT: The files below are the Zen Cart Core files that are part of COWOA.</div>
+
+<ol>
+<li>YOUR_ADMIN/orders.php</li>
+<li>YOUR_ADMIN/customers.php</li>
+<li>YOUR_ADMIN/index.php</li>
+<li>includes/classes/order.php</li>
+<li>includes/languages/YOUR_TEMPLATE/english.php</li>
+<li>includes/languages/english/YOUR_TEMPLATE/checkout_confirmation.php</li>
+<li>includes/languages/english/YOUR_TEMPLATE/checkout_payment.php</li>
+<li>includes/languages/english/YOUR_TEMPLATE/checkout_process</li>
+<li>includes/languages/english/YOUR_TEMPLATE/checkout_shipping.php</li>
+<li>includes/languages/english/YOUR_TEMPLATE/gv_redeem.php</li>
+<li>includes/languages/english/YOUR_TEMPLATE/login.php</li>
+<li>includes/languages/english/YOUR_TEMPLATE/logoff.php</li>
+<li>includes/languages/english/YOUR_TEMPLATE/time_out.php</li>
+<li>includes/modules/YOUR_TEMPLATE/create_account.php</li>
+<li>includes/modules/pages/checkout_shipping/header_php</li>
+<li>includes/modules/pages/gv_redeem/header</li>
+<li>includes/modules/pages/login/header</li>
+<li>includes/modules/pages/password_forgotten/header_php</li>
+<li>includes/templates/YOUR_TEMPLATE/common/tpl_header.php</li>
+<li>includes/templates/YOUR_TEMPLATE/templates/tpl_checkout_confirmation_default.php</li>
+<li>includes/templates/YOUR_TEMPLATE/templates/tpl_checkout_payment_default.php</li>
+<li>includes/templates/YOUR_TEMPLATE/templates/tpl_checkout_shipping.php</li>
+<li>includes/templates/YOUR_TEMPLATE/templates/tpl_checkout_success.php</li>
+<li>includes/templates/YOUR_TEMPLATE/templates/tpl_login_default.php</li>
+<li>includes/filenames.php</li>
+</ol>
+</fieldset>
+
+<legend>Core COWOA Files:</legend>
+<fieldset>
+<p>There are 27 COWOA Core files. No merges are required for these files unless you are upgrading from an older version of COWOA</p>
+
+<div class="boldemphasis">IMPORTANT: The files below are the COWOA core files.</div>
+<ol>
+<li><span class="boldemphasis">YOUR_ADMIN/includes/languages/english/extra_definitions/COWOA.php</span></li>
+<li><span class="boldemphasis">includes/extra_datafiles/no_account_filenames.php</span></li>
+<li><span class="boldemphasis">includes/extra_datafiles/order_status_filenames.php</span></li>
+<li><span class="boldemphasis">includes/language/english/extra_definitions/checkout_process.php</span></li>
+<li><span class="boldemphasis">includes/language/english/extra_definitions/order_status.php</span></li>
+<li><span class="boldemphasis">includes/language/english/extra_definitions/order_steps_defines.php</span></li>
+<li><span class="boldemphasis">includes/languages/english/YOUR_TEMPLATE/no_account.php</span></li>
+<li><span class="boldemphasis">includes/languages/english/YOUR_TEMPLATE/order_status.php</span></li>
+<li><span class="boldemphasis">includes/modules/YOUR_TEMPLATE/no_account.php</span></li>
+<li><span class="boldemphasis">includes/modules/YOUR_TEMPLATE/os_downloads.php</span></li>
+<li><span class="boldemphasis">includes/modules/pages/no_account/header_php.php</span></li>
+<li><span class="boldemphasis">includes/modules/pages/no_account/jscript_addr_pulldowns.php</span></li>
+<li><span class="boldemphasis">includes/modules/pages/no_account/jscript_form_check.php</span></li>
+<li><span class="boldemphasis">includes/modules/pages/no_account/on_load_main.js</span></li>
+<li><span class="boldemphasis">includes/modules/pages/order_status/header_php.php</span></li>
+<li><span class="boldemphasis">includes/modules/pages/order_status/jscript_main.php</span></li>
+<li><span class="boldemphasis">includes/templates/YOUR_TEMPLATE/css/checkout_confirmation.css</span></li>
+<li><span class="boldemphasis">includes/templates/YOUR_TEMPLATE/css/checkout_payment.css</span></li>
+<li><span class="boldemphasis">includes/templates/YOUR_TEMPLATE/css/checkout_shipping.css</span></li>
+<li><span class="boldemphasis">includes/templates/YOUR_TEMPLATE/css/checkout_success.css</span></li>
+<li><span class="boldemphasis">includes/templates/YOUR_TEMPLATE/css/no_account.css</span></li>
+<li><span class="boldemphasis">includes/templates/YOUR_TEMPLATE/images/arrow_checkout.gif</span></li>
+<li><span class="boldemphasis">includes/templates/YOUR_TEMPLATE/images/orderstep.png</span></li>
+<li><span class="boldemphasis">includes/templates/YOUR_TEMPLATE/templates/tpl_modules_no_account.php</span></li>
+<li><span class="boldemphasis">includes/templates/YOUR_TEMPLATE/templates/tpl_modules/os_downloads.php</span></li>
+<li><span class="boldemphasis">includes/templates/YOUR_TEMPLATE/templates/tpl_no_account_default.php</span></li>
+<li><span class="boldemphasis">includes/templates/YOUR_TEMPLATE/templates/tpl_order_status_default.php</span></li>
+</ol>
+</fieldset>
+
+<fieldset>
+<legend>Basic Un-Install Instructions</legend>
+<ol>
+	<li>Remove and replace all the files that were over written by COWOA with your backed up files. You did make a copy Right?</li>
+	<li>Run the <strong>Uninstall_COWOA.sql</strong> using the "SQL Query Executor" tool in the Admin (Tools &gt; Install SQL Patches) to remove the database entries.</li>
+</ol>
+</fieldset>
+</div>
+</div>
+</div>
+<!--End sc2-->
+
+<!--Begin sc3-->
+<div class="tabcontent" id="sc3" style="display: block;">
+<div class="textcontent">
+<div class="regularlist">
+<h3>HOW TO USE</h3>
+<p>COWOA is EASY to use. Checkout without and account module looks similar to the (regular checkout) page.</p>
+
+<fieldset>
+<legend>To switch COWOA on</legend>
+<p>Go to ADMIN-&gt;Configuration-&gt;COWOA Configuration. There are 5 configuations that need to be set to True or False..</p> 
+<ul>
+  <li>Activate COWOA Checkout.</li>
+  <li>Turn Off Sideboxes During Checkout</li>
+  <li>Enable The Order Status Function of COWOA.</li>
+  <li>Enable The E-Mail Order Function of COWOA.</li>
+  <li>Enable The Forced Logoff Function of COWOA.</li>
+</ul>
+<p>That's it you now have Checkout Without an Account Installed.. </p>
+</fieldset>
+<fieldset>
+<legend>Using COWOA with the Dropdown and Mega Menu Modules</legend>
+<p>If you are using the<a href="http://www.zen-cart.com/downloads.php?do=file&id=12.4" target="_blank"> CSS Horizontal Dropdown Menu With jquery</a> module with COWOA, there are some changes needed so that it works correctly with COWOA. in the file <strong>includes/templates/YOUR_TEMPLATE/common/tpl_drop_menu.php</strong> on find lines 104-113</p>
+<p> &lt;ul class=&quot;level2&quot;&gt;<br>
+&lt;?php if ($_SESSION['customer_id']) { ?&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_ACCOUNT, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_MY_ACCOUNT; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_LOGOFF, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_LOGOFF; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_ACCOUNT_NEWSLETTERS, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_NEWSLETTERS; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;?php } else { ?&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_LOGIN, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_LOGIN; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_CREATE_ACCOUNT, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_CREATE_ACCOUNT; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;?php } ?&gt;<br>
+&lt;/ul&gt;</p>
+<p>Change to:</p>
+<p>&lt;ul class=&quot;level2&quot;&gt;<br>
+&lt;?php if (($_SESSION['customer_id']) &amp;&amp; (!$_SESSION['COWOA']=='True')) { ?&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_LOGOFF, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_LOGOFF; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_ACCOUNT, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_MY_ACCOUNT; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_ACCOUNT_NEWSLETTERS, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_NEWSLETTERS; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;?php<br>
+} else {<br>
+if (STORE_STATUS == '0') {<br>
+?&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_LOGIN, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_LOGIN; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+  &lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_CREATE_ACCOUNT, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_CREATE_ACCOUNT; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+  &lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_ACCOUNT_NEWSLETTERS, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_NEWSLETTERS; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+  &lt;?php } } ?&gt;<br>
+  &lt;/ul&gt;</p>
+<p>The order of items on the menu has been modified a little so that there   is a more consistent layout of the menu items. Most importantly the menu   will now work correctly with COWOA.</p>
+<hr />
+<p>Or if you are using the<a href="http://www.zen-cart.com/downloads.php?do=file&id=1554" target="_blank"> Pure CSS Mega Menu</a> module Or any template by Picaflor Azul which uses this menu, these are the changes needed for it to work with COWOA:<br>
+  <br>
+in the file <strong>includes/templates/YOUR_TEMPLATE/common/tpl_mega_menu.php</strong> on find lines 190-197</p>
+<p> &lt;?php if ($_SESSION['customer_id']) { ?&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_ACCOUNT, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_MY_ACCOUNT; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_LOGOFF, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_LOGOFF; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_ACCOUNT_NEWSLETTERS, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo TITLE_NEWSLETTERS; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;?php } else { ?&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_LOGIN, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_LOGIN; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_CREATE_ACCOUNT, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_CREATE_ACCOUNT; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;?php } ?&gt; </p>
+<p>Change to:</p>
+<p> &lt;?php if (($_SESSION['customer_id']) &amp;&amp; (!$_SESSION['COWOA']=='True')) { ?&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_LOGOFF, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_LOGOFF; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_ACCOUNT, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_MY_ACCOUNT; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_ACCOUNT_NEWSLETTERS, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo TITLE_NEWSLETTERS; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;?php<br>
+} else {<br>
+if (STORE_STATUS == '0') {<br>
+?&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_LOGIN, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_LOGIN; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_CREATE_ACCOUNT, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo HEADER_TITLE_CREATE_ACCOUNT; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;li&gt;&lt;a href=&quot;&lt;?php echo zen_href_link(FILENAME_ACCOUNT_NEWSLETTERS, '', 'SSL'); ?&gt;&quot;&gt;&lt;?php echo TITLE_NEWSLETTERS; ?&gt;&lt;/a&gt;&lt;/li&gt;<br>
+&lt;?php } } ?&gt;</p>
+</fieldset>
+
+</div>
+</div>
+</div>
+<!--End sc3-->
+
+<!--Begin sc4-->
+<div class="tabcontent" id="sc4" style="display: block;">
+<div class="textcontent">
+<div class="regularlist">
+<h3>UPGRADING FROM v2.3 to v2.4</h3>
+
+<div class="boldemphasis">
+<p>*** READ EVERYTHING IN THIS README BEFORE YOU BEGIN ***</p>
+
+<p>***** BACKUP YOUR STORE AND YOUR DATABASE BEFORE YOU BEGIN*****</p>
+</div>
+
+<fieldset>
+  <ol>
+    <li>Download and Unzip the package contents to a temp directory</li>
+  <li>Open the Upgrade folder.</li>
+  <li>Change and Rename  the <strong>YOUR_ADMIN</strong> in the <strong>Upgrade</strong> folder to match the name of your shop's admin folder name.. Let me repeat this as this is the one step in a module install that most OFTEN gets overlooked/missed:<br /><br />
+  <div class="boldemphasis">Change and Rename the YOUR_ADMIN to match the name of your shop's admin folder name..</div></li>
+  <li>Change and Rename the <strong>YOUR_TEMPLATE</strong> folder name in the <strong>Upgrade/includes</strong> folders to match the name of your store's template folder name.</li>
+  <li>Upload ALL the files in the <strong>Upgrade</strong> folder to your store directory. The directory structure within these folders is like your Zen Cart store's folder structure if you have renamed them correctly.
+    For most FTP clients the directory structure of the /includes directory should be preserved, and the files should "fall" into their proper places. If your FTP client isn't capable of this, you might have to manually place each file according to where they appear in this module.</li>
+
+<li> Install the SQL Patch. To do this, open up the file <strong>1-5-1_upgrade.sql</strong> in a text editor to copy and paste the file. In your admin panel, open Tools -> Install SQL Patches. Copy the query from <strong>1-5-1_upgrade.sql</strong> into the text box and hit 'send'. This will add 
+the necessary COWOA fields and setup COWOA inthe Configuration Section. It will also set Split Login to True which is necessary for this mod to work.</li>
+
+
+
+</ol>
+
+</fieldset>
+<fieldset>
+<legend>Basic Un-Install Instructions</legend>
+<ol>
+	<li>Remove and replace all the files that were over written by COWOA with your backed up files. You did make a copy Right?</li>
+	<li>Run the <strong>Uninstall_COWOA.sql</strong> using the "SQL Query Executor" tool in the Admin (Tools &gt; Install SQL Patches) to remove the database entries.</li>
+</ol>
+</fieldset>
+</div>
+</div>
+</div>
+<!--End sc4-->
+
+<!--Begin sc5-->
+<div class="tabcontent" id="sc5" style="display: block;">
+<div class="textcontent">
+<div class="regularlist">
+<h3>CREDITS &amp; HISTORY</h3>
+
+<p>Based on COWOA v2.0c2<br />
+By JTheed<br /><br />
+v2.4 Updated by<br /> 
+C Jones
+</p>
+<fieldset>
+<legend>v2.4 - 02/20/2013</legend>
+Updated By C Jones:
+<ul>
+    <li>Drop support for Zen Cart v1.3.9 (use COWOA v2.3 if you are still running Zen Cart v1.3.9)</li>
+    <li>Add missing semi colon on line 19 of the time_out.php</li>
+    <li>Refining and improve the on-screen text and error messages for this module. <br>
+      (Many of them are a   little awkwardly worded or inconsistent)</li>
+    <li>Create a distinct COWOA duplicate e-mail error messages. <br>
+      (in prior versions of COWOA the Standard and COWOA flows shared the SAME duplicate e-mail error message which is confusing and incorrect)</li>
+    <li>New admin switch to turn off sideboxes during the checkout <br>
+      (Many of the larger e-commerce retailers turn off "distractions" during   their checkout processes for the same reason - i.e. Amazon. By reducing   customer distractions during checkout you can help to decrease cart   abandonment, and to increase sales conversions.)</li>
+    <li>Corrected the   text in the standard flow to  reflect that there are FOUR steps not   THREE. (in prior versions the confirmation step is counted in   the COWOA flow, but not in the  standard flow)</li>
+    <li>The  final confirmation   step in BOTH flows and the billing step of the COWOA  flow are missing  the heading   "<strong>Step # or #</strong>". </li>
+    <li>On the payment page the customer is   prompted  "to confirm your order". Step 4 is   actually the REVIEW before confirmation order step.</li>
+    <li>Change to the PayPal Express text to make it clear that no PayPal account is required to use PayPal.</li>
+</ul>
+</fieldset>
+<hr>
+<fieldset>
+<legend>v2.3 - 10/04/2012</legend>
+Zen Cart Forum Thread: http://www.zen-cart.com/showthread.php?196995-COWOA-%28for-ZC-v1-5-x%29&highlight=cowoa
+<br /><br />
+Updated By CountryCharm:
+<ul>
+    <li>Updated and changed a few directory names between v2.2 and 2.4 to keep the directory structure more organized.</li>
+	<li>Updated the files list to show all core files that are use for COWOA. There were a few files not listed in the Install Text. </li>
+	<li>Deleted a file that shouldn't have been use in the first place. Admin_Folder/includes/extra_datafiles/COWOA.php</li>
+	<li>Updated the Install Text to a new and improve Install Text. Look in the _docs folder for how to install COWOA.</li>
+</ul>
+</fieldset>
+<hr>
+<fieldset>
+<legend>v2.2 - 09/19/2012</legend>
+<br /><br />
+Updated By CountryCharm:
+<ul>
+	<li>Updated to to be compatible with Zen Cart v1.5.1</li>
+	<li>Updated the <strong>COWOA_Full_Install.sql</strong> statement which was given some people problems installing. Thanks to <strong>Diva </strong> .</li>
+	<li>Fixed a typo <strong>Legitiment vs Legitimate</strong> in <strong>/includes/languages/english/YOURTEMPLATE/no_account.php</strong> file thanks to <strong>Limitless </strong></li>
+	<li>Fixed the force logoff of a COWOA customer after a purchase. If a customers click the <strong>'My Account' or 'Login' buttons </strong>, they would be redirected to the My Account info page.</li>
+	<li>Fixed the force logoff of a COWOA customer checking there order status from there email Confirmation. If a customers click the <strong>'My Account' 'Login' buttons </strong>, they would be redirected to the My Account info page.</li>
+    <li>This has been fixed for zen cart v1.5.0 and v1.5.1</li>
+</ul>
+</fieldset>
+<hr>
+<fieldset>
+<legend>v2.1 - 06/13/2012</legend>
+Updated By CountryCharm:
+<ul>
+	<li>Updated the file dates and version numbers to bring them up to date with zen cart v1.5.0. Updated the install text files.</li>
+</ul>
+</fieldset>
+
+<hr>
+<fieldset>
+<legend>v2.0c4 - 06/11/2012</legend>
+Updated By CountryCharm:
+<ul>
+    <li>Updated to to be compatible with Zen Cart v1.5</li>
+	<li>Updated the file dates and version numbers to bring them up to date with zen cart v1.5.0. Updated the install text files.</li>
+	<li>Added a file to <strong>/Admin_Folder/includes/languages/english/extra_definitions/COWOA.php</strong> for zen cart v1.5.0.</li>
+	<li>Added a <strong>define('FILENAME_ORDER_STATUS', 'order_status');</strong> to the <strong>filenames.php</strong> file so you don't have to do it for less screw ups.</li>
+</ul>
+</fieldset>
+
+<hr>
+<fieldset>
+<legend>Previous Version History</legend>
+<br />
+
+<legend>v2.0c2 - 01/12/2011</legend>
+Updated By: JTheed 
+<ul>
+	<li>Added missing code in the customer table in Admin Customers screen where the No Account was not showing up and
+changed the heading to say Account Type. This column now shows <strong>COWOA or STANDARD</strong>.</li>
+	<li>Payment screen is no longer skipped if 0 balance in cart. This was causing a problem.</li>
+</ul>
+</fieldset>
+<hr>
+<fieldset>
+<legend>v2.0c1 - 09/17/2010</legend>
+Updated By: JTheed 
+<ul>
+	<li>Added missing file in<strong>includes/templates/YOUR_TEMPLATE/tpl_order_status_default.php</strong>.</li>
+</ul>
+</fieldset>
+<hr>
+<fieldset>
+<legend>v2.0c - 08/29/2010</legend>
+Updated By: JTheed
+<ul>
+	<li>ADDITION: Added the ability to turn on and off a forced logoff <strong>(Kill Session)</strong> for COWOA Customers after a sucessful checkout.
+        FORCED LOGOFF will cause customer to wait until they get an order status update e-mail to download a file purchase of any type. 
+        Alter your <strong>html_includes/checkout_success</strong> file to reflect this if you turn it on.</li>
+	<li>ADDITION: COWOA Customer can look around the store by reconnecting using the Order Status Update Login, but if they try to purchase an item, 
+        there session will expire. They should not be able to buy when connecting this way as they have NO Account information stored.</li>
+	<li>CHANGE: Removed the Welcome E-Mail that COWOA customers were receiving. <strong>(modified /includes/modules/YOUR_TEMPLATE/no_account.php</strong>.</li>
+    <li>CHANGE: Changed text. Instead of Detailed Invoice, it will say <strong>'Click here to check the Status of your order'</strong>for COWOA Customer. <strong>(Thanks to webchills)</strong></li>
+    <li>ADDITIONAL SQL: There is now a 3rd SQL file if you already have COWOA 2.0a or b to update to 2.0c</li>
+    <li>BUG FIX: Status Updates are now sent without link if Enable Status Emails set to false. <strong>(Thanks to philip937)</strong></li>
+    <li>NOTE: To abide by the OverRide settings, no files should be changed directly in the <strong>/includes/modules</strong> folder or the <strong>template_default/templates</strong> 
+        folder. All of the files should go into <strong>YOUR_TEMPLATE</strong> folders under modules and templates. You may want to edit the file <strong>/includes/languages/english/YOUR_TEMPLATE/time_out.php</strong> 
+        and add text to your liking.</li>
+    <li>See Update from 2.0, a or b instructions below</li>
+</ul>
+</fieldset>
+<hr>
+<fieldset>
+<legend>v2.0b - 08/20/2010)</legend>
+Updated By: JTheed
+<ul>
+	<li>BUG FIX: Bug that would not let a COWOA customer become a Regular Customer due to duplicate e-mail address</li>	
+</ul>
+</fieldset>
+<hr>
+<fieldset>
+<legend>v2.0a - 08/14/2010)</legend>
+Updated By: JTheed
+<ul>
+	<li>Contribution: Added the ability to turn on and off the E-Mail Only function to configuration file.
+        Now, your COWOA customers that have a 0 Cart Balance during checkout will only have to submit an e-mail address
+        in the checkout process.</li>
+</ul>
+</fieldset>
+<hr>
+<fieldset>
+<legend>v1.9 - 07/02/2010)</legend>
+Updated By: JTheed
+<ul>
+	<li>Contribution: Reworked Order Status by creating new files to use on their own. Now works as intended
+        by sending an e-mail to the customer with a link to enter their e-mail address and the order number
+        to see the current status or to download the file again.</li>
+ 
+</ul>
+</fieldset>
+<hr>
+<fieldset>
+<legend>v1.5 - 06/03/2010)</legend>
+Updated By: JTheed
+<ul>
+	<li>Contribution: Integrated Checkout Without Account, Order Status E-Mail and COWOA Customer Display</li>
+ 
+</ul>
+</fieldset>
+<hr>
+<fieldset>
+<legend>v1.1 - 01/04/2008)</legend>
+Integrated Checkout Without Account
+Author: Joseph Schilz AKA KGZotU or J_Schilz
+<ul>
+	<li>Originally Designed for ZenCart 1.3.7 on April 14, 2007 (version 1.0)</li>
+    <li>Zen Cart Forum Thread: http://www.zen-cart.com/forum/showthread.php?t=59189</li>
+    <li>Upgraded for use with Zen Cart 1.3.8 on January 4, 2008 (version 1.1)</li>
+    <li>ZenCart 1.3.8 upgrades performed by april@craftzombie.com</li>
+    <li>Wiki: http://www.zen-cart.com/wiki/index.php/Contribution:Integrated_Checkout_Without_Account</li>
+ 
+</ul>
+</fieldset>
+</div>
+</div>
+</div>
+<!--End sc5-->
+
+<!--Begin sc6-->
+<div class="tabcontent" id="sc6" style="display: block;">
+<div class="textcontent">
+<h3>LICENSE</h3>
+<p><strong>COWOA v2.4</strong> is released under the General Public License (see LICENSE.txt)</p>
+
+<p>This script is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</p>
+<p>Always backup your shop and database before making changes.</p>
+</div>
+</div>
+<!--End sc6-->
+
+</div>
+<!--end tabcontainer-->
+<script type="text/javascript">document.getElementById('sc2').style.display = 'none';</script>
+<script type="text/javascript">document.getElementById('sc3').style.display = 'none';</script>
+<script type="text/javascript">document.getElementById('sc4').style.display = 'none';</script>
+<script type="text/javascript">document.getElementById('sc5').style.display = 'none';</script>
+<script type="text/javascript">document.getElementById('sc6').style.display = 'none';</script>
+<script type="text/javascript">ShowTabs()</script>
+<script type="text/javascript">
+// We only show the tab links if JavaScript is available/active.
+<!--
+if (document.getElementById("slidetabsmenu") != null) {
+  document.getElementById('slidetabsmenu').style.display = "block";
+}
+//-->
+</script><br />
+<br />
+</div>
+
+</body></html>
