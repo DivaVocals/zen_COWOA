@@ -1,7 +1,5 @@
-COWOA
-============
-
 COWOA Module for Zen Cart
+============
 
 ## This is a development version of COWOA only
 #### If you are looking to install the latest version from zencart please visit [this page]("http://www.zen-cart.com/downloads.php?do=file&id=1416")
