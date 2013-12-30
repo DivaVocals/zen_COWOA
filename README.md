@@ -1,4 +1,4 @@
-COWOA Module for Zen Cart
+COWOA Module for Zen Cart v2.4
 ============
 
 ## This is a development version of COWOA only
