@@ -3,16 +3,14 @@ COWOA Module for Zen Cart v2.5
 
 CHANGELOG
 ------------
-<fieldset>
-<legend>v2.5 - 12/29/2013</legend>
-Updated By C Jones:
+v2.5 - 12/29/2013
 <ul>
     <li>Add check to includes/modules/YOUR_TEMPLATE/no_account.php to look for an existing COWOA account with the same email address and update it instead of creating a new one. Thus, only one COWOA account exist for that same email address. If a customer does create a standard account, all the past orders fall back to that same user.(dwest)</li>
     <li>Additonal impovements to onscreen text/labels</li>
     <li>Add additional steps arrows</li>
     <li>Fixed the duplicate email address/duplicate email send bug. See: http://www.zen-cart.com/showthread.php?59189-My-Checkout-Without-Account-Mod&amp;p=906772#post906772 (damiantaylor)</li>
 </ul>
-</fieldset>
+
 
 ## This is a development version of COWOA only
 #### If you are looking to install the latest version from zencart please visit [this page](http://www.zen-cart.com/downloads.php?do=file&id=1416)
