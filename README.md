@@ -5,6 +5,7 @@ CHANGELOG
 ------------
 v2.6 - TBD
 <ul>
+    <li>Support for Zen Cart v1.5.2</li>
     <li>TBD</li>
 </ul>
 
