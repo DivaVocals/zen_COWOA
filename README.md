@@ -1,6 +1,11 @@
 COWOA Module for Zen Cart v2.5
 ============
 
+## This is a development version of COWOA only
+#### If you are looking to install the latest version from zencart please visit [this page](http://www.zen-cart.com/downloads.php?do=file&id=1416)
+
+If you need basic installation help, and the included readme does not help you, please visit the [COWOA Support Thread](http://www.zen-cart.com/showthread.php?196995-COWOA-Updated-and-Combined-for-ZC-v1-5-x)
+
 CHANGELOG
 ------------
 v2.5 - 12/29/2013
@@ -10,11 +15,6 @@ instead of creating a new one. Thus, only one account exists for
 that same email address. If a customer does create a standard account, 
 all the past orders fall back to that same user.(dwest)<br></li><li>Additional improvements to onscreen text/labels<br></li><li>Add additional steps arrows</li><li><span style="color:#ff0000;">(This change is ONLY for those upgrading from cv2.4 or older versions of COWOA or converting from older versions of FEC/FEAC) Fixed the duplicate email address/duplicate email send bug. See: </span><a href="http://www.zen-cart.com/showthread.php?59189-My-Checkout-Without-Account-Mod&amp;p=906772#post906772"><span style="color:#ff0000;">http://www.zen-cart.com/showthread.php?59189-My-Checkout-Without-Account-Mod&amp;p=906772#post906772</span></a><span style="color:#ff0000;"> (damiantaylor)</span><br></li></ul>
 
-
-## This is a development version of COWOA only
-#### If you are looking to install the latest version from zencart please visit [this page](http://www.zen-cart.com/downloads.php?do=file&id=1416)
-
-If you need basic installation help, and the included readme does not help you, please visit the [COWOA Support Thread](http://www.zen-cart.com/showthread.php?196995-COWOA-Updated-and-Combined-for-ZC-v1-5-x)
 
 ABOUT COWOA
 ------------
