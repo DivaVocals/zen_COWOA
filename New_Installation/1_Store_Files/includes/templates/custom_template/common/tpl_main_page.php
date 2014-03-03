@@ -95,7 +95,7 @@ if (!isset($flag_disable_left) || !$flag_disable_left) {
 <?php
 }
 ?>
-    <td id="columnCenter" valign="top">
+    <td valign="top">
 <!-- bof  breadcrumb -->
 <?php if (DEFINE_BREADCRUMB_STATUS == '1' || (DEFINE_BREADCRUMB_STATUS == '2' && !$this_is_home_page) ) { ?>
     <div id="navBreadCrumb"><?php echo $breadcrumb->trail(BREAD_CRUMBS_SEPARATOR); ?></div>

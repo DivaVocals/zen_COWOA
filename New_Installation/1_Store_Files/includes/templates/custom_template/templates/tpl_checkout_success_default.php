@@ -10,7 +10,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: tpl_checkout_success_default.php 16435 2010-05-28 09:34:32Z drbyte $
- * @version $Id: Integrated COWOA v2.5
+ * @version $Id: Integrated COWOA v2.6
  */
 ?>
 <div class="centerColumn" id="checkoutSuccess">
@@ -123,7 +123,9 @@ if ($_SESSION['COWOA'] and COWOA_LOGOFF == 'true') {
 ?>
 <!--eof -product downloads module-->
 
-<?php if(!($_SESSION['COWOA'])) { ?> <div id="checkoutSuccessOrderLink"><?php echo TEXT_SEE_ORDERS;?></div> <?php } ?>
+<?php if(!($_SESSION['COWOA'])) { ?> 
+<div id="checkoutSuccessOrderLink"><?php echo TEXT_SEE_ORDERS;?></div> 
+<?php } ?>
 
 <div id="checkoutSuccessContactLink"><?php echo TEXT_CONTACT_STORE_OWNER;?></div>
 

@@ -9,7 +9,7 @@
  * @copyright Copyright 2003-2006 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: Integrated COWOA v2.5
+ * @version $Id: Integrated COWOA v2.6
  */
 ?>  <!-- TPL_ORDER_STATUS_DEFAULT.PHP -->
 <div class="centerColumn" id="accountHistInfo">
@@ -161,6 +161,12 @@ echo zen_draw_form('order_status', zen_href_link(FILENAME_ORDER_STATUS, '', 'SSL
 
 <div class="buttonRow forward"><?php echo zen_image_submit(BUTTON_IMAGE_CONTINUE, BUTTON_CONTINUE_ALT); ?></div>
 </fieldset>
+
+
+
+
+
+
 </form>
 <!--bof logoff-->
 <!--Kills session after COWOA customer looks at order status-->

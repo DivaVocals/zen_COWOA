@@ -5,7 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: login.php 14280 2009-08-29 01:33:18Z drbyte $
- * @version $Id: login.php $ Integrated COWOA v2.5
+ * @version $Id: login.php $ Integrated COWOA v2.6
  */
 
 define('NAVBAR_TITLE', 'Login');

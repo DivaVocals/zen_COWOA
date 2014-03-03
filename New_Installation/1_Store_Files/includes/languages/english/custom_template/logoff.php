@@ -5,7 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: logoff.php 6992 2007-09-13 02:54:24Z ajeh $
- * @version $Id: login.php $ Integrated COWOA v2.5
+ * @version $Id: login.php $ Integrated COWOA v2.6
  */
 
 define('HEADING_TITLE', 'Log Off');

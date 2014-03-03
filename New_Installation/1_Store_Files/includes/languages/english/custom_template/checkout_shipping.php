@@ -5,7 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: checkout_shipping.php 18697 2011-05-04 14:35:20Z wilt $
- * @version $Id: Integrated COWOA v2.5
+ * @version $Id: Integrated COWOA v2.6
  */
 if($_SESSION['COWOA']) $COWOA=TRUE;
 
