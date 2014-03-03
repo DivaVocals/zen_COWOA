@@ -7,7 +7,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version GIT: $Id: Author: DrByte  Wed Nov 6 16:20:00 2013 -0500 Modified in v1.5.2 $
- * @version $Id: Integrated COWOA v2.5
+ * @version $Id: Integrated COWOA v2.6
  */
 // This should be first line of the script:
   $zco_notifier->notify('NOTIFY_HEADER_START_CHECKOUT_SHIPPING');
@@ -16,6 +16,7 @@
   if ($_SESSION['ORDER_STATUS'] == 'True') {
       zen_session_destroy();
   }
+
   require_once(DIR_WS_CLASSES . 'http_client.php');
 
 // if there is nothing in the customers cart, redirect them to the shopping cart page

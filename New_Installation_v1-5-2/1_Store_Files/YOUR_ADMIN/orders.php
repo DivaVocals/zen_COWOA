@@ -5,7 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version GIT: $Id: Author: DrByte  Wed Nov 6 21:04:33 2013 -0500 Modified in v1.5.2 $
-  * @version $Id: Integrated COWOA v2.5
+ * @version $Id: Integrated COWOA v2.6
  */
 
   require('includes/application_top.php');
@@ -139,7 +139,6 @@
 // BOF COWOA SEND ORDER_STATUS EMAIL
 if (COWOA_ORDER_STATUS == 'true') {
     if ($check_status->fields['COWOA_order'] == 1)  {
-  
             $message =
             EMAIL_TEXT_ORDER_NUMBER . ' ' . $oID . "\n\n" .
             EMAIL_TEXT_INVOICE_URL . ' ' . zen_catalog_href_link(FILENAME_ORDER_STATUS, 'order_id=' . $oID, 'SSL') . "\n\n" .
@@ -189,6 +188,8 @@ if (COWOA_ORDER_STATUS == 'false') {
           }    
     }
 // EOF COWOA SEND ORDER_STATUS EMAIL    
+
+// BOF STANDARD SEND ORDER_STATUS EMAIL
     if ($check_status->fields['COWOA_order'] != 1)  {
             $message =
             EMAIL_TEXT_ORDER_NUMBER . ' ' . $oID . "\n\n" .
@@ -211,7 +212,8 @@ if (COWOA_ORDER_STATUS == 'false') {
 
             zen_mail($check_status->fields['customers_name'], $check_status->fields['customers_email_address'], EMAIL_TEXT_SUBJECT . ' #' . $oID, $message, STORE_NAME, EMAIL_FROM, $html_msg, 'order_status');
             $customer_notified = '1';
-			}
+	    }
+// EOF STANDARD SEND ORDER_STATUS EMAIL
 
             // PayPal Trans ID, if any
             $sql = "select txn_id, parent_txn_id from " . TABLE_PAYPAL . " where order_id = :orderID order by last_modified DESC, date_added DESC, parent_txn_id DESC, paypal_ipn_id DESC ";
@@ -665,7 +667,6 @@ function couponpopupWindow(url) {
           </tr>
         </table></td>
       </tr>
-
 <?php
   // show downloads
   require(DIR_WS_MODULES . 'orders_download.php');

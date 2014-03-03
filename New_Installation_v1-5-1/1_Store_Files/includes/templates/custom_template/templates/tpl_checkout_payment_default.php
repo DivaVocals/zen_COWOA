@@ -10,7 +10,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: tpl_checkout_payment_default.php 19358 2011-08-24 17:36:50Z drbyte $
- * @version $Id: Integrated COWOA v2.5
+ * @version $Id: Integrated COWOA v2.6
  */
 ?>
 <?php echo $payment_modules->javascript_validation(); ?>

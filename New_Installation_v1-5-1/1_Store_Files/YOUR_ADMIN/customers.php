@@ -5,7 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version GIT: $Id: Author: Ian Wilson  Tue Aug 7 15:17:58 2012 +0100 Modified in v1.5.1 $
- * @version $Id: Integrated COWOA v2.5
+ * @version $Id: Integrated COWOA v2.6
  */
 
   require('includes/application_top.php');
@@ -1068,13 +1068,13 @@ if ($processed == true) {
                   <a href="<?php echo zen_href_link(basename($PHP_SELF) . '?list_order=approval-desc', '', 'NONSSL'); ?>"><?php echo ($_GET['list_order']=='approval-desc' ? '<span class="SortOrderHeader">Desc</span>' : '<span class="SortOrderHeaderLink">Desc</b>'); ?></a>
                 </td>
 
-				<!-- COWOA+ additional column heading in list of customers -->
+		<!-- COWOA+ additional column heading in list of customers -->
                 <td class="dataTableHeadingContent" align="center">
                   <?php echo (($_GET['list_order']=='COWOA-asc' or $_GET['list_order']=='COWOA-desc') ? '<span class="SortOrderHeader">' . TABLE_HEADING_COWOA . '</span>' : TABLE_HEADING_COWOA); ?><br>
                   <a href="<?php echo zen_href_link(basename($PHP_SELF) . '?list_order=COWOA-asc', '', 'NONSSL'); ?>"><?php echo ($_GET['list_order']=='COWOA-asc' ? '<span class="SortOrderHeader">Asc</span>' : '<span class="SortOrderHeaderLink">Asc</b>'); ?></a>&nbsp;
                   <a href="<?php echo zen_href_link(basename($PHP_SELF) . '?list_order=COWOA-desc', '', 'NONSSL'); ?>"><?php echo ($_GET['list_order']=='COWOA-desc' ? '<span class="SortOrderHeader">Desc</span>' : '<span class="SortOrderHeaderLink">Desc</b>'); ?></a>
                 </td>
-				<!-- COWOA+ -->
+		<!-- COWOA+ -->
                 <td class="dataTableHeadingContent" align="right" valign="top"><?php echo TABLE_HEADING_ACTION; ?>&nbsp;</td>
               </tr>
 <?php

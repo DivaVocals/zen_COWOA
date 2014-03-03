@@ -10,7 +10,7 @@
  * @copyright Portions Copyright 2007 Joseph Schilz
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: Integrated COWOA v2.5
+ * @version $Id: Integrated COWOA v2.6
  */
 ?>
 

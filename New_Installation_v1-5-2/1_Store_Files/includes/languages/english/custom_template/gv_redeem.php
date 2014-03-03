@@ -18,7 +18,7 @@
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
 // $Id: gv_redeem.php 4155 2006-08-16 17:14:52Z ajeh $
-// @version $Id: Integrated COWOA v2.5
+// @version $Id: Integrated COWOA v2.6
 //
 
 define('NAVBAR_TITLE', 'Redeem ' . TEXT_GV_NAME);
@@ -29,4 +29,3 @@ define('TEXT_VALID_GV', 'Congratulations, you have redeemed a ' . TEXT_GV_NAME .
 
 define('ERROR_GV_CREATE_ACCOUNT', 'To redeem a Gift Voucher you must create an account.');
 define('ERROR_GV_COWOA', 'To redeem a Gift Voucher you must create an account.  You may not enter a Gift Voucher once you have begun checking out without an account. If you would like to use a Gift Voucher, you may <a href="' . zen_href_link(FILENAME_LOGOFF, '', 'SSL', false) . '">click here</a> to end your session, empty your cart, and begin again.');
-// eof

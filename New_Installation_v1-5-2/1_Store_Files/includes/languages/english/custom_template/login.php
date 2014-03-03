@@ -5,7 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: login.php 14280 2009-08-29 01:33:18Z drbyte $
- * @version $Id: login.php $ Integrated COWOA v2.5
+ * @version $Id: login.php $ Integrated COWOA v2.6
  */
 
 define('NAVBAR_TITLE', 'Login');
@@ -38,6 +38,5 @@ define('TEXT_PRIVACY_CONDITIONS_DESCRIPTION', '<span class="privacydescription">
 define('TEXT_PRIVACY_CONDITIONS_CONFIRM', '<span class="privacyagree">I have read and agreed to your privacy statement.</span>');
 
 define('ERROR_SECURITY_ERROR', 'There was a security error when trying to login.');
-
 
 define('TEXT_LOGIN_BANNED', 'Error: Access denied.');

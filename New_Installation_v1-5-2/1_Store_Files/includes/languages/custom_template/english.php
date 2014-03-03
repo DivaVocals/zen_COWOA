@@ -4,7 +4,8 @@
  * @copyright Copyright 2003-2011 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: english.php 19690 2011-10-04 16:41:45Z drbyte $
+ * @version GIT: $Id: Author: ajeh  Tue Oct 29 18:16:39 2013 -0400 Modified in v1.5.2 $
+ * @version $Id: Integrated COWOA v2.6
  */
 
 // FOLLOWING WERE moved to meta_tags.php
@@ -16,7 +17,8 @@
   define('FOOTER_TEXT_BODY', 'Copyright &copy; ' . date('Y') . ' <a href="' . zen_href_link(FILENAME_DEFAULT) . '" target="_blank">' . STORE_NAME . '</a>. Powered by <a href="http://www.zen-cart.com" target="_blank">Zen Cart</a>');
 
 // look in your $PATH_LOCALE/locale directory for available locales..
-  @setlocale(LC_TIME, 'en_US');
+  $locales = array('en_US', 'en_US.utf8', 'en', 'English_United States.1252');
+  @setlocale(LC_TIME, $locales);
   define('DATE_FORMAT_SHORT', '%m/%d/%Y');  // this is used for strftime()
   define('DATE_FORMAT_LONG', '%A %d %B, %Y'); // this is used for strftime()
   define('DATE_FORMAT', 'm/d/Y'); // this is used for date()
@@ -194,6 +196,7 @@
   define('ENTRY_EMAIL_ADDRESS', 'Email Address:');
   define('ENTRY_EMAIL_ADDRESS_ERROR', 'Is your email address correct? It should contain at least ' . ENTRY_EMAIL_ADDRESS_MIN_LENGTH . ' characters. Please try again.');
   define('ENTRY_EMAIL_ADDRESS_CHECK_ERROR', 'Sorry, my system does not understand your email address. Please try again.');
+  define('ENTRY_EMAIL_ADDRESS_ERROR_EXISTS', 'Our system already has a record of that email address - please try logging in with that email address. If you do not use that address any longer you can correct it in the My Account area.');
 // BOF COWOA
   define('ENTRY_EMAIL_ADDRESS_ERROR_EXISTS', 'Our system already has a record of an account with the email address you entered - please try <a href="index.php?main_page=login"><strong><u>logging in</u></strong></a> with that email address. If you have forgotten your password, click the <strong>"Forgot your password?"</strong> link to reset your password. If you do not use that email address any longer you can correct it in the <strong>"My Account"</strong> area after you login.');
   define('ENTRY_EMAIL_ADDRESS_COWOA_ERROR_EXISTS', 'You cannot use our "<strong>Guest Checkout</strong>" feature with the e-mail address you provided because our system already has a regular store account on file using that email address. If you wish to use our "<strong>Guest Checkout</strong>" feature, you must use a different e-mail address for this order. <br /><br />If you wish to use the e-mail address you entered, you will need to use the regular checkout with your store account on file. Please <a href="index.php?main_page=login"><u>log in</u></a> to our store with that email address. If you have forgotten your password, click the "Forgot your password?" link to reset your password. Once logged in, you can update your account in the "<strong>My Account</strong>" area.');
@@ -480,6 +483,7 @@
   define('ERROR_PRODUCT_QUANTITY_MAX_SHOPPING_CART',' ... Maximum Quantity errors - ');
 
   define('WARNING_SHOPPING_CART_COMBINED', 'NOTICE: For your convenience, your current shopping cart has been combined with your shopping cart from your last visit. Please review your shopping cart before checking out.');
+  define('WARNING_PRODUCT_QUANTITY_ADJUSTED', 'Quantity has been adjusted to what is in stock. ');
 
 // error on checkout when $_SESSION['customers_id' does not exist in customers table
   define('ERROR_CUSTOMERS_ID_INVALID', 'Customer information cannot be validated!<br />Please login or recreate your account ...');
@@ -603,12 +607,15 @@
   define('TABLE_HEADING_LOGIN_DETAILS', 'Login Details');
   define('TABLE_HEADING_REFERRAL_DETAILS', 'Were You Referred to Us?');
 
+  define('ERROR_TEXT_COUNTRY_DISABLED_PLEASE_CHANGE', 'Sorry, but we no longer accept billing or shipping addresses in "%s".  Please update this address to continue.');
+
   define('ENTRY_EMAIL_PREFERENCE','Newsletter and Email Details');
   define('ENTRY_EMAIL_HTML_DISPLAY','HTML');
   define('ENTRY_EMAIL_TEXT_DISPLAY','TEXT-Only');
   define('EMAIL_SEND_FAILED','ERROR: Failed sending email to: "%s" <%s> with subject: "%s"');
 
   define('DB_ERROR_NOT_CONNECTED', 'Error - Could not connect to Database');
+  define('ERROR_DATABASE_MAINTENANCE_NEEDED', '<a href="http://www.zen-cart.com/content.php?334-ERROR-0071-There-appears-to-be-a-problem-with-the-database-Maintenance-is-required" target="_blank">ERROR 0071: There appears to be a problem with the database. Maintenance is required.</a>');
 
   // EZ-PAGES Alerts
   define('TEXT_EZPAGES_STATUS_HEADER_ADMIN', 'WARNING: EZ-PAGES HEADER - On for Admin IP Only');

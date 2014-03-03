@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: english.php 19690 2011-10-04 16:41:45Z drbyte $
+ * @version $Id: Integrated COWOA v2.6
  */
 
 // FOLLOWING WERE moved to meta_tags.php

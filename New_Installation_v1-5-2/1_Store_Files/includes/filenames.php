@@ -8,7 +8,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: filenames.php 19690 2011-10-04 16:41:45Z drbyte $
- * @version $Id: Integrated COWOA v2.5
+ * @version $Id: Integrated COWOA v2.6
  * @private
  */
 /**
@@ -191,4 +191,3 @@ define('FILENAME_SPECIALS_INDEX', 'specials_index.php');
 define('FILENAME_UPCOMING_PRODUCTS', 'upcoming_products.php');
 
 define('FILENAME_BB_INDEX', 'index.php'); // phpBB main index filename
-

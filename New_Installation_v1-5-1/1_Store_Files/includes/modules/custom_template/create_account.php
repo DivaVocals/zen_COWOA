@@ -3,11 +3,11 @@
  * create_account header_php.php
  *
  * @package modules
- * @copyright Copyright 2003-2010 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: create_account.php 17018 2010-07-27 07:25:41Z drbyte $
- * @version $Id: Integrated COWOA v2.5
+ * @version GIT: $Id: Author: DrByte  Sat Jul 21 16:05:31 2012 -0400 Modified in v1.5.1 $
+ * @version $Id: Integrated COWOA v2.6
  */
 // This should be first line of the script:
 $zco_notifier->notify('NOTIFY_MODULE_START_CREATE_ACCOUNT');
@@ -138,7 +138,6 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
                             from " . TABLE_CUSTOMERS . "
                             where customers_email_address = '" . zen_db_input($email_address) . "'
                             and COWOA_account != 1";
-                            
     $check_email = $db->Execute($check_email_query);
 
     if ($check_email->fields['total'] > 0) {
@@ -402,7 +401,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
 
     $db->Execute($sql);
     }
-    // End check if COWOA account exists for email_address
+    // End check if COWOA account exists for email_address adapted from FEC by Numinix
 
     // phpBB create account
     if ($phpBB->phpBB['installed'] == true) {
@@ -425,6 +424,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
 
     // hook notifier class
     $zco_notifier->notify('NOTIFY_LOGIN_SUCCESS_VIA_CREATE_ACCOUNT');
+
 /* IF IT IS  A COWOA ACCOUNT DO NOT SEND A WELCOME E-MAIL  */    
 if ($_SESSION['COWOA']!= true) {
     // build the message content
@@ -516,7 +516,6 @@ if ($_SESSION['COWOA']!= true) {
 }
     zen_redirect(zen_href_link(FILENAME_CREATE_ACCOUNT_SUCCESS, '', 'SSL'));
 
-    
   } //endif !error
 }
 
@@ -528,7 +527,6 @@ if ($_SESSION['COWOA']!= true) {
   $flag_show_pulldown_states = ((($process == true || $entry_state_has_zones == true) && $zone_name == '') || ACCOUNT_STATE_DRAW_INITIAL_DROPDOWN == 'true' || $error_state_input) ? true : false;
   $state = ($flag_show_pulldown_states) ? ($state == '' ? '&nbsp;' : $state) : $zone_name;
   $state_field_label = ($flag_show_pulldown_states) ? '' : ENTRY_STATE;
-
 
 // This should be last line of the script:
 $zco_notifier->notify('NOTIFY_MODULE_END_CREATE_ACCOUNT'); 
