@@ -7,7 +7,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: tpl_modules_downloads.php 6374 2007-05-25 20:24:42Z drbyte $
- * @version $Id: Integrated COWOA v2.4  - 2007 - 2013
+ * @version $Id: Integrated COWOA v2.6
  */
 /**
  * require the downloads module

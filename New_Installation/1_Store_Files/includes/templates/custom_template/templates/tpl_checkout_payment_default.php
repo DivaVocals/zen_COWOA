@@ -10,7 +10,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: tpl_checkout_payment_default.php 19358 2011-08-24 17:36:50Z drbyte $
- * @version $Id: Integrated COWOA v2.4  - 2007 - 2013
+ * @version $Id: Integrated COWOA v2.6
  */
 ?>
 <?php echo $payment_modules->javascript_validation(); ?>
@@ -76,7 +76,7 @@
 <?php // ** BEGIN PAYPAL EXPRESS CHECKOUT **
       }
       // ** END PAYPAL EXPRESS CHECKOUT ** ?>
-      
+
 <fieldset id="checkoutOrderTotals">
 <legend id="checkoutPaymentHeadingTotal"><?php echo TEXT_YOUR_TOTAL; ?></legend>
 <?php
@@ -167,7 +167,7 @@
 <?php   } ?>
 <?php
     } else {
-    	
+
 ?>
 <?php echo zen_draw_hidden_field('payment', $selection[$i]['id'], 'id="pmt-'.$selection[$i]['id'].'"'); ?>
 <?php

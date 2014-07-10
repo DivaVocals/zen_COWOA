@@ -3,11 +3,11 @@
  * create_account header_php.php
  *
  * @package modules
- * @copyright Copyright 2003-2010 Zen Cart Development Team
+ * @copyright Copyright 2003-2012 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: create_account.php 17018 2010-07-27 07:25:41Z drbyte $
- * @version $Id: Integrated COWOA v2.4  - 2007 - 2013
+ * @version GIT: $Id: Author: DrByte  Sat Jul 21 16:05:31 2012 -0400 Modified in v1.5.1 $
+ * @version $Id: Integrated COWOA v2.6
  */
 // This should be first line of the script:
 $zco_notifier->notify('NOTIFY_MODULE_START_CREATE_ACCOUNT');
@@ -138,7 +138,6 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
                             from " . TABLE_CUSTOMERS . "
                             where customers_email_address = '" . zen_db_input($email_address) . "'
                             and COWOA_account != 1";
-                            
     $check_email = $db->Execute($check_email_query);
 
     if ($check_email->fields['total'] > 0) {
@@ -321,15 +320,39 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
                             'customers_authorization' => (int)CUSTOMERS_APPROVAL_AUTHORIZATION
     );
 
+    // Begin check if COWOA account exists for email_address adapted from FEC by Numinix
+    $cowoa_accounts = 0;
+    
+      $cowoa_account = $db->Execute("SELECT customers_id, customers_default_address_id FROM " . TABLE_CUSTOMERS . " 
+                                     WHERE customers_email_address = '" . $email_address . "'
+                                     ORDER BY customers_id DESC
+                                     LIMIT 1;");
+      $cowoa_accounts = $cowoa_account->RecordCount();
+
+    if ($cowoa_accounts > 0) {
+      // cowoa account exists, use that
+      $db_action = 'update';
+      $sql_data_array['customers_id'] = $_SESSION['customer_id'] = $cowoa_account->fields['customers_id'];
+      $sql_data_array['customers_default_address_id'] = $address_id = $cowoa_account->fields['customers_default_address_id'];
+      $sql_data_array['COWOA_account'] = 0;
+      $db_customers_where = 'customers_id = "' . $cowoa_account->fields['customers_id'] . '"'; 
+    } else {
+      $db_action = 'insert';
+      $db_customers_where = '';
+    }
+
     if ((CUSTOMERS_REFERRAL_STATUS == '2' and $customers_referral != '')) $sql_data_array['customers_referral'] = $customers_referral;
     if (ACCOUNT_GENDER == 'true') $sql_data_array['customers_gender'] = $gender;
     if (ACCOUNT_DOB == 'true') $sql_data_array['customers_dob'] = (empty($_POST['dob']) || $dob_entered == '0001-01-01 00:00:00' ? zen_db_prepare_input('0001-01-01 00:00:00') : zen_date_raw($_POST['dob']));
 
-    zen_db_perform(TABLE_CUSTOMERS, $sql_data_array);
+    zen_db_perform(TABLE_CUSTOMERS, $sql_data_array, $db_action, $db_customers_where);
 
-    $_SESSION['customer_id'] = $db->Insert_ID();
+    if ($db_action == 'insert') {
+      $_SESSION['customer_id'] = $db->Insert_ID();
+    }
 
     $zco_notifier->notify('NOTIFY_MODULE_CREATE_ACCOUNT_ADDED_CUSTOMER_RECORD', array_merge(array('customer_id' => $_SESSION['customer_id']), $sql_data_array));
+
     $sql_data_array = array('customers_id' => $_SESSION['customer_id'],
                             'entry_firstname' => $firstname,
                             'entry_lastname' => $lastname,
@@ -350,12 +373,21 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
         $sql_data_array['entry_state'] = $state;
       }
     }
+    
+    if ($db_action == 'update') {
+      $sql_data_array['address_book_id'] = $address_id;
+      $db_address_table_where = 'address_book_id = ' . $address_id; 
+    } else {
+      $db_address_table_where = '';
+    }
 
-    zen_db_perform(TABLE_ADDRESS_BOOK, $sql_data_array);
+    zen_db_perform(TABLE_ADDRESS_BOOK, $sql_data_array, $db_action, $db_address_table_where);
 
-    $address_id = $db->Insert_ID();
+    if ($db_action == 'insert') {
+      $address_id = $db->Insert_ID();
 
     $zco_notifier->notify('NOTIFY_MODULE_CREATE_ACCOUNT_ADDED_ADDRESS_BOOK_RECORD', array_merge(array('address_id' => $address_id), $sql_data_array));
+
     $sql = "update " . TABLE_CUSTOMERS . "
               set customers_default_address_id = '" . (int)$address_id . "'
               where customers_id = '" . (int)$_SESSION['customer_id'] . "'";
@@ -368,6 +400,8 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
               values ('" . (int)$_SESSION['customer_id'] . "', '1', now(), now())";
 
     $db->Execute($sql);
+    }
+    // End check if COWOA account exists for email_address adapted from FEC by Numinix
 
     // phpBB create account
     if ($phpBB->phpBB['installed'] == true) {
@@ -390,6 +424,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
 
     // hook notifier class
     $zco_notifier->notify('NOTIFY_LOGIN_SUCCESS_VIA_CREATE_ACCOUNT');
+
 /* IF IT IS  A COWOA ACCOUNT DO NOT SEND A WELCOME E-MAIL  */    
 if ($_SESSION['COWOA']!= true) {
     // build the message content
@@ -481,7 +516,6 @@ if ($_SESSION['COWOA']!= true) {
 }
     zen_redirect(zen_href_link(FILENAME_CREATE_ACCOUNT_SUCCESS, '', 'SSL'));
 
-    
   } //endif !error
 }
 
@@ -493,7 +527,6 @@ if ($_SESSION['COWOA']!= true) {
   $flag_show_pulldown_states = ((($process == true || $entry_state_has_zones == true) && $zone_name == '') || ACCOUNT_STATE_DRAW_INITIAL_DROPDOWN == 'true' || $error_state_input) ? true : false;
   $state = ($flag_show_pulldown_states) ? ($state == '' ? '&nbsp;' : $state) : $zone_name;
   $state_field_label = ($flag_show_pulldown_states) ? '' : ENTRY_STATE;
-
 
 // This should be last line of the script:
 $zco_notifier->notify('NOTIFY_MODULE_END_CREATE_ACCOUNT'); 

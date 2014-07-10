@@ -1,6 +1,6 @@
 <?php
 
-// ADDITIONAL texts for COWOA admin @version $Id: v2.4
+// ADDITIONAL texts for COWOA admin @version $Id: v2.6
 
 // DASHBOARD - HOME PAGE OF ADMIN - CUSTOMERS section
 define('BOX_TITLE_CUSTOMERS', 'Customers');

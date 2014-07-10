@@ -7,7 +7,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: os_downloads.php 1.0 Modified from downloads.php 2010-07-02 21:04:04Z JT of GTI Custom 
- * @version $Id: Integrated COWOA v2.4  - 2007 - 2013
+ * @version $Id: Integrated COWOA v2.6
  */
 if (!defined('IS_ADMIN_FLAG')) {
   die('Illegal Access');

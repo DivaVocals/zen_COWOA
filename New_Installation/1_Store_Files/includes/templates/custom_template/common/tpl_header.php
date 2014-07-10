@@ -15,7 +15,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version GIT: $Id: Author: Ian Wilson  Tue Aug 14 14:56:11 2012 +0100 Modified in v1.5.1 $
- * @version $Id: Integrated COWOA v2.4  - 2007 - 2013
+ * @version $Id: Integrated COWOA v2.6
  */
 ?>
 

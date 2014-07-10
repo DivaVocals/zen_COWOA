@@ -5,6 +5,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: english.php 19690 2011-10-04 16:41:45Z drbyte $
+ * @version $Id: Integrated COWOA v2.6
  */
 
 // FOLLOWING WERE moved to meta_tags.php
@@ -231,7 +232,7 @@
   define('ENTRY_FAX_NUMBER', 'Fax Number:');
   define('ENTRY_FAX_NUMBER_ERROR', '');
   define('ENTRY_FAX_NUMBER_TEXT', '');
-  define('ENTRY_NEWSLETTER', 'Subscribe to Our Newsletter.');
+  define('ENTRY_NEWSLETTER', 'Subscribe to Our Newsletter. (Promotion/Special Events)');
   define('ENTRY_NEWSLETTER_TEXT', '');
   define('ENTRY_NEWSLETTER_YES', 'Subscribed');
   define('ENTRY_NEWSLETTER_NO', 'Unsubscribed');
@@ -271,10 +272,10 @@
   define('PREVNEXT_TITLE_PAGE_NO', 'Page %d');
   define('PREVNEXT_TITLE_PREV_SET_OF_NO_PAGE', 'Previous Set of %d Pages');
   define('PREVNEXT_TITLE_NEXT_SET_OF_NO_PAGE', 'Next Set of %d Pages');
-  define('PREVNEXT_BUTTON_FIRST', '&lt;&lt;FIRST');
-  define('PREVNEXT_BUTTON_PREV', '[&lt;&lt;&nbsp;Prev]');
-  define('PREVNEXT_BUTTON_NEXT', '[Next&nbsp;&gt;&gt;]');
-  define('PREVNEXT_BUTTON_LAST', 'LAST&gt;&gt;');
+  define('PREVNEXT_BUTTON_FIRST', '&laquo;&laquo;FIRST');
+  define('PREVNEXT_BUTTON_PREV', '[&laquo;&laquo;&nbsp;Prev]');
+  define('PREVNEXT_BUTTON_NEXT', '[Next&nbsp;&raquo;&raquo;]');
+  define('PREVNEXT_BUTTON_LAST', 'LAST&raquo;&raquo;');
 
   define('TEXT_BASE_PRICE','Starting at: ');
 
@@ -436,7 +437,7 @@
   define('PRODUCTS_PRICE_IS_CALL_FOR_PRICE_TEXT','Call for Price');
   define('TEXT_CALL_FOR_PRICE','Call for price');
 
-  define('TEXT_INVALID_SELECTION',' You picked an Invalid Selection: ');
+  define('TEXT_INVALID_SELECTION',', you picked an invalid selection: ');
   define('TEXT_ERROR_OPTION_FOR',' On the Option for: ');
   define('TEXT_INVALID_USER_INPUT', 'User Input Required<br />');
 
@@ -530,7 +531,7 @@
   define('TEXT_REMAINING','remaining');
 
 // Shipping Estimator
-  define('CART_SHIPPING_OPTIONS', 'Freight Estimator - Enter your Postal Code &amp; State below and click update button');
+  define('CART_SHIPPING_OPTIONS', 'Estimate Shipping Costs - Enter your Postal Code &amp; State below and click update button');
   define('CART_SHIPPING_OPTIONS_LOGIN', 'Please <a href="' . zen_href_link(FILENAME_LOGIN, '', 'SSL') . '"><span class="pseudolink">Log In</span></a>, to display your personal shipping costs.');
   define('CART_SHIPPING_METHOD_TEXT', 'Available Shipping Methods');
   define('CART_SHIPPING_METHOD_RATES', 'Rates');
@@ -594,16 +595,16 @@
   define('TABLE_HEADING_TOTAL', 'Total');
 
 // create account - login shared
-  define('TABLE_HEADING_PRIVACY_CONDITIONS', 'Privacy Statement');
-  define('TEXT_PRIVACY_CONDITIONS_DESCRIPTION', 'Please acknowledge you agree with our privacy statement by ticking the following box. The privacy statement can be read <a href="' . zen_href_link(FILENAME_PRIVACY, '', 'SSL') . '"><span class="pseudolink">here</span></a>.');
-  define('TEXT_PRIVACY_CONDITIONS_CONFIRM', 'I have read and agreed to your privacy statement.');
-  define('TABLE_HEADING_ADDRESS_DETAILS', 'Address Details');
-  define('TABLE_HEADING_PHONE_FAX_DETAILS', 'Additional Contact Details');
+  define('TABLE_HEADING_PRIVACY_CONDITIONS', 'Our Policies');
+  define('TEXT_PRIVACY_CONDITIONS_DESCRIPTION', 'Please acknowledge you agree with our privacy policy and conditions of use by ticking the following box. The privacy policy can be read <a href="' . zen_href_link(FILENAME_PRIVACY, '', 'SSL') . '"><span class="pseudolink">here</span></a>. Our conditions of use policy can be read <a href="' . zen_href_link(FILENAME_CONDITIONS, '', 'SSL') . '"><span class="pseudolink">here</span></a>.');
+  define('TEXT_PRIVACY_CONDITIONS_CONFIRM', 'I have read and agreed to your privacy policy and conditions of use.');
+  define('TABLE_HEADING_ADDRESS_DETAILS', 'Billing Address Information');
+  define('TABLE_HEADING_PHONE_FAX_DETAILS', 'Billing Contact Information');
   define('TABLE_HEADING_DATE_OF_BIRTH', 'Verify Your Age');
-  define('TABLE_HEADING_LOGIN_DETAILS', 'Login Details');
+  define('TABLE_HEADING_LOGIN_DETAILS', 'Create a Password (required to track your packages)');
   define('TABLE_HEADING_REFERRAL_DETAILS', 'Were You Referred to Us?');
 
-  define('ENTRY_EMAIL_PREFERENCE','Newsletter and Email Details');
+  define('ENTRY_EMAIL_PREFERENCE','Email Preferences');
   define('ENTRY_EMAIL_HTML_DISPLAY','HTML');
   define('ENTRY_EMAIL_TEXT_DISPLAY','TEXT-Only');
   define('EMAIL_SEND_FAILED','ERROR: Failed sending email to: "%s" <%s> with subject: "%s"');

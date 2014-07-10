@@ -7,9 +7,10 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: header_php.php 6736 2007-08-19 09:55:01Z drbyte $
- * @version $Id: Integrated COWOA v2.4  - 2007 - 2013
+ * @version $Id: Integrated COWOA v2.6
  */
 
+//Begin COWOA
 require(DIR_WS_MODULES . zen_get_module_directory('require_languages.php'));
 // if the customer is not logged on, redirect them to the login page
 if (!$_SESSION['customer_id']) {
@@ -24,6 +25,7 @@ if ($_SESSION['COWOA']) {
   $messageStack->add_session('login', ERROR_GV_CREATE_ACCOUNT, 'error');
   zen_redirect(zen_href_link(FILENAME_LOGIN, '', 'SSL'));
 }
+//End COWOA
 
 // check for a voucher number in the url
 if (isset($_GET['gv_no'])) {
@@ -77,7 +79,7 @@ if ((!$error) && ($_SESSION['customer_id'])) {
   $_SESSION['gv_id'] = '';
 }
 
-//require(DIR_WS_MODULES . zen_get_module_directory('require_languages.php')); //moved to top
+//require(DIR_WS_MODULES . zen_get_module_directory('require_languages.php')); //moved to top for COWOA
 $breadcrumb->add(NAVBAR_TITLE);
 
 // prepare message for display in template:
@@ -88,5 +90,3 @@ if ($error) {
   // so output a message.
   $message = TEXT_INVALID_GV;
 }
-
-// eof

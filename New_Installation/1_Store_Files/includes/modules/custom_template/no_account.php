@@ -7,7 +7,7 @@
  * @copyright Portions Copyright 2007 Joseph Schilz
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: Integrated COWOA v2.4  - 2007 - 2013
+ * @version $Id: Integrated COWOA v2.6
  */
 // This should be first line of the script:
 $zco_notifier->notify('NOTIFY_MODULE_START_NO_ACCOUNT');
@@ -252,14 +252,37 @@ $gender = m;
                             'COWOA_account' => 1,
                             'customers_authorization' => (int)CUSTOMERS_APPROVAL_AUTHORIZATION
     );
+    // Begin check if COWOA account exists for email_address adapted from FEC by Numinix
+    $cowoa_accounts = 0;
+    
+      $cowoa_account = $db->Execute("SELECT customers_id, customers_default_address_id FROM " . TABLE_CUSTOMERS . " 
+                                     WHERE customers_email_address = '" . $email_address . "'
+                                     ORDER BY customers_id DESC
+                                     LIMIT 1;");
+      $cowoa_accounts = $cowoa_account->RecordCount();
+    if ($cowoa_accounts > 0) {
+      // cowoa account exists, use that don't create new
+      $db_action = 'update';
+      $sql_data_array['customers_id'] = $_SESSION['customer_id'] = $cowoa_account->fields['customers_id'];
+      $sql_data_array['customers_default_address_id'] = $address_id = $cowoa_account->fields['customers_default_address_id'];
+      $sql_data_array['COWOA_account'] = 1;
+      $db_customers_where = 'customers_id = "' . $cowoa_account->fields['customers_id'] . '"'; 
+    } else {  
+    //don't exist, create new COWOA
+      $db_action = 'insert';
+      $db_customers_where = '';
+    }
+    //end modified
 
     if ((CUSTOMERS_REFERRAL_STATUS == '2' and $customers_referral != '')) $sql_data_array['customers_referral'] = $customers_referral;
     if (ACCOUNT_GENDER == 'true') $sql_data_array['customers_gender'] = $gender;
     if (ACCOUNT_DOB == 'true') $sql_data_array['customers_dob'] = (empty($_POST['dob']) || $dob_entered == '0001-01-01 00:00:00' ? zen_db_prepare_input('0001-01-01 00:00:00') : zen_date_raw($_POST['dob']));
 
-    zen_db_perform(TABLE_CUSTOMERS, $sql_data_array);
+      zen_db_perform(TABLE_CUSTOMERS, $sql_data_array, $db_action, $db_customers_where); //added for modified cowoa
 
-    $_SESSION['customer_id'] = $db->Insert_ID();
+          if ($db_action == 'insert') {
+      $_SESSION['customer_id'] = $db->Insert_ID();
+    }
 
     $zco_notifier->notify('NOTIFY_MODULE_NO_ACCOUNT_ADDED_CUSTOMER_RECORD', array_merge(array('customer_id' => $_SESSION['customer_id']), $sql_data_array));
     $sql_data_array = array('customers_id' => $_SESSION['customer_id'],
@@ -282,9 +305,16 @@ $gender = m;
         $sql_data_array['entry_state'] = $state;
       }
     }
+    if ($db_action == 'update') {
+      $sql_data_array['address_book_id'] = $address_id;
+      $db_address_table_where = 'address_book_id = ' . $address_id; 
+    } else {
+      $db_address_table_where = '';
+    }
 
-    zen_db_perform(TABLE_ADDRESS_BOOK, $sql_data_array);
+    zen_db_perform(TABLE_ADDRESS_BOOK, $sql_data_array, $db_action, $db_address_table_where);
 
+    if ($db_action == 'insert') { 
     $address_id = $db->Insert_ID();
     $zco_notifier->notify('NOTIFY_MODULE_NO_ACCOUNT_ADDED_ADDRESS_BOOK_RECORD', array_merge(array('address_id' => $address_id), $sql_data_array));
     $sql = "update " . TABLE_CUSTOMERS . "
@@ -299,6 +329,8 @@ $gender = m;
               values ('" . (int)$_SESSION['customer_id'] . "', '1', now(), now())";
 
     $db->Execute($sql);
+  }
+    // End check if COWOA account exists for email_address
 
     if (SESSION_RECREATE == 'True') {
       zen_session_recreate();

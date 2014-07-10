@@ -10,7 +10,7 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: tpl_checkout_success_default.php 16435 2010-05-28 09:34:32Z drbyte $
- * @version $Id: Integrated COWOA v2.4  - 2007 - 2013
+ * @version $Id: Integrated COWOA v2.6
  */
 ?>
 <div class="centerColumn" id="checkoutSuccess">
@@ -79,7 +79,7 @@ if (isset($_SESSION['payment_method_messages']) && $_SESSION['payment_method_mes
 if ($_SESSION['COWOA'] and COWOA_LOGOFF == 'true') {
   zen_session_destroy();
 } else {
-  if (isset($_SESSION['customer_guest_id'])) {
+  if (isset($_SESSION['customer_guest_id']) || ($_SESSION['COWOA'])) {
     echo TEXT_CHECKOUT_LOGOFF_GUEST;
   } elseif (isset($_SESSION['customer_id'])) {
     echo TEXT_CHECKOUT_LOGOFF_CUSTOMER;
@@ -119,11 +119,13 @@ if ($_SESSION['COWOA'] and COWOA_LOGOFF == 'true') {
 
 <!--bof -product downloads module-->
 <?php
-  if (DOWNLOAD_ENABLED == 'true' and !($_SESSION['COWOA'])) require($template->get_template_dir('tpl_modules_downloads.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_modules_downloads.php');
+  if (DOWNLOAD_ENABLED == 'true') require($template->get_template_dir('tpl_modules_downloads.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_modules_downloads.php');
 ?>
 <!--eof -product downloads module-->
 
-<?php if(!($_SESSION['COWOA'])) { ?> <div id="checkoutSuccessOrderLink"><?php echo TEXT_SEE_ORDERS;?></div> <?php } ?>
+<?php if(!($_SESSION['COWOA'])) { ?> 
+<div id="checkoutSuccessOrderLink"><?php echo TEXT_SEE_ORDERS;?></div>
+<?php } ?>
 
 <div id="checkoutSuccessContactLink"><?php echo TEXT_CONTACT_STORE_OWNER;?></div>
 
