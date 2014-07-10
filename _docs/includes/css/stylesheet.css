@@ -1,4 +1,5 @@
-body, th, td {/*th, td required here also due to use of incomplete DOCTYPE */
+body, th, td {
+	/*th, td required here also due to use of incomplete DOCTYPE */
 	font-size: 10pt;
 	font-family: Verdana, Helvetica, Arial, sans-serif;
 	background-color: #c0c0c0;
