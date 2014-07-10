@@ -1,4 +1,4 @@
-COWOA Module for Zen Cart v2.5
+COWOA Module for Zen Cart v2.6
 ============
 
 ## This is a development version of COWOA only
@@ -8,12 +8,8 @@ If you need basic installation help, and the included readme does not help you, 
 
 CHANGELOG
 ------------
-v2.5 - 12/29/2013
-<ul><li>Add check to includes/modules/YOUR_TEMPLATE/no_account.php to look 
-for an existing guest (COWOA) account with the same email address and update it 
-instead of creating a new one. Thus, only one account exists for 
-that same email address. If a customer does create a standard account, 
-all the past orders fall back to that same user.(dwest)<br></li><li>Additional improvements to onscreen text/labels<br></li><li>Add additional steps arrows</li><li><span style="color:#ff0000;">(This change is ONLY for those upgrading from cv2.4 or older versions of COWOA or converting from older versions of FEC/FEAC) Fixed the duplicate email address/duplicate email send bug. See: </span><a href="http://www.zen-cart.com/showthread.php?59189-My-Checkout-Without-Account-Mod&amp;p=906772#post906772"><span style="color:#ff0000;">http://www.zen-cart.com/showthread.php?59189-My-Checkout-Without-Account-Mod&amp;p=906772#post906772</span></a><span style="color:#ff0000;"> (damiantaylor)</span><br></li></ul>
+v2.6 - 07/10/2014
+<ul><li>Fix bug with downloads being prevented for COWOA when 'Enable Forced Logoff' was turned on.(dwest) ref: http://www.zen-cart.com/showthread.php?196995-COWOA-(for-ZC-v1-5-x)&p=1246575#post1246575<br></li><li>Additional improvements to onscreen text/labels<br></li><li>MANY improvements to the login page:<ul><li>eliminate the need for an unecessary click to create an account by making the "Create Account" available on the login page.<br></li> <li>Addition of "Shop with Confidence" and "Customer Service" content boxes (admin control to turn on/off and content managed via the banner manager)<br></li> <li>Move guest checkout fieldset to the top of the page for better user visibility<br></li></ul> <br></li></ul>
 
 
 ABOUT COWOA
