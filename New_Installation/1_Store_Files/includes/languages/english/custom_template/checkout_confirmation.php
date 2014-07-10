@@ -10,7 +10,7 @@
 if($_SESSION['COWOA']) $COWOA=TRUE;
 
 define('NAVBAR_TITLE_1', 'Checkout');
-define('NAVBAR_TITLE_2', 'Confirmation');
+define('NAVBAR_TITLE_2', 'Review &amp; Confirm');
 
 if($COWOA)
 define('HEADING_TITLE', 'Step 4 of 5 - Please Review &amp; Confirm Your Order!!');
@@ -27,7 +27,7 @@ define('HEADING_ORDER_COMMENTS', 'Special Instructions or Order Comments');
 // no comments entered
 define('NO_COMMENTS_TEXT', 'None');
 define('TITLE_CONTINUE_CHECKOUT_PROCEDURE', '<strong>Final Step</strong>');
-define('TEXT_CONTINUE_CHECKOUT_PROCEDURE', '- continue to confirm your order. Thank you!');
+define('TEXT_CONTINUE_CHECKOUT_PROCEDURE', '- continue to submit your order. Thank you!');
 
 define('OUT_OF_STOCK_CAN_CHECKOUT', 'Products marked with ' . STOCK_MARK_PRODUCT_OUT_OF_STOCK . ' are out of stock.<br />Items not in stock will be placed on backorder.');
 // eof

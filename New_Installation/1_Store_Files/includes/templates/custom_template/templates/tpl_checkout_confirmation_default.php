@@ -65,8 +65,6 @@
   if (is_array($payment_modules->modules)) {
     if ($confirmation = $payment_modules->confirmation()) {
 ?>
-
-
 <div class="important"><?php echo $confirmation['title']; ?></div>
 <?php
     }
@@ -108,8 +106,7 @@
 ?>
 </div>
 <?php
-  
- }
+  }
 ?>
 <br class="clearBoth" />
 <hr />

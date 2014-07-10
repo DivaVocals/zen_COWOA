@@ -10,7 +10,7 @@
 if($_SESSION['COWOA']) $COWOA=TRUE;
 
 define('NAVBAR_TITLE_1', 'Checkout');
-define('NAVBAR_TITLE_2', 'Shipping Method');
+define('NAVBAR_TITLE_2', 'Shipping Information');
 
 if($COWOA)
 define('HEADING_TITLE', 'Step 2 of 5 - Shipping Information');

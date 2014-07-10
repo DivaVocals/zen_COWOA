@@ -9,8 +9,8 @@
  */
 if($_SESSION['COWOA']) $COWOA=TRUE;
 
-define('NAVBAR_TITLE_1', 'Checkout - Step 1');
-define('NAVBAR_TITLE_2', 'Payment Method - Step 2');
+define('NAVBAR_TITLE_1', 'Checkout');
+define('NAVBAR_TITLE_2', 'Payment Information');
 
 if($COWOA)
 define('HEADING_TITLE', 'Step 3 of 5 - Payment Information');
@@ -35,7 +35,7 @@ define('TITLE_CONTINUE_CHECKOUT_PROCEDURE', '<strong>Continue to Step 4</strong>
 else
 define('TITLE_CONTINUE_CHECKOUT_PROCEDURE', '<strong>Continue to Step 3</strong>');
 
-define('TEXT_CONTINUE_CHECKOUT_PROCEDURE', '- to confirm your order.');
+define('TEXT_CONTINUE_CHECKOUT_PROCEDURE', '- to review your order.');
 
 define('TABLE_HEADING_CONDITIONS', '<span class="termsconditions">Terms and Conditions</span>');
 define('TEXT_CONDITIONS_DESCRIPTION', '<span class="termsdescription">Please acknowledge the terms and conditions bound to this order by ticking the following box. The terms and conditions can be read <a href="' . zen_href_link(FILENAME_CONDITIONS, '', 'SSL') . '"><span class="pseudolink">here</span></a>.');
