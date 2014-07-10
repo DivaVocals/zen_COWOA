@@ -18,7 +18,7 @@
 // | license@zen-cart.com so we can mail you a copy immediately.          |
 // +----------------------------------------------------------------------+
 // $Id: checkout_process.php 1969 2005-09-13 06:57:21Z drbyte $ 
-// $Id: Integrated COWOA v2.4  - 2007 - 2013
+// $Id: Integrated COWOA v2.6
 //
 
 define('EMAIL_TEXT_SUBJECT', 'Order Confirmation');

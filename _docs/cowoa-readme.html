@@ -7,15 +7,15 @@
   <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">  
   <meta http-equiv="content-language" content="en">  
   <meta name="description" content="COWOA lets your customer checkout without having to register an account on your store.">
-  <title>COWOA 2.4</title>
+  <title>COWOA 2.5</title>
     
   <link rel="stylesheet" type="text/css" href="includes/css/stylesheet.css">  
   <script type="text/javascript" src="includes/jscript/jscript_tabs.js"></script></head><body>
 <div id="wrapper">
-<h2>COWOA 2.4</h2>
+<h2>COWOA 2.5</h2>
 
-<!--<p>Support thread: <a href="http://www.zen-cart.com/showthread.php?196995" target="_blank">http://www.zen-cart.com/showthread.php?196995</a><br />
-Download link: <a href="http://http://www.zen-cart.com/downloads.php?do=file&id=1416" target="_blank">http://http://www.zen-cart.com/downloads.php?do=file&id=1416</a></p>-->
+<p>Support thread: <a href="http://www.zen-cart.com/showthread.php?196995-COWOA-%28for-ZC-v1-5-x%29" target="_blank">http://www.zen-cart.com/showthread.php?196995-COWOA-%28for-ZC-v1-5-x%29</a><br />
+Download link: <a href="http://www.zen-cart.com/downloads.php?do=file&id=1416" target="_blank">http://www.zen-cart.com/downloads.php?do=file&id=1416</a></p>
 
 <div id="slidetabsmenu" style="display: none;">
 <ul>
@@ -40,17 +40,17 @@ Download link: <a href="http://http://www.zen-cart.com/downloads.php?do=file&id=
 <h3>PURPOSE</h3>
 <div class="regularlist">
 <ul>
-	<li><strong>COWOA 2.4</strong> lets your customer checkout without having to register an account on your store.<br /></li>
+	<li><strong>COWOA 2.5</strong> lets your customer checkout without having to register an account on your store.<br /></li>
 	<li>Please check your host's PHP version. This module will NOT work for hosting configurations using PHP versions older than 5.2.x</li>
-	<li>COWOA v2.4 was tested for Zen Cart 1.5.0 and Zen Cart 1.5.1 compatibility only.<br /> Any issues which arise when attempting to use this module with Zen Cart v1.3.9 may be attributed to the differences between the older Zen Cart versions.</li>
+	<li>COWOA v2.5 was tested for Zen Cart 1.5.0 and Zen Cart 1.5.1 compatibility only.<br /> Any issues which arise when attempting to use this module with Zen Cart v1.3.9 may be attributed to the differences between the older Zen Cart versions.</li>
 	<li>If you are still running an older version of Zen Cart we strongly recommend that you upgrade as there have been many security enhancements made in Zen Cart v1.5 and v1.5.1.</li>
 </ul>
 </div>
 <div class="regularlist">
 <ul>
   <div class="boldemphasis">
-    <li>COWOA v2.4 IS NOT COMPATIBLE WITH VERSIONS OF ZEN CART PRIOR TO ZEN CART 1.5.0!!</li>
-    <li>There will be no support provided for Zen Cart v1.3.9 with v2.4 of COWOA.</li>
+    <li>COWOA v2.5 IS NOT COMPATIBLE WITH VERSIONS OF ZEN CART PRIOR TO ZEN CART 1.5.0!!</li>
+    <li>There will be no support provided for Zen Cart v1.3.9 with v2.5 of COWOA.</li>
 </div>
 </ul>
 </div>	
@@ -76,12 +76,11 @@ Any questions, just hit the forums: <a href="http://www.zen-cart.com/showthread.
 <div class="regularlist">
 <h3>INSTALLATION</h3>
 
-<p>There are three folders in the fileset</p>
+<p>There are two folders in the fileset</p>
 
 <ul>
 	<li>_docs</li>
 	<li>New_Installation</li>
-	<li>Upgrade-2-3_to_2-4</li>
 </ul>
 
 <div class="boldemphasis">
@@ -278,32 +277,6 @@ if (STORE_STATUS == '0') {<br>
 <div class="tabcontent" id="sc4" style="display: block;">
 <div class="textcontent">
 <div class="regularlist">
-<h3>UPGRADING FROM v2.3 to v2.4</h3>
-
-<div class="boldemphasis">
-<p>*** READ EVERYTHING IN THIS README BEFORE YOU BEGIN ***</p>
-
-<p>***** BACKUP YOUR STORE AND YOUR DATABASE BEFORE YOU BEGIN*****</p>
-</div>
-
-<fieldset>
-  <ol>
-    <li>Download and Unzip the package contents to a temp directory</li>
-  <li>Open the Upgrade folder.</li>
-  <li>Change and Rename  the <strong>YOUR_ADMIN</strong> in the <strong>Upgrade</strong> folder to match the name of your shop's admin folder name.. Let me repeat this as this is the one step in a module install that most OFTEN gets overlooked/missed:<br /><br />
-  <div class="boldemphasis">Change and Rename the YOUR_ADMIN to match the name of your shop's admin folder name..</div></li>
-  <li>Change and Rename the <strong>YOUR_TEMPLATE</strong> folder name in the <strong>Upgrade/includes</strong> folders to match the name of your store's template folder name.</li>
-  <li>Upload ALL the files in the <strong>Upgrade</strong> folder to your store directory. The directory structure within these folders is like your Zen Cart store's folder structure if you have renamed them correctly.
-    For most FTP clients the directory structure of the /includes directory should be preserved, and the files should "fall" into their proper places. If your FTP client isn't capable of this, you might have to manually place each file according to where they appear in this module.</li>
-
-<li> Install the SQL Patch. To do this, open up the file <strong>1-5-1_upgrade.sql</strong> in a text editor to copy and paste the file. In your admin panel, open Tools -> Install SQL Patches. Copy the query from <strong>1-5-1_upgrade.sql</strong> into the text box and hit 'send'. This will add 
-the necessary COWOA fields and setup COWOA inthe Configuration Section. It will also set Split Login to True which is necessary for this mod to work.</li>
-
-
-
-</ol>
-
-</fieldset>
 <fieldset>
 <legend>Basic Un-Install Instructions</legend>
 <ol>
@@ -324,9 +297,22 @@ the necessary COWOA fields and setup COWOA inthe Configuration Section. It will 
 
 <p>Based on COWOA v2.0c2<br />
 By JTheed<br /><br />
-v2.4 Updated by<br /> 
+v2.5 Updated by<br /> 
 C Jones
 </p>
+<fieldset>
+<legend>v2.5 - 12/29/2013</legend>
+Updated By C Jones:
+<ul>
+    <li>Add check to includes/modules/YOUR_TEMPLATE/no_account.php to look for an existing COWOA account with the same email address and update it instead of creating a new one. Thus, only one COWOA account exist for that same email address. If a customer does create a standard account, all the past orders fall back to that same user. (dwest)</li>
+    <li>Additonal impovements to on-screen text/labels</li>
+    <li>Changed the order of the fieldsets on the login page - moved the guest checkout to the top of the page
+      <br /><br />The basis of these changes were general research on best practices for guest checkout, advice from a few Conversion/SEO consultants, and customer feedback from client customers. The changes will further aid in eliminating customer checkout questions/confusion, and sales abandonment.</li>
+    <li>Add additional steps arrows </li>
+    <li>Fixed the duplicate email address/duplicate email send bug. See: http://www.zen-cart.com/showthread.php?59189-My-Checkout-Without-Account-Mod&p=906772#post906772 (damiantaylor)</li>
+</ul>
+</fieldset>
+<hr>
 <fieldset>
 <legend>v2.4 - 02/20/2013</legend>
 Updated By C Jones:

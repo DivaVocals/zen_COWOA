@@ -1,14 +1,17 @@
 <?php
 /**
  * @package admin
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2013 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: orders.php 19530 2011-09-19 13:52:37Z ajeh $
- * @version $Id: Integrated COWOA v2.4  - 2007 - 2013
+ * @version GIT: $Id: Author: DrByte  Wed Nov 6 21:04:33 2013 -0500 Modified in v1.5.2 $
+ * @version $Id: Integrated COWOA v2.6
  */
 
   require('includes/application_top.php');
+
+  // unset variable which is sometimes tainted by bad plugins like magneticOne tools
+  if (isset($module)) unset($module);
 
   require(DIR_WS_CLASSES . 'currencies.php');
   $currencies = new currencies();
@@ -186,12 +189,14 @@ if (COWOA_ORDER_STATUS == 'false') {
           }    
     }
 // EOF COWOA SEND ORDER_STATUS EMAIL    
+
+// BOF STANDARD SEND ORDER_STATUS EMAIL
     if ($check_status->fields['COWOA_order'] != 1)  {
             $message =
             EMAIL_TEXT_ORDER_NUMBER . ' ' . $oID . "\n\n" .
             EMAIL_TEXT_INVOICE_URL . ' ' . zen_catalog_href_link(FILENAME_CATALOG_ACCOUNT_HISTORY_INFO, 'order_id=' . $oID, 'SSL') . "\n\n" .
             EMAIL_TEXT_DATE_ORDERED . ' ' . zen_date_long($check_status->fields['date_purchased']) . "\n\n" .
-            strip_tags($notify_comments) .
+            $notify_comments .
             EMAIL_TEXT_STATUS_UPDATED . sprintf(EMAIL_TEXT_STATUS_LABEL, $orders_status_array[$status] ) .
             EMAIL_TEXT_STATUS_PLEASE_REPLY;
 
@@ -208,7 +213,8 @@ if (COWOA_ORDER_STATUS == 'false') {
 
             zen_mail($check_status->fields['customers_name'], $check_status->fields['customers_email_address'], EMAIL_TEXT_SUBJECT . ' #' . $oID, $message, STORE_NAME, EMAIL_FROM, $html_msg, 'order_status');
             $customer_notified = '1';
-			}
+	    }
+// EOF STANDARD SEND ORDER_STATUS EMAIL
 
             // PayPal Trans ID, if any
             $sql = "select txn_id, parent_txn_id from " . TABLE_PAYPAL . " where order_id = :orderID order by last_modified DESC, date_added DESC, parent_txn_id DESC, paypal_ipn_id DESC ";
@@ -459,6 +465,7 @@ function couponpopupWindow(url) {
             </td>
           </form>
 
+          </tr>
         </table></td>
       </tr>
 <!-- search -->
@@ -578,7 +585,7 @@ function couponpopupWindow(url) {
         </table></td>
       </tr>
 <?php
-      if (method_exists($module, 'admin_notification')) {
+      if (is_object($module) && method_exists($module, 'admin_notification')) {
 ?>
       <tr>
         <td><?php echo zen_draw_separator('pixel_trans.gif', '1', '10'); ?></td>
@@ -661,6 +668,7 @@ function couponpopupWindow(url) {
           </tr>
         </table></td>
       </tr>
+
 <?php
   // show downloads
   require(DIR_WS_MODULES . 'orders_download.php');

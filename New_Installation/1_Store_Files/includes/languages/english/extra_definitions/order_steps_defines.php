@@ -1,6 +1,6 @@
 <?php
 // $Id: order_steps_defines.php $ 
-// $Id: Integrated COWOA v2.4  - 2007 - 2013
+// $Id: Integrated COWOA v2.6
 //
 define('ORDER_STEPS_IMAGE', 'arrow_checkout.gif');
 define('ORDER_STEPS_IMAGE_HEIGHT', '24');

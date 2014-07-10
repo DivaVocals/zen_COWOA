@@ -5,12 +5,12 @@
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: checkout_payment.php 4087 2006-08-07 04:46:08Z drbyte $
- * @version $Id: Integrated COWOA v2.4  - 2007 - 2013
+ * @version $Id: Integrated COWOA v2.6
  */
 if($_SESSION['COWOA']) $COWOA=TRUE;
 
-define('NAVBAR_TITLE_1', 'Checkout - Step 1');
-define('NAVBAR_TITLE_2', 'Payment Method - Step 2');
+define('NAVBAR_TITLE_1', 'Checkout');
+define('NAVBAR_TITLE_2', 'Payment Information');
 
 if($COWOA)
 define('HEADING_TITLE', 'Step 3 of 5 - Payment Information');

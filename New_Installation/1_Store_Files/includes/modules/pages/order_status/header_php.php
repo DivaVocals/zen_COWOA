@@ -7,7 +7,7 @@
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: J_Schilz for Integrated COWOA - 2007
  * @version $Id: JT of GTI Custom Modified for Integrated COWOA 02-July-2010
- * @version $Id: Integrated COWOA v2.4  - 2007 - 2013
+ * @version $Id: Integrated COWOA v2.6
  */
 // This should be first line of the script:
 $zco_notifier->notify('NOTIFY_HEADER_START_ORDER_STATUS');
