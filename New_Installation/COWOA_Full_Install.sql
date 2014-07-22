@@ -11,7 +11,6 @@ DELETE FROM configuration_group WHERE configuration_group_id = @t4;
 DELETE FROM configuration WHERE configuration_group_id = @configuration_group_id AND configuration_group_id != 0;
 DELETE FROM configuration_group WHERE configuration_group_id = @configuration_group_id AND configuration_group_id != 0;
 
-
 INSERT INTO configuration_group (configuration_group_id, configuration_group_title, configuration_group_description, sort_order, visible) 
 VALUES ('', 'COWOA', 'Set Checkout Without an Account', '1', '1');
 UPDATE configuration_group SET sort_order = last_insert_id() WHERE configuration_group_id = last_insert_id();
@@ -42,5 +41,3 @@ INSERT IGNORE INTO query_builder ( query_id , query_category , query_name , quer
 INSERT INTO banners (banners_id, banners_title, banners_url, banners_image, banners_group, banners_html_text, expires_impressions, expires_date, date_scheduled, date_added, date_status_change, status, banners_open_new_windows, banners_on_ssl, banners_sort_order) VALUES
 (NULL, 'Shop with Confidence', '', '', 'shop-confidence', 'Shop with Confidence banner content shows here', NULL, NULL, NULL, NOW(), NOW(), 1, 0, 1, 5),
 (NULL, 'Customer Service', '', '', 'cust-service', 'Customer Service banner content shows here', NULL, NULL, NULL, NOW(), NOW(), 1, 0, 1, 5);
-
-
