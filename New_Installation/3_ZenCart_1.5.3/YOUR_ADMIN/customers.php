@@ -82,8 +82,10 @@
               $html_msg['EMAIL_MESSAGE_HTML'] = EMAIL_CUSTOMER_STATUS_CHANGE_MESSAGE ;
               zen_mail($custinfo->fields['customers_firstname'] . ' ' . $custinfo->fields['customers_lastname'], $custinfo->fields['customers_email_address'], EMAIL_CUSTOMER_STATUS_CHANGE_SUBJECT , $message, STORE_NAME, EMAIL_FROM, $html_msg, 'default');
             }
+            zen_record_admin_activity('Customer-approval-authorization set customer auth status to 0 for customer ID ' . (int)$customers_id, 'info');
           } else {
             $sql = "update " . TABLE_CUSTOMERS . " set customers_authorization='" . CUSTOMERS_APPROVAL_AUTHORIZATION . "' where customers_id='" . (int)$customers_id . "'";
+            zen_record_admin_activity('Customer-approval-authorization set customer auth status to ' . CUSTOMERS_APPROVAL_AUTHORIZATION . ' for customer ID ' . (int)$customers_id, 'info');
           }
           $db->Execute($sql);
           $action = '';
@@ -293,7 +295,7 @@
         }
 
         zen_db_perform(TABLE_ADDRESS_BOOK, $sql_data_array, 'update', "customers_id = '" . (int)$customers_id . "' and address_book_id = '" . (int)$default_address_id . "'");
-
+        zen_record_admin_activity('Customer record updated for customer ID ' . (int)$customers_id, 'notice');
         zen_redirect(zen_href_link(FILENAME_CUSTOMERS, zen_get_all_get_params(array('cID', 'action')) . 'cID=' . $customers_id, 'NONSSL'));
 
         } else if ($error == true) {
@@ -347,7 +349,7 @@
         $db->Execute("delete from " . TABLE_WHOS_ONLINE . "
                       where customer_id = '" . (int)$customers_id . "'");
 
-
+        zen_record_admin_activity('Customer with customer ID ' . (int)$customers_id . ' deleted.', 'warning');
         zen_redirect(zen_href_link(FILENAME_CUSTOMERS, zen_get_all_get_params(array('cID', 'action')), 'NONSSL'));
         break;
       default:
@@ -1126,9 +1128,9 @@ if (($_GET['page'] == '' or $_GET['page'] == '1') and $_GET['cID'] != '') {
       $info = $db->Execute($sql);
 
       // if no record found, create one to keep database in sync
-      if (!isset($info->fields) || !is_array($info->fields)) {
-        $insert_sql = "insert into " . TABLE_CUSTOMERS_INFO . " (customers_info_id, customers_info_number_of_logons, customers_info_date_account_created)
-                       values ('" . (int)$customers->fields['customers_id'] . "', '0', now())";
+        if ($info->RecordCount() == 0) {
+          $insert_sql = "insert into " . TABLE_CUSTOMERS_INFO . " (customers_info_id)
+                         values ('" . (int)$customers->fields['customers_id'] . "')";
         $db->Execute($insert_sql);
         $info = $db->Execute($sql);
       }

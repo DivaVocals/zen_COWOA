@@ -1,6 +1,7 @@
 <?php
 /**
  * Common Template - tpl_main_page.php
+ * @version $Id: Integrated COWOA v2.6
  *
  * Governs the overall layout of an entire page<br />
  * Normally consisting of a header, left side column. center column. right side column and footer<br />
@@ -39,7 +40,7 @@
  */
 
 // the following IF statement can be duplicated/modified as needed to set additional flags
-// admin controlled setting turns off sideboxes when you enter the checkout. WIll help with sales conversions by eliminating customer distractions
+// admin controlled setting turns off sideboxes when you enter the checkout. will help with sales conversions by eliminating customer distractions
 if (COWOA_SIDEBOX_OFF == 'true') {  
 if (in_array($current_page_base,explode(",",'no_account,create_account,account,account_password,account_edit,address_book,account_history_info,account_newsletters,account_notifications,account_history,login,logoff,checkout_shipping,checkout_shipping_address,checkout_payment,checkout_payment_address,checkout_confirmation,checkout_process,shopping_cart,address_book_process')) ) {
     $flag_disable_right = true;

@@ -27,6 +27,7 @@ if (!defined('IS_ADMIN_FLAG')) {
   $error = false;
   $email_format = (ACCOUNT_EMAIL_PREFERENCE == '1' ? 'HTML' : 'TEXT');
   $newsletter = (ACCOUNT_NEWSLETTER_STATUS == '1' || ACCOUNT_NEWSLETTER_STATUS == '0' ? false : true);
+
 /**
  * Process form contents
  */
@@ -73,8 +74,8 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
 
   if (ACCOUNT_NEWSLETTER_STATUS == '1' || ACCOUNT_NEWSLETTER_STATUS == '2') {
     $newsletter = 0;
-  if (isset($_POST['newsletter'])) {
-    $newsletter = zen_db_prepare_input($_POST['newsletter']);
+    if (isset($_POST['newsletter'])) {
+      $newsletter = zen_db_prepare_input($_POST['newsletter']);
     }
   }
 
@@ -185,7 +186,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'process')) {
       $zone_query = "SELECT distinct zone_id, zone_name, zone_code
                      FROM " . TABLE_ZONES . "
                      WHERE zone_country_id = :zoneCountryID
-                     AND " . 
+                     AND " .
                      ((trim($state) != '' && $zone_id == 0) ? "(upper(zone_name) like ':zoneState%' OR upper(zone_code) like '%:zoneState%') OR " : "") .
                     "zone_id = :zoneID
                      ORDER BY zone_code ASC, zone_name";

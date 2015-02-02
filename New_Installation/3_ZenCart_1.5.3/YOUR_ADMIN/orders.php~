@@ -64,7 +64,7 @@
         if ($_GET['download_reset_on'] > 0) {
           // adjust download_maxdays based on current date
           $check_status = $db->Execute("select customers_name, customers_email_address, orders_status,
-                                      date_purchased, COWOA_order from " . TABLE_ORDERS . " /*COWOA change*/
+                                      date_purchased, COWOA_order from " . TABLE_ORDERS . "
                                       where orders_id = '" . $_GET['oID'] . "'");
 
           // check for existing product attribute download days and max
@@ -120,7 +120,7 @@
 
         $order_updated = false;
         $check_status = $db->Execute("select customers_name, customers_email_address, orders_status,
-                                      date_purchased, COWOA_order from " . TABLE_ORDERS . " /*COWOA change*/
+                                      date_purchased, COWOA_order from " . TABLE_ORDERS . "
                                       where orders_id = '" . (int)$oID . "'");
 
         if ( ($check_status->fields['orders_status'] != $status) || zen_not_null($comments)) {
@@ -389,8 +389,8 @@ if (COWOA_ORDER_STATUS == 'false') {
 <link rel="stylesheet" type="text/css" href="includes/stylesheet.css">
 <link rel="stylesheet" type="text/css" media="print" href="includes/stylesheet_print.css">
 <link rel="stylesheet" type="text/css" href="includes/cssjsmenuhover.css" media="all" id="hoverJS">
-<script type="text/javascript" src="includes/menu.js"></script>
-<script type="text/javascript" src="includes/general.js"></script>
+<script language="javascript" src="includes/menu.js"></script>
+<script language="javascript" src="includes/general.js"></script>
 <script type="text/javascript">
   <!--
   function init()
@@ -404,7 +404,7 @@ if (COWOA_ORDER_STATUS == 'false') {
   }
   // -->
 </script>
-<script type="text/javascript" type="text/javascript"><!--
+<script language="javascript" type="text/javascript"><!--
 function couponpopupWindow(url) {
   window.open(url,'popupWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,copyhistory=no,width=450,height=280,screenX=150,screenY=150,top=150,left=150')
 }

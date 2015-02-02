@@ -1,10 +1,10 @@
 <?php
 /**
  * @package languageDefines
- * @copyright Copyright 2003-2011 Zen Cart Development Team
+ * @copyright Copyright 2003-2014 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version GIT: $Id: Author: ajeh  Tue Oct 29 18:16:39 2013 -0400 Modified in v1.5.2 $
+ * @version GIT: $Id: Author: ajeh  Modified in v1.5.4 $
  * @version $Id: Integrated COWOA v2.6
  */
 
@@ -440,7 +440,7 @@
 
   define('PRODUCTS_PRICE_IS_FREE_TEXT','It\'s Free!');
   define('PRODUCTS_PRICE_IS_CALL_FOR_PRICE_TEXT','Call for Price');
-  define('TEXT_CALL_FOR_PRICE','Call for price');
+  define('TEXT_CALL_FOR_PRICE','Call for Price');
 
 // BOF COWOA
   define('TEXT_INVALID_SELECTION',', you picked an invalid selection: ');
@@ -598,6 +598,7 @@
 
 // misc
   define('COLON_SPACER', ':&nbsp;&nbsp;');
+  define('PAYMENT_JAVASCRIPT_DISABLED', 'We could not continue with checkout as Javascript is disabled. You must enable it to continue');
 
 // table headings for cart display and upcoming products
   define('TABLE_HEADING_QUANTITY', 'Qty.');

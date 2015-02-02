@@ -53,7 +53,7 @@ define('BUTTON_IMAGE_READ_REVIEWS', 'button_read_reviews.gif');
 define('BUTTON_IMAGE_GOTO_PROD_DETAILS', 'button_goto_prod_details.gif');
 define('BUTTON_IMAGE_MORE_REVIEWS', 'button_more_reviews.gif');
 define('BUTTON_IMAGE_CONTINUE_CHECKOUT', 'button_continue_checkout.gif');
-//define('PREVNEXT_BUTTON_NEXT', '[Next &raquo;&raquo;]');
+//define('PREVNEXT_BUTTON_NEXT', '[Next&nbsp;&raquo;&raquo;]');
 //define('PREVNEXT_BUTTON_LAST', 'LAST&gt;&gt;');
 
 
@@ -63,7 +63,7 @@ define('BUTTON_IMAGE_LOG_OFF', 'button_logoff.gif');
  * ALT tags used for buttons
  */
 
-define('BUTTON_CREATE_ACCOUNT_ALT', 'Continue &raquo;');
+define('BUTTON_CREATE_ACCOUNT_ALT', 'Continue&nbsp;&raquo;');
 define('BUTTON_LOG_OFF_ALT', 'Log Off');
 define('BUTTON_ADD_TO_CART_ALT', 'Add to Cart');
 define('BUTTON_ADD_ADDRESS_ALT', 'Add Address');
@@ -89,13 +89,13 @@ define('BUTTON_EDIT_SMALL_ALT', 'Edit');
 define('BUTTON_IN_CART_ALT', 'Add to Cart');
 
 //define('BUTTON_LOGIN_ALT', 'Sign In');
-define('BUTTON_LOGIN_ALT', 'Continue &raquo;');
+define('BUTTON_LOGIN_ALT', 'Continue&nbsp;&raquo;');
 
 //define('BUTTON_NEXT_ALT', 'Next');
-define('BUTTON_NEXT_ALT', 'Next &raquo;&raquo;');
+define('BUTTON_NEXT_ALT', 'Next&nbsp;&raquo;&raquo;');
 
 //define('BUTTON_PREVIOUS_ALT', 'Previous');
-define('BUTTON_PREVIOUS_ALT', '&laquo;&laquo; Prev');
+define('BUTTON_PREVIOUS_ALT', '&laquo;&laquo;&nbsp;Prev');
 
 define('BUTTON_REDEEM_ALT', 'Redeem');
 
@@ -114,7 +114,7 @@ define('BUTTON_SOLD_OUT_ALT', 'Sold Out');
 define('BUTTON_SOLD_OUT_SMALL_ALT', 'Sold Out');
 
 //define('BUTTON_SUBMIT_ALT', 'Submit the Information');
-define('BUTTON_SUBMIT_ALT', 'Continue &raquo;');
+define('BUTTON_SUBMIT_ALT', 'Continue&nbsp;&raquo;');
 
 define('BUTTON_UNSUBSCRIBE', 'Unsubscribe');
 define('BUTTON_UPDATE_ALT', 'Update');
@@ -129,4 +129,4 @@ define('BUTTON_READ_REVIEWS_ALT', 'Read the Reviews');
 //define('BUTTON_GOTO_PROD_DETAILS_ALT', 'Go To This Product\'s Detailed Information');
 define('BUTTON_GOTO_PROD_DETAILS_ALT', ' Product Details ');
 
-define('BUTTON_MORE_REVIEWS_ALT', 'Read More Reviews');
+define('BUTTON_MORE_REVIEWS_ALT', 'More Reviews');
