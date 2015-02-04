@@ -35,7 +35,7 @@
                 WHERE configuration_group_title = '".cowoa_menu_title."'";
         $db->Execute($sql);
         $sort = $original_config->fields['sort_order'];
-
+	
     }else{
         /* Find max sort order in the configuation group table -- add 2 to this value to create the COWOA configuration group ID */
         $sql = "SELECT (MAX(sort_order)+2) as sort FROM ".TABLE_CONFIGURATION_GROUP;
@@ -64,7 +64,7 @@ $cowoa_config_desc_new = 'Activate COWOA module? <br />Set to True to allow a cu
                 WHERE configuration_title = '".cowoa_config_title_old."'";
         $db->Execute($sql);
         $sort = $original_config->fields['sort_order'];
-
+	}
 /* find if COWOA description setting exists */
     $sql = "SELECT * FROM ".TABLE_CONFIGURATION." WHERE configuration_description = '".$cowoa_config_desc_old."'";
     $original_config = $db->Execute($sql);
@@ -77,20 +77,20 @@ $cowoa_config_desc_new = 'Activate COWOA module? <br />Set to True to allow a cu
                 WHERE configuration_description = '".cowoa_config_desc_old."'";
         $db->Execute($sql);
         $sort = $original_config->fields['sort_order'];
-
+	}
 /* Find configuation group ID of COWOA */
     $sql = "SELECT configuration_group_id FROM ".TABLE_CONFIGURATION_GROUP." WHERE configuration_group_title='".$cowoa_menu_title."' LIMIT 1";
     $result = $db->Execute($sql);
     $cowoa_configuration_id = $result->fields['configuration_group_id'];
 
 //-- ADD VALUES TO COWOA CONFIGURATION GROUP (Admin > Configuration > COWOA) --
-    $sql = "INSERT IGNORE INTO " . TABLE_CONFIGURATION . " (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, use_function, set_function) VALUES (NULL, 'COWOA Version', 'COWOA_VERSION', '2.6', 'Indicates the currently installed version of COWOA.', '".$cowoa_configuration_id."', 1, NOW(), NULL, 'zen_cfg_select_option(array('2.6'),')";
+    $sql = "INSERT IGNORE INTO ". TABLE_CONFIGURATION ." (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, use_function, set_function) VALUES (NULL, 'COWOA Version', 'COWOA_VERSION', '2.6', 'Indicates the currently installed version of COWOA.', '".$cowoa_configuration_id."', 1, NOW(), NULL, 'zen_cfg_select_option(array(2.6)')";
     $db->Execute($sql);
 
     $sql = "INSERT IGNORE INTO " . TABLE_CONFIGURATION . " (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, use_function, set_function) VALUES (NULL, 'Activate COWOA?', 'COWOA_STATUS', 'false', 'Activate COWOA module? <br />Set to True to allow a customer to checkout without an account.', '".$cowoa_configuration_id."', 10, NOW(), NULL, 'zen_cfg_select_option(array(\'true\', \'false\'),')";
     $db->Execute($sql);
 
-    $sql = "INSERT IGNORE INTO " . TABLE_CONFIGURATION . " (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, use_function, set_function) VALUES (NULL, 'Turn Off Sideboxes During Checkout', 'COWOA_SIDEBOX_OFF', 'false', 'Turn off sideboxes during checkout? <br /><br />Customers should be focused on completing the sale once they start the checkout process. It is a recommended practice that sideboxes should be turned off to help minimize customer distractions during checkout. Many of the larger e-commerce retailers turn off "distractions" during their checkout processes for the same reason - i.e. Amazon. By reducing customer distractions during checkout you can help to decrease cart abandonment, and to increase sales conversions.<br /><br />Set to True to turn off the following sideboxes during checkout:<br /><ul><li>account_history_info (Order Information)</li><li>account_newsletters (Newsletter Subscriptions)</li><li>account_notifications (Product Notifications)</li><li>account_password (My Password)</li><li>address_book (My Personal Address Book)</li><li>address_book_process (New Address Book Entry)</li><li>checkout_confirmation (Confirmation/Order Review)</li><li>checkout_payment (Payment Method/Payment Information)</li><li>checkout_payment_address (Change Billing Address/Change the Billing Information)</li><li>checkout_process (submits the order)</li><li>checkout_shipping (Shipping Method/Shipping Information)</li><li>checkout_shipping_address (Change Shipping Address/Change the Shipping Address)</li><li>create_account (Create Account/My Account Information)</li><li>login (Login)</li><li>logoff Logoff)</li><li>no_account (COWOA Billing Information)</li><li>shopping_cart (Shopping Cart)</li></ul>', '".$cowoa_configuration_id."', 12, NOW(), NULL, 'zen_cfg_select_option(array(\'true\', \'false\'),')";
+    $sql = "INSERT IGNORE INTO " . TABLE_CONFIGURATION . " (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, use_function, set_function) VALUES (NULL, 'Turn Off Sideboxes During Checkout', 'COWOA_SIDEBOX_OFF', 'false', 'Turn off sideboxes during checkout? <br /><br />Customers should be focused on completing the sale once they start the checkout process. It is a recommended practice that sideboxes should be turned off to help minimize customer distractions during checkout. Many of the larger e-commerce retailers turn off \"distractions\" during their checkout processes for the same reason - i.e. Amazon. By reducing customer distractions during checkout you can help to decrease cart abandonment, and to increase sales conversions.<br /><br />Set to True to turn off the following sideboxes during checkout:<br /><ul><li>account_history_info (Order Information)</li><li>account_newsletters (Newsletter Subscriptions)</li><li>account_notifications (Product Notifications)</li><li>account_password (My Password)</li><li>address_book (My Personal Address Book)</li><li>address_book_process (New Address Book Entry)</li><li>checkout_confirmation (Confirmation/Order Review)</li><li>checkout_payment (Payment Method/Payment Information)</li><li>checkout_payment_address (Change Billing Address/Change the Billing Information)</li><li>checkout_process (submits the order)</li><li>checkout_shipping (Shipping Method/Shipping Information)</li><li>checkout_shipping_address (Change Shipping Address/Change the Shipping Address)</li><li>create_account (Create Account/My Account Information)</li><li>login (Login)</li><li>logoff Logoff)</li><li>no_account (COWOA Billing Information)</li><li>shopping_cart (Shopping Cart)</li></ul>', '".$cowoa_configuration_id."', 12, NOW(), NULL, 'zen_cfg_select_option(array(\'true\', \'false\'),')";
     $db->Execute($sql);
 
 	$sql = "INSERT IGNORE INTO " . TABLE_CONFIGURATION . " (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, use_function, set_function) VALUES (NULL, 'Enable Order Status', 'COWOA_ORDER_STATUS', 'false', 'Enable The Order Status Function of COWOA?<br />Set to True so that a Customer that uses COWOA will receive an E-Mail with instructions on how to view the status of their order.', '".$cowoa_configuration_id."', 14, NOW(), NULL, 'zen_cfg_select_option(array(\'true\', \'false\'),')";
@@ -108,14 +108,14 @@ $cowoa_config_desc_new = 'Activate COWOA module? <br />Set to True to allow a cu
 	$sql = "INSERT IGNORE INTO " . TABLE_CONFIGURATION . " (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, use_function, set_function) VALUES (NULL, 'Enable Customer Service Checkout Page Box', 'COWOA_CS_BOX', 'true', 'Enable <strong>Customer Service</strong> Checkout Page Box?<br />Set to True so that the <strong>Customer Service</strong> checkout page box will display. The content of this checkout box is managed using the banner manager. Create a banner for this box (only one) and the system will use the banner title for the box title (suggest using <strong>Customer Service</strong>) and the content will appear in the box.', '".$cowoa_configuration_id."', 22, NOW(), NULL, 'zen_cfg_select_option(array(\'true\', \'false\'),')";
     $db->Execute($sql);
 
-	$sql = "INSERT IGNORE INTO " . TABLE_CONFIGURATION . " (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, use_function, set_function) VALUES (NULL, 'Banner Display Groups Customer Service', 'SHOW_BANNERS_GROUP_CUSTOMER_SERVICE', 'cust-service', 'For "Customer Service" box content on Login page', '".$cowoa_configuration_id."', 14, NOW(), NULL, NULL)";
+	$sql = "INSERT IGNORE INTO " . TABLE_CONFIGURATION . " (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, use_function, set_function) VALUES (NULL, 'Banner Display Groups Customer Service', 'SHOW_BANNERS_GROUP_CUSTOMER_SERVICE', 'cust-service', 'For \"Customer Service\" box content on Login page', '".$cowoa_configuration_id."', 14, NOW(), NULL, NULL)";
     $db->Execute($sql);
 
 	$sql = "INSERT IGNORE INTO " . TABLE_CONFIGURATION . " (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, use_function, set_function) VALUES (NULL, 'Banner Display Groups Shop with Confidence', 'SHOW_BANNERS_GROUP_CHECKOUT_CONFIDENCE', 'shop-confidence', 'For \"Shop with Confidence\" box on Login page', '".$cowoa_configuration_id."', 14, NOW(), NULL, NULL)";
     $db->Execute($sql);
 
 //-- SET SPLIT-LOGIN PAGE (Admin > Configuration > Layout Settings) --
-	$sql ="UPDATE ".TABLE_CONFIGURATION." WHERE configuration_title = 'Use split-login page'";
+	$sql = "UPDATE " .TABLE_CONFIGURATION. " SET configuration_value = 'True' WHERE configuration_title = \"Use split-login page\"";
 	$db->Execute($sql);
 
 	/*Register the configuration page for Admin Access Control*/
