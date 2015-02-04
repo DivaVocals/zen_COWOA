@@ -80,7 +80,7 @@
     $cowoa_configuration_id = $result->fields['configuration_group_id'];
 
 //-- ADD VALUES TO COWOA CONFIGURATION GROUP (Admin > Configuration > COWOA) --
-    $sql = "INSERT IGNORE INTO ".TABLE_CONFIGURATION." (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, use_function, set_function) VALUES (NULL, 'COWOA Version', 'COWOA_VERSION', '2.6', 'Indicates the currently installed version of COWOA.', '".$cowoa_configuration_id."', 1, NOW(), NULL, 'zen_cfg_select_option(array('2.6'),')";
+    $sql = "INSERT IGNORE INTO ".TABLE_CONFIGURATION." (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, use_function, set_function) VALUES (NULL, 'COWOA Version', 'COWOA_VERSION', '2.6', 'Indicates the currently installed version of COWOA.', '".$cowoa_configuration_id."', 1, NOW(), NULL, 'zen_cfg_select_option(array(2.6)')";
     $db->Execute($sql);
 
     $sql = "INSERT IGNORE INTO ".TABLE_CONFIGURATION." (configuration_id, configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order, date_added, use_function, set_function) VALUES (NULL, 'Activate COWOA?', 'COWOA_STATUS', 'false', 'Activate COWOA module? <br />Set to True to allow a customer to checkout without an account.', '".$cowoa_configuration_id."', 10, NOW(), NULL, 'zen_cfg_select_option(array(\'true\', \'false\'),')";
