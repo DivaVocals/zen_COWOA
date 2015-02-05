@@ -18,13 +18,9 @@
 }
 
 
-#active_step_text {       /* These are the styles for the active text */
-    color: #005C2C;
-    font-weight: 700;
-    font-size: 1.1em;
-	 width:25%;
-	 float:left;
-}
+#active_step_text {color: #005C2C;font-weight: 700;font-size: 1.1em;width:25%;float:left;margin-top: 5px;}/* These are the styles for the active text */
+
+span#active_step_text .fa-shopping-cart {font-size: 1.5em;}
 
 .order_steps_text2 {
     text-align: center;
@@ -99,7 +95,6 @@
 }
 
 .progressbar_active {
-    background: url(../images/orderstep.png) repeat-x;    
 	 background-color: #3DA200; /* Determines the active color of the completed part of the line */
 	 width:25%;
 	 float:left;
@@ -108,7 +103,6 @@
 }
 
 .progressbar_inactive {
-    background: url(../images/orderstep.png) repeat-x;    
 	 background-color: #9A9A9A; /* Determines the active color of the completed part of the line */
 	 width:25%;
 	 float:left;
@@ -117,7 +111,6 @@
 }
 
 .progressbar_active_COWOA {
-    background: url(../images/orderstep.png) repeat-x;    
 	 background-color: #3DA200; /* Determines the active color of the completed part of the line */
 	 width:20%;
 	 float:left;
@@ -126,7 +119,6 @@
 }
 
 .progressbar_inactive_COWOA {
-    background: url(../images/orderstep.png) repeat-x;    
 	 background-color: #9A9A9A; /* Determines the active color of the completed part of the line */
 	 width:20%;
 	 float:left;
