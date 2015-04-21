@@ -384,7 +384,7 @@ if (COWOA_ORDER_STATUS == 'false') {
     }
   }
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html <?php echo HTML_PARAMS; ?>>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET; ?>">
@@ -407,11 +407,11 @@ if (COWOA_ORDER_STATUS == 'false') {
   }
   // -->
 </script>
-<script type="text/javascript"><!--
+<script type="text/javascript">
 function couponpopupWindow(url) {
   window.open(url,'popupWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,copyhistory=no,width=450,height=280,screenX=150,screenY=150,top=150,left=150')
 }
-//--></script>
+</script>
 </head>
 <body onLoad="init()">
 <!-- header //-->

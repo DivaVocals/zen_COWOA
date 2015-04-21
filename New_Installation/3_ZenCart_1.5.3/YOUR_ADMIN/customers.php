@@ -1,10 +1,10 @@
 <?php
 /**
  * @package admin
- * @copyright Copyright 2003-2012 Zen Cart Development Team
+ * @copyright Copyright 2003-2014 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version GIT: $Id: Author: Ian Wilson  Tue Aug 7 15:17:58 2012 +0100 Modified in v1.5.1 $
+ * @version GIT: $Id: Author: DrByte  Jun 30 2014 Modified in v1.5.4 $
  * @version $Id: Integrated COWOA v2.6
  */
 
@@ -371,19 +371,19 @@
     }
   }
 ?>
-<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!doctype html>
 <html <?php echo HTML_PARAMS; ?>>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET; ?>">
 <title><?php echo TITLE; ?></title>
 <link rel="stylesheet" type="text/css" href="includes/stylesheet.css">
 <link rel="stylesheet" type="text/css" href="includes/cssjsmenuhover.css" media="all" id="hoverJS">
-<script language="javascript" src="includes/menu.js"></script>
-<script language="javascript" src="includes/general.js"></script>
+<script type="text/javascript" src="includes/menu.js"></script>
+<script type="text/javascript" src="includes/general.js"></script>
 <?php
   if ($action == 'edit' || $action == 'update') {
 ?>
-<script language="javascript"><!--
+<script type="text/javascript">
 
 function check_form() {
   var error = 0;
@@ -477,12 +477,11 @@ function check_form() {
     return true;
   }
 }
-//--></script>
+</script>
 <?php
   }
 ?>
 <script type="text/javascript">
-  <!--
   function init()
   {
     cssjsmenu('navbar');
@@ -492,7 +491,6 @@ function check_form() {
       kill.disabled = true;
     }
   }
-  // -->
 </script>
 </head>
 <body onLoad="init()">

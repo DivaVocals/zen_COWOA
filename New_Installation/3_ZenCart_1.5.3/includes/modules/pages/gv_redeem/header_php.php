@@ -90,3 +90,4 @@ if ($error) {
   // so output a message.
   $message = TEXT_INVALID_GV;
 }
+
