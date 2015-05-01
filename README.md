@@ -9,8 +9,9 @@ If you need basic installation help, and the included readme does not help you, 
 CHANGELOG
 ------------
 v2.6 - 07/10/2014
-<ul><li>Updated for Zen Cart v1.5.3<br></li>
-<li>Fix bug with downloads being prevented for COWOA when 'Enable Forced Logoff' was turned on.(dwest) ref: http://www.zen-cart.com/showthread.php?196995-COWOA-(for-ZC-v1-5-x)&p=1246575#post1246575<br></li><li>Additional improvements to onscreen text/labels<br></li><li>MANY improvements to the login page:<ul><li>eliminate the need for an unecessary click to create an account by making the "Create Account" available on the login page.<br></li> <li>Addition of "Shop with Confidence" and "Customer Service" content boxes (admin control to turn on/off and content managed via the banner manager)<br></li> <li>Move guest checkout fieldset to the top of the page for better user visibility<br></li></ul> <br></li></ul>
+<ul><li>Updated for Zen Cart v1.5.4<br></li>
+<li>Fix bug with downloads being prevented for COWOA when 'Enable Forced Logoff' was turned on.(dwest) ref: http://www.zen-cart.com/showthread.php?196995-COWOA-(for-ZC-v1-5-x)&p=1246575#post1246575<br></li><li>Additional improvements to onscreen text/labels<br></li><li>MANY improvements to the login page:<ul><li>eliminate the need for an unecessary click to create an account by making the "Create Account" available on the login page.<br></li> <li>Addition of "Shop with Confidence" and "Customer Service" content boxes (admin control to turn on/off and content managed via the banner manager)<br></li> <li>Move guest checkout fieldset to the top of the page for better user visibility<br></li></ul> <br></li>
+<li>The inclusion of an auto installer - NO MORE SEPERATE INSTALL SQL FILE</li></ul>
 
 
 ABOUT COWOA
