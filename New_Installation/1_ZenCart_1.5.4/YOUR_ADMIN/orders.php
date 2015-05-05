@@ -423,62 +423,74 @@ function couponpopupWindow(url) {
 <!-- header_eof //-->
 
 <?php if ($action == '') { ?>
+
+<!-- Page Heading -->
+<div class="pageHeading ordersPageHeading"><?php echo HEADING_TITLE; ?></div>
+<br class="clearBoth" />
+<div class="smallText"><?php echo TEXT_LEGEND . ' ' . zen_image(DIR_WS_IMAGES . 'icon_status_red.gif', TEXT_BILLING_SHIPPING_MISMATCH, 10, 10) . ' ' . TEXT_BILLING_SHIPPING_MISMATCH; ?></div>
+<!-- Page Heading -->
+
 <!-- search -->
-<div id="searchOrders">
-<?php echo zen_draw_form('search', FILENAME_ORDERS, '', 'get', '', true); ?>
-<?php
-// show reset search
-  if ((isset($_GET['search']) && zen_not_null($_GET['search'])) or $_GET['cID'] !='') {
-    echo '<a href="' . zen_href_link(FILENAME_ORDERS, '', 'NONSSL') . '">' . zen_image_button('button_reset.gif', IMAGE_RESET) . '</a><br />';
-  }
-?>
-<?php
-  echo HEADING_TITLE_SEARCH_DETAIL . ' ' . zen_draw_input_field('search') . zen_hide_session_id();
-  if (isset($_GET['search']) && zen_not_null($_GET['search'])) {
-    $keywords = zen_db_input(zen_db_prepare_input($_GET['search']));
-    echo '<br/ >' . TEXT_INFO_SEARCH_DETAIL_FILTER . $keywords;
-  }
-?>
-</form>
-</div>
+<div id="orderSearch">
+	<div id="searchOrders">
+	<?php echo zen_draw_form('search', FILENAME_ORDERS, '', 'get', '', true); ?>
+	<?php
+	  echo HEADING_TITLE_SEARCH_DETAIL . ' ' . zen_draw_input_field('search') . zen_hide_session_id();
+	  if (isset($_GET['search']) && zen_not_null($_GET['search'])) {
+	    $keywords = zen_db_input(zen_db_prepare_input($_GET['search']));
+	    echo '<br/ >' . TEXT_INFO_SEARCH_DETAIL_FILTER . $keywords;
+	  }
+	?>
+	<?php
+	// show reset search
+	  if ((isset($_GET['search']) && zen_not_null($_GET['search'])) or $_GET['cID'] !='') {
+	    echo '<a href="' . zen_href_link(FILENAME_ORDERS, '', 'NONSSL') . '">' . zen_image_button('button_reset.gif', IMAGE_RESET) . '</a><br />';
+	  }
+	?>
+	</form>
+	</div>
+	<br class="clearBoth" />
 
-<div id="searchOrdersProducts">
-<?php echo zen_draw_form('search_orders_products', FILENAME_ORDERS, '', 'get', '', true); ?>
-<?php
-// show reset search orders products
-  if ((isset($_GET['search_orders_products']) && zen_not_null($_GET['search_orders_products'])) or $_GET['cID'] !='') {
-    echo '<a href="' . zen_href_link(FILENAME_ORDERS, '', 'NONSSL') . '">' . zen_image_button('button_reset.gif', IMAGE_RESET) . '</a><br />';
-  }
-?>
-<?php
-  echo HEADING_TITLE_SEARCH_DETAIL_ORDERS_PRODUCTS . ' ' . zen_draw_input_field('search_orders_products') . zen_hide_session_id();
-  if (isset($_GET['search_orders_products']) && zen_not_null($_GET['search_orders_products'])) {
-    $keywords_orders_products = zen_db_input(zen_db_prepare_input($_GET['search_orders_products']));
-    echo '<br/ >' . TEXT_INFO_SEARCH_DETAIL_FILTER_ORDERS_PRODUCTS . zen_db_prepare_input($keywords_orders_products);
-  }
-?>
-</form>
-</div>
+	<div id="searchOrdersProducts">
+	<?php echo zen_draw_form('search_orders_products', FILENAME_ORDERS, '', 'get', '', true); ?>
+	<?php
+	  echo HEADING_TITLE_SEARCH_DETAIL_ORDERS_PRODUCTS . ' ' . zen_draw_input_field('search_orders_products') . zen_hide_session_id();
+	  if (isset($_GET['search_orders_products']) && zen_not_null($_GET['search_orders_products'])) {
+	    $keywords_orders_products = zen_db_input(zen_db_prepare_input($_GET['search_orders_products']));
+	    echo '<br/ >' . TEXT_INFO_SEARCH_DETAIL_FILTER_ORDERS_PRODUCTS . zen_db_prepare_input($keywords_orders_products);
+	  }
+	?>
+	<?php
+	// show reset search orders products
+	  if ((isset($_GET['search_orders_products']) && zen_not_null($_GET['search_orders_products'])) or $_GET['cID'] !='') {
+	    echo '<a href="' . zen_href_link(FILENAME_ORDERS, '', 'NONSSL') . '">' . zen_image_button('button_reset.gif', IMAGE_RESET) . '</a><br />';
+	  }
+	?>
+	</form>
+	</div>
+	<br class="clearBoth" />
 
-<div id="searchStatus">
-<?php echo zen_draw_form('status', FILENAME_ORDERS, '', 'get', '', true); ?>
-<?php
-// show reset search status
-  if ((isset($_GET['status']) && zen_not_null($_GET['status'])) or $_GET['cID'] !='') {
-    echo '<a href="' . zen_href_link(FILENAME_ORDERS, '', 'NONSSL') . '">' . zen_image_button('button_reset.gif', IMAGE_RESET) . '</a><br />';
-  }
-?>
-<?php
-    echo HEADING_TITLE_STATUS . ' ' . zen_draw_pull_down_menu('status', array_merge(array(array('id' => '', 'text' => TEXT_ALL_ORDERS)), $orders_statuses), $_GET['status'], 'onChange="this.form.submit();"');
-    echo zen_hide_session_id();
-?>
-</form>
-</div>
+	<div id="searchStatus">
+	<?php echo zen_draw_form('status', FILENAME_ORDERS, '', 'get', '', true); ?>
+	<?php
+	    echo HEADING_TITLE_STATUS . ' ' . zen_draw_pull_down_menu('status', array_merge(array(array('id' => '', 'text' => TEXT_ALL_ORDERS)), $orders_statuses), $_GET['status'], 'onChange="this.form.submit();"');
+	    echo zen_hide_session_id();
+	?>
+	<?php
+	// show reset search status
+	  if ((isset($_GET['status']) && zen_not_null($_GET['status'])) or $_GET['cID'] !='') {
+	    echo '<a href="' . zen_href_link(FILENAME_ORDERS, '', 'NONSSL') . '">' . zen_image_button('button_reset.gif', IMAGE_RESET) . '</a><br />';
+	  }
+	?>
+	</form>
+	</div>
+	<br class="clearBoth" />
 
-<div id="searchOrderID">
-<?php echo zen_draw_form('ordersID', FILENAME_ORDERS, '', 'get', '', true); ?>
-<?php echo HEADING_TITLE_SEARCH . ' ' . zen_draw_input_field('oID', '', 'size="12"') . zen_draw_hidden_field('action', 'edit') . zen_hide_session_id(); ?>
-</form>
+	<div id="searchOrderID">
+	<?php echo zen_draw_form('ordersID', FILENAME_ORDERS, '', 'get', '', true); ?>
+	<?php echo HEADING_TITLE_SEARCH . ' ' . zen_draw_input_field('oID', '', 'size="12"') . zen_draw_hidden_field('action', 'edit') . zen_hide_session_id(); ?>
+	</form>
+	</div>
 </div>
 <!-- search -->
 <?php } ?>
@@ -586,12 +598,12 @@ function couponpopupWindow(url) {
           </tr>
           <tr>
             <td class="main"><?php echo ENTRY_CREDIT_CARD_NUMBER; ?></td>
-            <td class="main"><?php echo $order->info['cc_number'] . (zen_not_null($order->info['cc_number']) && !strstr($order->info['cc_number'],'X') && !strstr($order->info['cc_number'],'********') ? '&nbsp;&nbsp;<a href="' . zen_href_link(FILENAME_ORDERS, '&action=mask_cc&oID=' . $oID, 'NONSSL') . '" class="noprint">' . TEXT_MASK_CC_NUMBER . '</a>' : ''); ?></td> /*Fix stock Zen Cart HTML (missing closing tag)*/
+            <td class="main"><?php echo $order->info['cc_number'] . (zen_not_null($order->info['cc_number']) && !strstr($order->info['cc_number'],'X') && !strstr($order->info['cc_number'],'********') ? '&nbsp;&nbsp;<a href="' . zen_href_link(FILENAME_ORDERS, '&action=mask_cc&oID=' . $oID, 'NONSSL') . '" class="noprint">' . TEXT_MASK_CC_NUMBER . '</a>' : ''); ?></td> <!--Fix stock Zen Cart HTML (missing closing tag)-->
           </tr>
 <?php if (zen_not_null($order->info['cc_cvv'])) { ?>
           <tr>
             <td class="main"><?php echo ENTRY_CREDIT_CARD_CVV; ?></td>
-            <td class="main"><?php echo $order->info['cc_cvv'] . (zen_not_null($order->info['cc_cvv']) && !strstr($order->info['cc_cvv'],TEXT_DELETE_CVV_REPLACEMENT) ? '&nbsp;&nbsp;<a href="' . zen_href_link(FILENAME_ORDERS, '&action=delete_cvv&oID=' . $oID, 'NONSSL') . '" class="noprint">' . TEXT_DELETE_CVV_FROM_DATABASE . '</a>' : ''); ?></td> /*Fix stock Zen Cart HTML (missing closing tag)*/
+            <td class="main"><?php echo $order->info['cc_cvv'] . (zen_not_null($order->info['cc_cvv']) && !strstr($order->info['cc_cvv'],TEXT_DELETE_CVV_REPLACEMENT) ? '&nbsp;&nbsp;<a href="' . zen_href_link(FILENAME_ORDERS, '&action=delete_cvv&oID=' . $oID, 'NONSSL') . '" class="noprint">' . TEXT_DELETE_CVV_FROM_DATABASE . '</a>' : ''); ?></td> <!--Fix stock Zen Cart HTML (missing closing tag)-->
           </tr>
 <?php } ?>
           <tr>
@@ -782,35 +794,13 @@ function couponpopupWindow(url) {
         }
 ?>
 <?php
+  /*
+  ** BEGIN ORDER LISTING DISPLAY
+  */
   } else {
 ?>
       <tr>
-        <td width="100%"><table border="0" width="100%" cellspacing="0" cellpadding="0">
-          <tr>
-            <td class="pageHeading"><?php echo HEADING_TITLE; ?></td>
-            <td class="pageHeading" align="right"><?php echo zen_draw_separator('pixel_trans.gif', 1, HEADING_IMAGE_HEIGHT); ?></td>
-            <td align="right"><table border="0" width="100%" cellspacing="0" cellpadding="0">
-              <tr><?php echo zen_draw_form('orders', FILENAME_ORDERS, '', 'get', '', true); ?>
-                <td class="smallText" align="right"><?php echo HEADING_TITLE_SEARCH . ' ' . zen_draw_input_field('oID', '', 'size="12"') . zen_draw_hidden_field('action', 'edit') . zen_hide_session_id(); ?></td>
-              </form></tr>
-              <tr><?php echo zen_draw_form('status', FILENAME_ORDERS, '', 'get', '', true); ?>
-                <td class="smallText" align="right">
-                  <?php
-                    echo HEADING_TITLE_STATUS . ' ' . zen_draw_pull_down_menu('status', array_merge(array(array('id' => '', 'text' => TEXT_ALL_ORDERS)), $orders_statuses), $_GET['status'], 'onChange="this.form.submit();"');
-                    echo zen_hide_session_id();
-                  ?>
-                </td>
-              </form></tr>
-            </table></td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
         <td><table border="0" width="100%" cellspacing="0" cellpadding="0">
-          <tr>
-            <td class="smallText"><?php echo TEXT_LEGEND . ' ' . zen_image(DIR_WS_IMAGES . 'icon_status_red.gif', TEXT_BILLING_SHIPPING_MISMATCH, 10, 10) . ' ' . TEXT_BILLING_SHIPPING_MISMATCH; ?>
-          </td>
-          <tr>
             <td valign="top"><table border="0" width="100%" cellspacing="0" cellpadding="2">
               <tr class="dataTableHeadingRow">
 <?php
@@ -893,7 +883,7 @@ function couponpopupWindow(url) {
                             left join " . TABLE_ORDERS_TOTAL . " ot on (o.orders_id = ot.orders_id and ot.class = 'ot_total') " . "
                             where o.customers_id = '" . (int)$cID . "' and o.orders_status = s.orders_status_id and s.language_id = '" . (int)$_SESSION['languages_id'] . "' order by orders_id DESC";
 
-//echo '<BR><BR>I SEE A: ' . $orders_query_raw . '<BR><BR>';
+//echo '<br><br>I SEE A: ' . $orders_query_raw . '<br><br>';
 
     } elseif ($_GET['status'] != '') {
       $status = zen_db_prepare_input($_GET['status']);
@@ -906,7 +896,7 @@ function couponpopupWindow(url) {
                           where o.orders_status = s.orders_status_id and s.language_id = '" . (int)$_SESSION['languages_id'] . "' and s.orders_status_id = '" . (int)$status . "'  " .
                           $search . " order by o.orders_id DESC";
 
-//echo '<BR><BR>I SEE B: ' . $orders_query_raw . '<BR><BR>';
+//echo '<br><br>I SEE B: ' . $orders_query_raw . '<br><br>';
 
     } else {
       $orders_query_raw = "select " . $search_distinct . " o.orders_id, o.customers_id, o.customers_name, o.payment_method, o.shipping_method, o.date_purchased, o.last_modified, o.currency, o.currency_value, s.orders_status_name, ot.text as order_total" .
@@ -918,7 +908,7 @@ function couponpopupWindow(url) {
                           where (o.orders_status = s.orders_status_id and s.language_id = '" . (int)$_SESSION['languages_id'] . "')  " .
                           $search . " order by o.orders_id DESC";
 
-//echo '<BR><BR>I SEE C: ' . $orders_query_raw . '<BR><BR>';
+//echo '<br><br>I SEE C: ' . $orders_query_raw . '<br><br>';
 
     }
 
@@ -984,23 +974,10 @@ if (($_GET['page'] == '' or $_GET['page'] <= 1) and $_GET['oID'] != '') {
                     <td class="smallText" valign="top"><?php echo $orders_split->display_count($orders_query_numrows, MAX_DISPLAY_SEARCH_RESULTS_ORDERS, $_GET['page'], TEXT_DISPLAY_NUMBER_OF_ORDERS); ?></td>
                     <td class="smallText" align="right"><?php echo $orders_split->display_links($orders_query_numrows, MAX_DISPLAY_SEARCH_RESULTS_ORDERS, MAX_DISPLAY_PAGE_LINKS, $_GET['page'], zen_get_all_get_params(array('page', 'oID', 'action'))); ?></td>
                   </tr>
-<?php
-  if (isset($_GET['search']) && zen_not_null($_GET['search'])) {
-?>
                   <tr>
                     <td class="smallText" align="right" colspan="2">
-                      <?php
-                        echo '<a href="' . zen_href_link(FILENAME_ORDERS, '', 'NONSSL') . '">' . zen_image_button('button_reset.gif', IMAGE_RESET) . '</a>';
-                        if (isset($_GET['search']) && zen_not_null($_GET['search'])) {
-                          $keywords = zen_db_input(zen_db_prepare_input($_GET['search']));
-                          echo '<br/ >' . TEXT_INFO_SEARCH_DETAIL_FILTER . $keywords;
-                        }
-                      ?>
                     </td>
                   </tr>
-<?php
-  }
-?>
                 </table></td>
               </tr>
             </table></td>
