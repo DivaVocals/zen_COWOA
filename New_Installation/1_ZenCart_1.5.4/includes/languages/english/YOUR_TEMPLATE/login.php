@@ -19,7 +19,7 @@ define('HEADING_PAYPAL', 'Faster Checkout?');
 define('TEXT_NEW_CUSTOMER_INTRODUCTION', 'Enter your billing information as it appears on your Credit Card Statement.');
 define('TEXT_NEW_CUSTOMER_INTRODUCTION_SPLIT', 'Have a PayPal account? Want to pay quickly with a credit card? Use the PayPal button below to use the Express Checkout option. No PayPal account is required to use your credit card.');
 define('TEXT_NEW_CUSTOMER_POST_INTRODUCTION_DIVIDER', '<span class="larger">Or</span><br />');
-//define('TEXT_NEW_CUSTOMER_POST_INTRODUCTION_SPLIT', 'Create a billing Profile with <strong>' . STORE_NAME . '</strong> which allows you to shop faster, track the status of your current orders, review your previous orders and take advantage of our other customer benefits.');
+//define('TEXT_NEW_CUSTOMER_POST_INTRODUCTION_SPLIT', 'Create a Billing Profile with <strong>' . STORE_NAME . '</strong> which allows you to shop faster, track the status of your current orders, review your previous orders and take advantage of our other customer benefits.');
 define('TEXT_NEW_CUSTOMER_POST_INTRODUCTION_SPLIT', 'Enter your billing information as it appears on your Credit Card Statement.');
 define('HEADING_RETURNING_CUSTOMER', 'Returning Customer? Please Log In');
 define('HEADING_RETURNING_CUSTOMER_SPLIT', 'Returning Customer? Please Log In');

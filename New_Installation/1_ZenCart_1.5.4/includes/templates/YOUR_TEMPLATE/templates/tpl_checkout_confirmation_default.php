@@ -30,7 +30,7 @@
 <?php } else {?>
     <div id="order_steps">
             <div class="order_steps_text">
-			<span class="order_steps_text2"><i class="fa fa-truck"></i><br /><?php echo TEXT_ORDER_STEPS_1; ?></span><span class="order_steps_text3"><i class="fa fa-credit-card"></i><br /><?php echo TEXT_ORDER_STEPS_2; ?></span><span id="active_step_text"><i class="fa  fa-pencil-square"></i><br /><?php echo TEXT_ORDER_STEPS_3; ?></span><span class="order_steps_text4"<i class="fa fa-check"></i><br /><?php echo TEXT_ORDER_STEPS_4; ?></span>
+			<span class="order_steps_text2"><i class="fa fa-truck"></i><br /><?php echo TEXT_ORDER_STEPS_1; ?></span><span class="order_steps_text3"><i class="fa fa-credit-card"></i><br /><?php echo TEXT_ORDER_STEPS_2; ?></span><span id="active_step_text"><i class="fa  fa-pencil-square"></i><br /><?php echo TEXT_ORDER_STEPS_3; ?></span><span class="order_steps_text4"><i class="fa fa-check"></i><br /><?php echo TEXT_ORDER_STEPS_4; ?></span>
             </div>
             <div class="order_steps_line_2">
                 <span class="progressbar_active">&nbsp;</span><span class="progressbar_active">&nbsp;</span><span class="progressbar_active">&nbsp;</span><span class="progressbar_inactive">&nbsp;</span>

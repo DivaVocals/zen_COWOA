@@ -19,6 +19,7 @@ require(DIR_WS_MODULES . zen_get_module_directory('meta_tags.php'));
  */
 ?>
 <!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" <?php echo HTML_PARAMS; ?>>
 <?php
 // START HTML 5 CHANGE 1 of 2
 ?>

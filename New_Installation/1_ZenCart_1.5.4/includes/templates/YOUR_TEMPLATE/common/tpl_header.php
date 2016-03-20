@@ -55,10 +55,9 @@ if (!isset($flag_disable_header) || !$flag_disable_header) {
 ?>
     <li><a href="<?php echo zen_href_link(FILENAME_LOGIN, '', 'SSL'); ?>"><?php echo HEADER_TITLE_LOGIN; ?></a></li>
 <?php } } ?>
-
-<?php if ($_SESSION['cart']->count_contents() != 0) { ?>
     <li><a href="<?php echo zen_href_link(FILENAME_SHOPPING_CART, '', 'NONSSL'); ?>"><?php echo HEADER_TITLE_CART_CONTENTS; ?></a></li>
     <li><a href="<?php echo zen_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL'); ?>"><?php echo HEADER_TITLE_CHECKOUT; ?></a></li>
+<?php if ($_SESSION['cart']->count_contents() != 0) { ?>
 <?php }?>
 </ul>
 </div>

@@ -883,7 +883,7 @@ function couponpopupWindow(url) {
                             left join " . TABLE_ORDERS_TOTAL . " ot on (o.orders_id = ot.orders_id and ot.class = 'ot_total') " . "
                             where o.customers_id = '" . (int)$cID . "' and o.orders_status = s.orders_status_id and s.language_id = '" . (int)$_SESSION['languages_id'] . "' order by orders_id DESC";
 
-//echo '<br><br>I SEE A: ' . $orders_query_raw . '<br><br>';
+//echo '<br /><br />I SEE A: ' . $orders_query_raw . '<br /><br />';
 
     } elseif ($_GET['status'] != '') {
       $status = zen_db_prepare_input($_GET['status']);
@@ -896,7 +896,7 @@ function couponpopupWindow(url) {
                           where o.orders_status = s.orders_status_id and s.language_id = '" . (int)$_SESSION['languages_id'] . "' and s.orders_status_id = '" . (int)$status . "'  " .
                           $search . " order by o.orders_id DESC";
 
-//echo '<br><br>I SEE B: ' . $orders_query_raw . '<br><br>';
+//echo '<br /><br />I SEE B: ' . $orders_query_raw . '<br /><br />';
 
     } else {
       $orders_query_raw = "select " . $search_distinct . " o.orders_id, o.customers_id, o.customers_name, o.payment_method, o.shipping_method, o.date_purchased, o.last_modified, o.currency, o.currency_value, s.orders_status_name, ot.text as order_total" .
@@ -908,7 +908,7 @@ function couponpopupWindow(url) {
                           where (o.orders_status = s.orders_status_id and s.language_id = '" . (int)$_SESSION['languages_id'] . "')  " .
                           $search . " order by o.orders_id DESC";
 
-//echo '<br><br>I SEE C: ' . $orders_query_raw . '<br><br>';
+//echo '<br /><br />I SEE C: ' . $orders_query_raw . '<br /><br />';
 
     }
 
