@@ -6,11 +6,11 @@
  * Displays confirmation details after order has been successfully processed.
  *
  * @package templateSystem
- * @copyright Copyright 2003-2010 Zen Cart Development Team
+ * @copyright Copyright 2003-2016 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: tpl_checkout_success_default.php 16435 2010-05-28 09:34:32Z drbyte $
- * @version $Id: Integrated COWOA v2.6
+ * @version $Id: Author: DrByte  Mon Mar 23 13:48:06 2015 -0400 Modified in v1.5.5 $
+ * @version $Id: Integrated COWOA v2.7
  */
 ?>
 <div class="centerColumn" id="checkoutSuccess">
@@ -63,10 +63,10 @@
 <?php } ?>
 <!-- bof payment-method-alerts -->
 <?php
-if (isset($_SESSION['payment_method_messages']) && $_SESSION['payment_method_messages'] != '') {
+if (isset($additional_payment_messages) && $additional_payment_messages != '') {
 ?>
   <div class="content">
-  <?php echo $_SESSION['payment_method_messages']; ?>
+  <?php echo $additional_payment_messages; ?>
   </div>
 <?php
 }
@@ -89,6 +89,17 @@ if ($_SESSION['COWOA'] and COWOA_LOGOFF == 'true') {
 <?php } ?>
 </div>
 <!--eof logoff-->
+
+<div id="checkoutSuccessOrderLink"><?php echo TEXT_SEE_ORDERS;?></div>
+
+<div id="checkoutSuccessContactLink"><?php echo TEXT_CONTACT_STORE_OWNER;?></div>
+
+<!-- bof order details -->
+<?php
+require($template->get_template_dir('tpl_account_history_info_default.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_account_history_info_default.php');
+?>
+<!-- eof order details -->
+
 <br class="clearBoth" />
 <!--bof -product notifications box-->
 <?php
@@ -114,20 +125,6 @@ if ($_SESSION['COWOA'] and COWOA_LOGOFF == 'true') {
     }
 ?>
 <!--eof -product notifications box-->
-
-
-
-<!--bof -product downloads module-->
-<?php
-  if (DOWNLOAD_ENABLED == 'true') require($template->get_template_dir('tpl_modules_downloads.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_modules_downloads.php');
-?>
-<!--eof -product downloads module-->
-
-<?php if(!($_SESSION['COWOA'])) { ?> 
-<div id="checkoutSuccessOrderLink"><?php echo TEXT_SEE_ORDERS;?></div>
-<?php } ?>
-
-<div id="checkoutSuccessContactLink"><?php echo TEXT_CONTACT_STORE_OWNER;?></div>
 
 <h3 id="checkoutSuccessThanks" class="centeredContent"><?php echo TEXT_THANKS_FOR_SHOPPING; ?></h3>
 </div>

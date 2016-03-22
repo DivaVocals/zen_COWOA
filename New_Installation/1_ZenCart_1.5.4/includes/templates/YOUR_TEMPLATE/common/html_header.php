@@ -5,11 +5,18 @@
  * outputs the html header. i,e, everything that comes before the \</head\> tag <br />
  *
  * @package templateSystem
- * @copyright Copyright 2003-2014 Zen Cart Development Team
+ * @copyright Copyright 2003-2016 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version GIT: $Id: Author: DrByte  Jul 5 2014 Modified in v1.5.4 $
+ * @version $Id: Author: DrByte  Fri Feb 12 17:13:56 2016 -0500 Modified in v1.5.5 $
+ * @version $Id: Integrated COWOA v2.7
  */
+
+$zco_notifier->notify('NOTIFY_HTML_HEAD_START', $current_page_base, $template_dir);
+
+// Prevent clickjacking risks by setting X-Frame-Options:SAMEORIGIN
+header('X-Frame-Options:SAMEORIGIN');
+
 /**
  * load the module for generating page meta-tags
  */
@@ -18,44 +25,22 @@ require(DIR_WS_MODULES . zen_get_module_directory('meta_tags.php'));
  * output main page HEAD tag and related headers/meta-tags, etc
  */
 ?>
-<!doctype html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" <?php echo HTML_PARAMS; ?>>
-<?php
-// START HTML 5 CHANGE 1 of 2
-?>
-<?php
-// The following adds classes to the html element in various versions of
-// Microsoft Internet Explorer. This allows us to add conditional markup
-// without the need for additional stylesheets.
-?>
-<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7 no-js" <?php echo HTML_PARAMS; ?>> <![endif]-->
-<!--[if IE 7]> <html class="lt-ie9 lt-ie8 no-js" <?php echo HTML_PARAMS; ?>> <![endif]-->
-<!--[if IE 8]> <html class="lt-ie9 no-js" <?php echo HTML_PARAMS; ?>> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" <?php echo HTML_PARAMS; ?>> <!--<![endif]-->
-<?php // END HTML 5 CHANGE 1 of 2 ?>
 <head>
 <title><?php echo META_TAG_TITLE; ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET; ?>" />
 <meta name="keywords" content="<?php echo META_TAG_KEYWORDS; ?>" />
 <meta name="description" content="<?php echo META_TAG_DESCRIPTION; ?>" />
-
-<?php
-// START HTML 5 CHANGE 2 of 2
-// This is no longer supported in IE > 6 and is not HTML5 compliant
-//<meta http-equiv="imagetoolbar" content="no" />
-//
-// This asks IE to disable compatibility mode
-// (And use the chrome plugin as the rendering engine if available) ?>
-<?php
-header('X-UA-Compatible: IE=edge,chrome=1');
- ?>
-<?php // END HTML 5 CHANGE 2 of 2 */ ?>
-
-<meta name="author" content="The Zen Cart&reg; Team and others" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="author" content="<?php echo STORE_NAME ?>" />
 <meta name="generator" content="shopping cart program by Zen Cart&reg;, http://www.zen-cart.com eCommerce" />
 <?php if (defined('ROBOTS_PAGES_TO_SKIP') && in_array($current_page_base,explode(",",constant('ROBOTS_PAGES_TO_SKIP'))) || $current_page_base=='down_for_maintenance' || $robotsNoIndex === true) { ?>
 <meta name="robots" content="noindex, nofollow" />
 <?php } ?>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
 <?php if (defined('FAVICON')) { ?>
 <link rel="icon" href="<?php echo FAVICON; ?>" type="image/x-icon" />
 <link rel="shortcut icon" href="<?php echo FAVICON; ?>" type="image/x-icon" />
@@ -65,6 +50,18 @@ header('X-UA-Compatible: IE=edge,chrome=1');
 <?php if (isset($canonicalLink) && $canonicalLink != '') { ?>
 <link rel="canonical" href="<?php echo $canonicalLink; ?>" />
 <?php } ?>
+<?php
+  // BOF hreflang for multilingual sites
+  if (!isset($lng) || (isset($lng) && !is_object($lng))) {
+    $lng = new language;
+  }
+  reset($lng->catalog_languages);
+  while (list($key, $value) = each($lng->catalog_languages)) {
+    if ($value['id'] == $_SESSION['languages_id']) continue;
+    echo '<link rel="alternate" href="' . ($this_is_home_page ? zen_href_link(FILENAME_DEFAULT, 'language=' . $key, $request_type) : $canonicalLink . '&amp;language=' . $key) . '" hreflang="' . $key . '" />' . "\n";
+  }
+  // EOF hreflang for multilingual sites
+?>
 
 <?php
 /**
@@ -119,11 +116,18 @@ header('X-UA-Compatible: IE=edge,chrome=1');
   while(list ($key, $value) = each($directory_array)) {
     echo '<link rel="stylesheet" type="text/css" media="print" href="' . $template->get_template_dir('.css',DIR_WS_TEMPLATE, $current_page_base,'css') . '/' . $value . '" />'."\n";
   }
-  
+
 //-bof-COWOA-font-awesome-load  *** 1 of 1 ***
   require ($template->get_template_dir ('tpl_load_font_awesome.php', DIR_WS_TEMPLATE, $current_page_base, 'common'). '/tpl_load_font_awesome.php');
 //-eof-COWOA-font-awesome-load  *** 1 of 1 ***
 
+/** CDN for jQuery core **/
+?>
+
+<script type="text/javascript">window.jQuery || document.write(unescape('%3Cscript type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"%3E%3C/script%3E'));</script>
+<script type="text/javascript">window.jQuery || document.write(unescape('%3Cscript type="text/javascript" src="<?php echo $template->get_template_dir('.js',DIR_WS_TEMPLATE, $current_page_base,'jscript'); ?>/jquery.min.js"%3E%3C/script%3E'));</script>
+
+<?php
 /**
  * load all site-wide jscript_*.js files from includes/templates/YOURTEMPLATE/jscript, alphabetically
  */
@@ -132,12 +136,6 @@ header('X-UA-Compatible: IE=edge,chrome=1');
     echo '<script type="text/javascript" src="' .  $template->get_template_dir('.js',DIR_WS_TEMPLATE, $current_page_base,'jscript') . '/' . $value . '"></script>'."\n";
   }
 
-/** CDN for jQuery core **/
-?>
-  <script>window.jQuery || document.write('<script src="//code.jquery.com/jquery-1.11.1.min.js"><\/script>');</script>
-  <script>window.jQuery || document.write('<script src="<?php echo $template->get_template_dir('.js',DIR_WS_TEMPLATE, $current_page_base,'jscript'); ?>/jquery.min.js"><\/script>');</script>
-
-<?php
 /**
  * load all page-specific jscript_*.js files from includes/modules/pages/PAGENAME, alphabetically
  */
@@ -170,9 +168,9 @@ header('X-UA-Compatible: IE=edge,chrome=1');
   }
 
 // DEBUG: echo '<!-- I SEE cat: ' . $current_category_id . ' || vs cpath: ' . $cPath . ' || page: ' . $current_page . ' || template: ' . $current_template . ' || main = ' . ($this_is_home_page ? 'YES' : 'NO') . ' -->';
-
-
+  $zco_notifier->notify('NOTIFY_HTML_HEAD_END', $current_page_base);
 ?>
+
 </head>
 <?php // NOTE: Blank line following is intended: ?>
 

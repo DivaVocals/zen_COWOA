@@ -6,15 +6,15 @@
  * Displays final checkout details, cart, payment and shipping info details.
  *
  * @package templateSystem
- * @copyright Copyright 2003-2006 Zen Cart Development Team
+ * @copyright Copyright 2003-2016 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: tpl_checkout_confirmation_default.php 6247 2007-04-21 21:34:47Z wilt $
- * @version $Id: Integrated COWOA v2.6
+ * @version $Id: Author: DrByte  Fri Jan 8 00:33:36 2016 -0500 Modified in v1.5.5 $
+ * @version $Id: Integrated COWOA v2.7
  */
 ?>
 <div class="centerColumn" id="checkoutConfirmDefault">
-<br />
+
 <h1 id="checkoutConfirmDefaultHeading"><?php echo HEADING_TITLE; ?></h1>
 
 <!-- bof Order Steps (tableless) -->
@@ -41,12 +41,11 @@
 
 <?php if ($messageStack->size('redemptions') > 0) echo $messageStack->output('redemptions'); ?>
 <?php if ($messageStack->size('checkout_confirmation') > 0) echo $messageStack->output('checkout_confirmation'); ?>
-<?php if ($messageStack->size('checkout') > 0) echo $messageStack->output('checkout'); 
+<?php if ($messageStack->size('checkout') > 0) echo $messageStack->output('checkout'); ?>
 
  if ($_SESSION['cart']->show_total() != 0) {  ?>
-
-<div id="checkoutShipto" class="back">
-<h4 id="checkoutConfirmDefaultBillingAddress"><?php echo HEADING_BILLING_ADDRESS; ?></h4>
+<div id="checkoutBillto" class="back">
+<h2 id="checkoutConfirmDefaultBillingAddress"><?php echo HEADING_BILLING_ADDRESS; ?></h2>
 <?php if (!$flagDisablePaymentAddressChange) { ?>
 <div class="buttonRow forward"><?php echo '<a href="' . zen_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL') . '">' . zen_image_button(BUTTON_IMAGE_EDIT_SMALL, BUTTON_EDIT_SMALL_ALT) . '</a>'; ?></div>
 <?php } ?>
@@ -57,8 +56,8 @@
   $class =& $_SESSION['payment'];
 ?>
 
-<h4 id="checkoutConfirmDefaultPayment"><?php echo HEADING_PAYMENT_METHOD; ?></h4> 
-<p id="checkoutConfirmDefaultPaymentTitle"><?php echo $GLOBALS[$class]->title; ?></p>
+<h3 id="checkoutConfirmDefaultPayment"><?php echo HEADING_PAYMENT_METHOD; ?></h3>
+<h4 id="checkoutConfirmDefaultPaymentTitle"><?php echo $GLOBALS[$class]->title; ?></h4>
 
 <?php
   if (is_array($payment_modules->modules)) {
@@ -89,7 +88,7 @@
   if ($_SESSION['sendto'] != false) {
 ?>
 <div id="checkoutShipto" class="forward">
-<h4 id="checkoutConfirmDefaultShippingAddress"><?php echo HEADING_DELIVERY_ADDRESS; ?></h4>
+<h2 id="checkoutConfirmDefaultShippingAddress"><?php echo HEADING_DELIVERY_ADDRESS; ?></h2>
 <div class="buttonRow forward"><?php echo '<a href="' . $editShippingButtonLink . '">' . zen_image_button(BUTTON_IMAGE_EDIT_SMALL, BUTTON_EDIT_SMALL_ALT) . '</a>'; ?></div>
 
 <address><?php echo zen_address_format($order->delivery['format_id'], $order->delivery, 1, ' ', '<br />'); ?></address>
@@ -97,8 +96,8 @@
 <?php
     if ($order->info['shipping_method']) {
 ?>
-<h4 id="checkoutConfirmDefaultShipment"><?php echo HEADING_SHIPPING_METHOD; ?></h4>
-<p id="checkoutConfirmDefaultShipmentTitle"><?php echo $order->info['shipping_method']; ?></p>
+<h3 id="checkoutConfirmDefaultShipment"><?php echo HEADING_SHIPPING_METHOD; ?></h3>
+<h4 id="checkoutConfirmDefaultShipmentTitle"><?php echo $order->info['shipping_method']; ?></h4>
 
 <?php
     }
@@ -109,13 +108,8 @@
 ?>
 <br class="clearBoth" />
 <hr />
-<?php
-// always show comments
-//  if ($order->info['comments']) {
-?>
 
-<h4 id="checkoutConfirmDefaultHeadingComments"><?php echo HEADING_ORDER_COMMENTS; ?></h4>
-
+<h2 id="checkoutConfirmDefaultHeadingComments"><?php echo HEADING_ORDER_COMMENTS; ?></h2>
 <div class="buttonRow forward"><?php echo  '<a href="' . zen_href_link(FILENAME_CHECKOUT_PAYMENT, '', 'SSL') . '">' . zen_image_button(BUTTON_IMAGE_EDIT_SMALL, BUTTON_EDIT_SMALL_ALT) . '</a>'; ?></div>
 <div><?php echo (empty($order->info['comments']) ? NO_COMMENTS_TEXT : nl2br(zen_output_string_protected($order->info['comments'])) . zen_draw_hidden_field('comments', $order->info['comments'])); ?></div>
 <br class="clearBoth" />
@@ -124,7 +118,7 @@
 ?>
 <hr />
 
-<h4 id="checkoutConfirmDefaultHeadingCart"><?php echo HEADING_PRODUCTS; ?></h4>
+<h2 id="checkoutConfirmDefaultHeadingCart"><?php echo HEADING_PRODUCTS; ?></h2>
 
 <div class="buttonRow forward"><?php echo '<a href="' . zen_href_link(FILENAME_SHOPPING_CART, '', 'SSL') . '">' . zen_image_button(BUTTON_IMAGE_EDIT_SMALL, BUTTON_EDIT_SMALL_ALT) . '</a>'; ?></div>
 <br class="clearBoth" />
@@ -138,9 +132,9 @@
 <?php  } //endif flagAnyOutOfStock ?>
 
 
-      <table border="0" width="100%" cellspacing="0" cellpadding="0" id="cartContentsDisplay">
+      <table id="cartContentsDisplay">
         <tr class="cartTableHeading">
-        <th scope="col" id="ccQuantityHeading" width="30"><?php echo TABLE_HEADING_QUANTITY; ?></th>
+        <th scope="col" id="ccQuantityHeading"><?php echo TABLE_HEADING_QUANTITY; ?></th>
         <th scope="col" id="ccProductsHeading"><?php echo TABLE_HEADING_PRODUCTS; ?></th>
 <?php
   // If there are tax groups, display the tax columns for price breakdown
@@ -203,12 +197,8 @@
     echo $payment_modules->process_button();
   }
 ?>
-<hr />
 <div class="buttonRow forward"><?php echo zen_image_submit(BUTTON_IMAGE_CONFIRM_ORDER, BUTTON_CONFIRM_ORDER_ALT, 'name="btn_submit" id="btn_submit"') ;?></div>
 </form>
-<div class="buttonRow forward"><?php echo TITLE_CONTINUE_CHECKOUT_PROCEDURE . '<br />' . TEXT_CONTINUE_CHECKOUT_PROCEDURE; ?></div>
+<div class="buttonRow back"><?php echo TITLE_CONTINUE_CHECKOUT_PROCEDURE . '<br />' . TEXT_CONTINUE_CHECKOUT_PROCEDURE; ?></div>
 
 </div>
-<?php
-  }
-?>

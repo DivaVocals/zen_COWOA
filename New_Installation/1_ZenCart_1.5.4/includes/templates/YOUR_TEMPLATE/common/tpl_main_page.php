@@ -1,7 +1,7 @@
 <?php
 /**
  * Common Template - tpl_main_page.php
- * @version $Id: Integrated COWOA v2.6
+ * @version $Id: Integrated COWOA v2.7
  *
  * Governs the overall layout of an entire page<br />
  * Normally consisting of a header, left side column. center column. right side column and footer<br />
@@ -33,11 +33,22 @@
  * }<br />
  *
  * @package templateSystem
- * @copyright Copyright 2003-2007 Zen Cart Development Team
+ * @copyright Copyright 2003-2016 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version $Id: tpl_main_page.php 7085 2007-09-22 04:56:31Z ajeh $
+ * @version $Id: Author: DrByte  Fri Jan 8 14:09:25 2016 -0500 Modified in v1.5.5 $
  */
+
+/** bof DESIGNER TESTING ONLY: */
+// $messageStack->add('header', 'this is a sample error message', 'error');
+// $messageStack->add('header', 'this is a sample caution message', 'caution');
+// $messageStack->add('header', 'this is a sample success message', 'success');
+// $messageStack->add('main', 'this is a sample error message', 'error');
+// $messageStack->add('main', 'this is a sample caution message', 'caution');
+// $messageStack->add('main', 'this is a sample success message', 'success');
+/** eof DESIGNER TESTING ONLY */
+
+
 
 // COWOA modificatiion - the following IF statement can be duplicated/modified as needed to set additional flags
 // admin controlled setting turns off sideboxes when you enter the checkout. will help with sales conversions by eliminating customer distractions
@@ -76,7 +87,7 @@ if (in_array($current_page_base,explode(",",'no_account,create_account,account,a
   }
   require($template->get_template_dir('tpl_header.php',DIR_WS_TEMPLATE, $current_page_base,'common'). '/tpl_header.php');?>
 
-<table id="contentMainWrapper">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="contentMainWrapper">
   <tr>
 <?php
 if (COLUMN_LEFT_STATUS == 0 || (CUSTOMERS_APPROVAL == '1' and $_SESSION['customer_id'] == '') || (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_COLUMN_LEFT_OFF == 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == ''))) {
@@ -97,7 +108,7 @@ if (!isset($flag_disable_left) || !$flag_disable_left) {
 <?php
 }
 ?>
-    <td id="navColumnMain" class="columnCenter">
+    <td valign="top">
 <!-- bof  breadcrumb -->
 <?php if (DEFINE_BREADCRUMB_STATUS == '1' || (DEFINE_BREADCRUMB_STATUS == '2' && !$this_is_home_page) ) { ?>
     <div id="navBreadCrumb"><?php echo $breadcrumb->trail(BREAD_CRUMBS_SEPARATOR); ?></div>
@@ -189,4 +200,8 @@ if (!isset($flag_disable_right) || !$flag_disable_right) {
   }
 ?>
 <!--eof- banner #6 display -->
+
+<?php /* add any end-of-page code via an observer class */
+  $zco_notifier->notify('NOTIFY_FOOTER_END', $current_page);
+?>
 </body>
