@@ -1,11 +1,11 @@
 <?php
 /**
  * @package languageDefines
- * @copyright Copyright 2003-2014 Zen Cart Development Team
+ * @copyright Copyright 2003-2016 Zen Cart Development Team
  * @copyright Portions Copyright 2003 osCommerce
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
- * @version GIT: $Id: Author: ajeh  Modified in v1.5.4 $
- * @version $Id: Integrated COWOA v2.6
+ * @version $Id: Author: DrByte  Tue Jan 5 15:06:15 2016 -0500 Modified in v1.5.5 $
+ * @version $Id: Integrated COWOA v2.7
  */
 
 // FOLLOWING WERE moved to meta_tags.php
@@ -138,7 +138,6 @@
   define('BOX_INFORMATION_CONDITIONS', 'Conditions of Use');
   define('BOX_INFORMATION_SHIPPING', 'Shipping &amp; Returns');
   define('BOX_INFORMATION_CONTACT', 'Contact Us');
-  define('BOX_BBINDEX', 'Forum');
   define('BOX_INFORMATION_UNSUBSCRIBE', 'Newsletter Unsubscribe');
 
   define('BOX_INFORMATION_SITE_MAP', 'Site Map');
@@ -196,8 +195,8 @@
   define('ENTRY_EMAIL_ADDRESS', 'Email Address:');
   define('ENTRY_EMAIL_ADDRESS_ERROR', 'Is your email address correct? It should contain at least ' . ENTRY_EMAIL_ADDRESS_MIN_LENGTH . ' characters. Please try again.');
   define('ENTRY_EMAIL_ADDRESS_CHECK_ERROR', 'Sorry, my system does not understand your email address. Please try again.');
+  define('ENTRY_EMAIL_ADDRESS_ERROR_EXISTS', 'Our system already has a record of that email address - please try logging in with that email address. If you do not use that address any longer you can correct it in the My Account area.');
 // BOF COWOA
-  define('ENTRY_EMAIL_ADDRESS_ERROR_EXISTS', 'Our system already has a record of an account with the email address you entered - please try <a href="index.php?main_page=login"><strong><u>logging in</u></strong></a> with that email address. If you have forgotten your password, click the <strong>"Forgot your password?"</strong> link to reset your password. If you do not use that email address any longer you can correct it in the <strong>"My Account"</strong> area after you login.');
   define('ENTRY_EMAIL_ADDRESS_COWOA_ERROR_EXISTS', 'You cannot use our "<strong>Guest Checkout</strong>" feature with the e-mail address you provided because our system already has a regular store account on file using that email address. If you wish to use our "<strong>Guest Checkout</strong>" feature, you must use a different e-mail address for this order. <br /><br />If you wish to use the e-mail address you entered, you will need to use the regular checkout with your store account on file. Please <a href="index.php?main_page=login"><u>log in</u></a> to our store with that email address. If you have forgotten your password, click the "Forgot your password?" link to reset your password. Once logged in, you can update your account in the "<strong>My Account</strong>" area.');
 // EOF COWOA
   define('ENTRY_EMAIL_ADDRESS_TEXT', '*');
@@ -233,9 +232,7 @@
   define('ENTRY_FAX_NUMBER', 'Fax Number:');
   define('ENTRY_FAX_NUMBER_ERROR', '');
   define('ENTRY_FAX_NUMBER_TEXT', '');
-// BOF COWOA
-  define('ENTRY_NEWSLETTER', 'Subscribe to Our Newsletter. (Promotion/Special Events)');
-// EOF COWOA
+  define('ENTRY_NEWSLETTER', 'Subscribe to Our Newsletter.');
   define('ENTRY_NEWSLETTER_TEXT', '');
   define('ENTRY_NEWSLETTER_YES', 'Subscribed');
   define('ENTRY_NEWSLETTER_NO', 'Unsubscribed');
@@ -275,12 +272,10 @@
   define('PREVNEXT_TITLE_PAGE_NO', 'Page %d');
   define('PREVNEXT_TITLE_PREV_SET_OF_NO_PAGE', 'Previous Set of %d Pages');
   define('PREVNEXT_TITLE_NEXT_SET_OF_NO_PAGE', 'Next Set of %d Pages');
-// BOF COWOA
-  define('PREVNEXT_BUTTON_FIRST', '&laquo;&laquo;FIRST');
-  define('PREVNEXT_BUTTON_PREV', '[&laquo;&laquo;&nbsp;Prev]');
-  define('PREVNEXT_BUTTON_NEXT', '[Next&nbsp;&raquo;&raquo;]');
-  define('PREVNEXT_BUTTON_LAST', 'LAST&raquo;&raquo;');
-// EOF COWOA
+  define('PREVNEXT_BUTTON_FIRST', '&laquo;FIRST');
+  define('PREVNEXT_BUTTON_PREV', '[&laquo;&nbsp;Prev]');
+  define('PREVNEXT_BUTTON_NEXT', '[Next&nbsp;&raquo;]');
+  define('PREVNEXT_BUTTON_LAST', 'LAST&raquo;');
 
   define('TEXT_BASE_PRICE','Starting at: ');
 
@@ -440,11 +435,9 @@
 
   define('PRODUCTS_PRICE_IS_FREE_TEXT','It\'s Free!');
   define('PRODUCTS_PRICE_IS_CALL_FOR_PRICE_TEXT','Call for Price');
-  define('TEXT_CALL_FOR_PRICE','Call for Price');
+  define('TEXT_CALL_FOR_PRICE','Call for price');
 
-// BOF COWOA
-  define('TEXT_INVALID_SELECTION',', you picked an invalid selection: ');
-// EOF COWOA
+  define('TEXT_INVALID_SELECTION',' You picked an Invalid Selection: ');
   define('TEXT_ERROR_OPTION_FOR',' On the Option for: ');
   define('TEXT_INVALID_USER_INPUT', 'User Input Required<br />');
 
@@ -519,6 +512,7 @@
   define('TEXT_AUTHORIZATION_PENDING_PRICE', 'Price Unavailable');
   define('TEXT_AUTHORIZATION_PENDING_BUTTON_REPLACE', 'APPROVAL PENDING');
   define('TEXT_LOGIN_TO_SHOP_BUTTON_REPLACE','Login to Shop');
+  define('TEXT_AUTHORIZATION_PENDING_CHECKOUT', 'Checkout Unavailable - Approval Pending');
 
 // text pricing
   define('TEXT_CHARGES_WORD','Calculated Charge:');
@@ -539,9 +533,7 @@
   define('TEXT_REMAINING','remaining');
 
 // Shipping Estimator
-// BOF COWOA
-  define('CART_SHIPPING_OPTIONS', 'Estimate Shipping Costs - Enter your Postal Code &amp; State below and click update button');
-// EOF COWOA
+  define('CART_SHIPPING_OPTIONS', 'Estimate Shipping Costs');
   define('CART_SHIPPING_OPTIONS_LOGIN', 'Please <a href="' . zen_href_link(FILENAME_LOGIN, '', 'SSL') . '"><span class="pseudolink">Log In</span></a>, to display your personal shipping costs.');
   define('CART_SHIPPING_METHOD_TEXT', 'Available Shipping Methods');
   define('CART_SHIPPING_METHOD_RATES', 'Rates');
@@ -606,24 +598,18 @@
   define('TABLE_HEADING_TOTAL', 'Total');
 
 // create account - login shared
-// BOF COWOA
-  define('TABLE_HEADING_PRIVACY_CONDITIONS', 'Our Policies');
-  define('TEXT_PRIVACY_CONDITIONS_DESCRIPTION', 'Please acknowledge you agree with our privacy policy and conditions of use by ticking the following box. The privacy policy can be read <a href="' . zen_href_link(FILENAME_PRIVACY, '', 'SSL') . '"><span class="pseudolink">here</span></a>. Our conditions of use policy can be read <a href="' . zen_href_link(FILENAME_CONDITIONS, '', 'SSL') . '"><span class="pseudolink">here</span></a>.');
-  define('TEXT_PRIVACY_CONDITIONS_CONFIRM', 'I have read and agreed to your privacy policy and conditions of use.');
-  define('TABLE_HEADING_ADDRESS_DETAILS', 'Billing Address Information');
-  define('TABLE_HEADING_PHONE_FAX_DETAILS', 'Billing Contact Information');
-// EOF COWOA
+  define('TABLE_HEADING_PRIVACY_CONDITIONS', 'Privacy Statement');
+  define('TEXT_PRIVACY_CONDITIONS_DESCRIPTION', 'Please acknowledge you agree with our privacy statement by ticking the following box. The privacy statement can be read <a href="' . zen_href_link(FILENAME_PRIVACY, '', 'SSL') . '"><span class="pseudolink">here</span></a>.');
+  define('TEXT_PRIVACY_CONDITIONS_CONFIRM', 'I have read and agreed to your privacy statement.');
+  define('TABLE_HEADING_ADDRESS_DETAILS', 'Address Details');
+  define('TABLE_HEADING_PHONE_FAX_DETAILS', 'Additional Contact Details');
   define('TABLE_HEADING_DATE_OF_BIRTH', 'Verify Your Age');
-// BOF COWOA
-  define('TABLE_HEADING_LOGIN_DETAILS', 'Create a Password (required to track your packages)');
-// EOF COWOA
+  define('TABLE_HEADING_LOGIN_DETAILS', 'Login Details');
   define('TABLE_HEADING_REFERRAL_DETAILS', 'Were You Referred to Us?');
 
   define('ERROR_TEXT_COUNTRY_DISABLED_PLEASE_CHANGE', 'Sorry, but we no longer accept billing or shipping addresses in "%s".  Please update this address to continue.');
 
-// BOF COWOA
-  define('ENTRY_EMAIL_PREFERENCE','Email Preferences');
-// EOF COWOA
+  define('ENTRY_EMAIL_PREFERENCE','Newsletter and Email Details');
   define('ENTRY_EMAIL_HTML_DISPLAY','HTML');
   define('ENTRY_EMAIL_TEXT_DISPLAY','TEXT-Only');
   define('EMAIL_SEND_FAILED','ERROR: Failed sending email to: "%s" <%s> with subject: "%s"');

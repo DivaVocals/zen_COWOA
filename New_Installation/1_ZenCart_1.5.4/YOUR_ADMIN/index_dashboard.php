@@ -115,16 +115,16 @@ $salemaker_act = $db->Execute("select count(*) as count from " . TABLE_SALEMAKER
     $COWOAcustomers = $db->Execute("select count(*) as count from " . TABLE_CUSTOMERS . " WHERE COWOA_account = '1'");
 
     $customersTotal = $customers->fields['count'] + $COWOAcustomers->fields['count'];
-	echo '<div class="row"><span class="left">' . BOX_ENTRY_CUSTOMERS_TOTAL . '</span><span class="right"> ' . $customersTotal . '</span></div>';	
-	echo '<div class="row"><span class="left">' . BOX_ENTRY_CUSTOMERS_NORMAL . '</span><span class="right"> ' . $customers->fields['count'] . '</span></div>';	
-	echo '<div class="row"><span class="left">' . BOX_ENTRY_CUSTOMERS_COWOA . '</span><span class="right"> ' . $COWOAcustomers->fields['count'] . '</span></div>';
+	echo '<div class="row"><span class="left">' . BOX_ENTRY_CUSTOMERS_TOTAL . '</span><span class="rigth"> ' . $customersTotal . '</span></div>';	
+	echo '<div class="row"><span class="left">' . BOX_ENTRY_CUSTOMERS_NORMAL . '</span><span class="rigth"> ' . $customers->fields['count'] . '</span></div>';	
+	echo '<div class="row"><span class="left">' . BOX_ENTRY_CUSTOMERS_COWOA . '</span><span class="rigth"> ' . $COWOAcustomers->fields['count'] . '</span></div>';
 
  // get distinct number of customers flagged as COWOA - by email address
     $DistinctCOWOAcustomers = $db->Execute("select count(DISTINCT customers_email_address) as count from " . TABLE_CUSTOMERS . " WHERE COWOA_account = '1';");
     $customersTotal = $customers->fields['count'] + $DistinctCOWOAcustomers->fields['count'];   
-    echo '<br /><div class="row"><span class="left">' . BOX_ENTRY_CUSTOMERS_TOTAL_DISTINCT . '</span><span class="right"> ' . $customersTotal . '</span></div>';	
-	echo '<div class="row"><span class="left">' . BOX_ENTRY_CUSTOMERS_NORMAL . '</span><span class="right"> ' . $customers->fields['count'] . '</span></div>';	
-	echo '<div class="row"><span class="left">' . BOX_ENTRY_CUSTOMERS_COWOA_DISTINCT . '</span><span class="right"> ' . $DistinctCOWOAcustomers->fields['count'] . '</span></div>';
+    echo '<br /><div class="row"><span class="left">' . BOX_ENTRY_CUSTOMERS_TOTAL_DISTINCT . '</span><span class="rigth"> ' . $customersTotal . '</span></div>';	
+	echo '<div class="row"><span class="left">' . BOX_ENTRY_CUSTOMERS_NORMAL . '</span><span class="rigth"> ' . $customers->fields['count'] . '</span></div>';	
+	echo '<div class="row"><span class="left">' . BOX_ENTRY_CUSTOMERS_COWOA_DISTINCT . '</span><span class="rigth"> ' . $DistinctCOWOAcustomers->fields['count'] . '</span></div>';
 ?>
 	</div>
  <!-- COWOA+ -->
