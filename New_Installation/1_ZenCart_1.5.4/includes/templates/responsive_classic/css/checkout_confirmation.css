@@ -1,0 +1,124 @@
+/* This is the CSS needed for the Order Step Edition 2 contribution
+ * @version $Id: Integrated COWOA v2.6  - 2007 - 2014
+*/
+
+#order_steps {       /* Is needed for the centering in IE */
+    padding: 0 3px;
+    margin: 10px 10px;
+    text-align: center;
+    border: 1px solid #000;
+    height:70px;
+}
+
+.order_steps_text {
+    margin: 0 auto;
+    text-align: center;
+    color: #A7A7A7;        /* Determines the non-active color of the text */
+    height: 50px;
+    margin-top: 5px;
+    /*padding-top: 25px;*/ /* Determines the distance between the text and the line */
+}
+
+
+#active_step_text {color: #005C2C;/*font-weight: 700;font-size: 1.1em;*/width:25%;float:left;/*margin-top: 5px;*/}/* These are the styles for the active text */
+
+/*span#active_step_text i.fa {font-size: 2.1em;}*/
+#order_steps .order_steps_text i.fa {font-size: 2.1em;font-weight: 700;/*font-size: 1.1em;*/}
+
+.order_steps_text2 {
+  /*text-align: center;*/
+    color: #A7A7A7;        /* Determines the non-active color of the text */
+    /*padding-top: 25px;*/ /* Determines the distance between the text and the line */
+    width:25%;
+    float:left;
+}
+
+.order_steps_text3 {
+    /*text-align: center;*/
+    color: #A7A7A7;        /* Determines the non-active color of the text */
+    /*padding-top: 26px;*/ /* Determines the distance between the text and the line */
+    width:25%;
+    float:left;
+}
+
+.order_steps_text4 {
+    /*text-align: center;*/
+    color: #A7A7A7;        /* Determines the non-active color of the text */
+    /*padding-top: 26px;*/ /* Determines the distance between the text and the line */
+    width:25%;
+    float:left;
+}
+
+#active_step_text_COWOA {color:#005C2C;/*font-weight:700;font-size:1.1em;*/width:20%;float:left;}/* These are the styles for the active text */
+
+.order_steps_text1_COWOA {
+    /*text-align: center;*/
+    color: #A7A7A7;        /* Determines the non-active color of the text */
+    /*padding-top: 26px;*/ /* Determines the distance between the text and the line */
+    width:20%;
+    float:left;
+}
+
+.order_steps_text2_COWOA {
+    /*text-align: center;*/
+    color: #A7A7A7;        /* Determines the non-active color of the text */
+    /*padding-top: 26px;*/ /* Determines the distance between the text and the line */
+    width:20%;
+    float:left;
+}
+
+.order_steps_text3_COWOA {
+    /*text-align: center;*/
+    color: #A7A7A7;        /* Determines the non-active color of the text */
+    /*padding-top: 26px;*/ /* Determines the distance between the text and the line */
+    width:20%;
+    float:left;
+}
+
+.order_steps_text4_COWOA {
+    /*text-align: center;*/
+    color: #A7A7A7;        /* Determines the non-active color of the text */
+    /*padding-top: 26px;*/ /* Determines the distance between the text and the line */
+    width:20%;
+    float:left;
+}
+
+.order_steps_line_2 {
+    padding: 5px 0 0 0;
+    margin: 0;
+    width:100%;
+}
+
+.progressbar_active {
+	 background-color: #3DA200; /* Determines the active color of the completed part of the line */
+	 width:25%;
+	 float:left;
+	 height: 5px;
+	 color: #3DA200;
+}
+
+.progressbar_inactive {
+	 background-color: #9A9A9A; /* Determines the active color of the completed part of the line */
+	 width:25%;
+	 float:left;
+	 height: 5px;
+	 color: #9A9A9A;
+}
+
+.progressbar_active_COWOA {
+	 background-color: #3DA200; /* Determines the active color of the completed part of the line */
+	 width:20%;
+	 float:left;
+	 height: 5px;
+	 color: #3DA200;
+}
+
+.progressbar_inactive_COWOA {
+	 background-color: #9A9A9A; /* Determines the active color of the completed part of the line */
+	 width:20%;
+	 float:left;
+	 height: 5px;
+	 color: #9A9A9A;
+}
+
+/* End Order Steps contribution CSS */
