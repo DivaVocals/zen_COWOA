@@ -134,7 +134,6 @@ if (!class_exists('Mobile_Detect')) {
   require ($template->get_template_dir ('tpl_load_font_awesome.php', DIR_WS_TEMPLATE, $current_page_base, 'common'). '/tpl_load_font_awesome.php');
 //-eof-COWOA-font-awesome-load  *** 1 of 1 ***
 
-
 /** CDN for jQuery core **/
 ?>
 

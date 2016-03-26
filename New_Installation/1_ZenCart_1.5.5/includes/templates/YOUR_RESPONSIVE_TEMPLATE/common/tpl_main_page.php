@@ -52,10 +52,10 @@
 // COWOA modificatiion - the following IF statement can be duplicated/modified as needed to set additional flags
 // admin controlled setting turns off sideboxes when you enter the checkout. will help with sales conversions by eliminating customer distractions
 if (COWOA_SIDEBOX_OFF == 'true') {  
-	if (in_array($current_page_base,explode(",",'list_pages_to_skip_all_right_sideboxes_on_here,separated_by_commas,and_no_spaces')) ) {
-	  $flag_disable_right = true;
-	  $flag_disable_left = true;
-	}
+if (in_array($current_page_base,explode(",",'no_account,create_account,account,account_password,account_edit,address_book,account_history_info,account_newsletters,account_notifications,account_history,login,logoff,checkout_shipping,checkout_shipping_address,checkout_payment,checkout_payment_address,checkout_confirmation,checkout_process,shopping_cart,address_book_process')) ) {
+    $flag_disable_right = true;
+    $flag_disable_left = true;
+  }
 }
 // ZCAdditions.com, Responsive Template Default (BOF-addition 1 of 1)
 if ($flag_disable_right or COLUMN_RIGHT_STATUS == '0') {

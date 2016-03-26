@@ -195,8 +195,8 @@
   define('ENTRY_EMAIL_ADDRESS', 'Email Address:');
   define('ENTRY_EMAIL_ADDRESS_ERROR', 'Is your email address correct? It should contain at least ' . ENTRY_EMAIL_ADDRESS_MIN_LENGTH . ' characters. Please try again.');
   define('ENTRY_EMAIL_ADDRESS_CHECK_ERROR', 'Sorry, my system does not understand your email address. Please try again.');
-  define('ENTRY_EMAIL_ADDRESS_ERROR_EXISTS', 'Our system already has a record of that email address - please try logging in with that email address. If you do not use that address any longer you can correct it in the My Account area.');
 // BOF COWOA
+  define('ENTRY_EMAIL_ADDRESS_ERROR_EXISTS', 'Our system already has a record of an account with the email address you entered - please try <a href="index.php?main_page=login"><strong><u>logging in</u></strong></a> with that email address. If you have forgotten your password, click the <strong>"Forgot your password?"</strong> link to reset your password. If you do not use that email address any longer you can correct it in the <strong>"My Account"</strong> area after you login.');
   define('ENTRY_EMAIL_ADDRESS_COWOA_ERROR_EXISTS', 'You cannot use our "<strong>Guest Checkout</strong>" feature with the e-mail address you provided because our system already has a regular store account on file using that email address. If you wish to use our "<strong>Guest Checkout</strong>" feature, you must use a different e-mail address for this order. <br /><br />If you wish to use the e-mail address you entered, you will need to use the regular checkout with your store account on file. Please <a href="index.php?main_page=login"><u>log in</u></a> to our store with that email address. If you have forgotten your password, click the "Forgot your password?" link to reset your password. Once logged in, you can update your account in the "<strong>My Account</strong>" area.');
 // EOF COWOA
   define('ENTRY_EMAIL_ADDRESS_TEXT', '*');
@@ -232,7 +232,9 @@
   define('ENTRY_FAX_NUMBER', 'Fax Number:');
   define('ENTRY_FAX_NUMBER_ERROR', '');
   define('ENTRY_FAX_NUMBER_TEXT', '');
-  define('ENTRY_NEWSLETTER', 'Subscribe to Our Newsletter.');
+// BOF COWOA
+  define('ENTRY_NEWSLETTER', 'Subscribe to Our Newsletter. (Promotion/Special Events)');
+// EOF COWOA
   define('ENTRY_NEWSLETTER_TEXT', '');
   define('ENTRY_NEWSLETTER_YES', 'Subscribed');
   define('ENTRY_NEWSLETTER_NO', 'Unsubscribed');
@@ -272,10 +274,12 @@
   define('PREVNEXT_TITLE_PAGE_NO', 'Page %d');
   define('PREVNEXT_TITLE_PREV_SET_OF_NO_PAGE', 'Previous Set of %d Pages');
   define('PREVNEXT_TITLE_NEXT_SET_OF_NO_PAGE', 'Next Set of %d Pages');
-  define('PREVNEXT_BUTTON_FIRST', '&laquo;FIRST');
-  define('PREVNEXT_BUTTON_PREV', '[&laquo;&nbsp;Prev]');
-  define('PREVNEXT_BUTTON_NEXT', '[Next&nbsp;&raquo;]');
-  define('PREVNEXT_BUTTON_LAST', 'LAST&raquo;');
+// BOF COWOA
+  define('PREVNEXT_BUTTON_FIRST', '&laquo;&laquo;FIRST');
+  define('PREVNEXT_BUTTON_PREV', '[&laquo;&laquo;&nbsp;Prev]');
+  define('PREVNEXT_BUTTON_NEXT', '[Next&nbsp;&raquo;&raquo;]');
+  define('PREVNEXT_BUTTON_LAST', 'LAST&raquo;&raquo;');
+// EOF COWOA
 
   define('TEXT_BASE_PRICE','Starting at: ');
 
@@ -435,9 +439,11 @@
 
   define('PRODUCTS_PRICE_IS_FREE_TEXT','It\'s Free!');
   define('PRODUCTS_PRICE_IS_CALL_FOR_PRICE_TEXT','Call for Price');
-  define('TEXT_CALL_FOR_PRICE','Call for price');
+  define('TEXT_CALL_FOR_PRICE','Call for Price');
 
-  define('TEXT_INVALID_SELECTION',' You picked an Invalid Selection: ');
+// BOF COWOA
+  define('TEXT_INVALID_SELECTION',', you picked an invalid selection: ');
+// EOF COWOA
   define('TEXT_ERROR_OPTION_FOR',' On the Option for: ');
   define('TEXT_INVALID_USER_INPUT', 'User Input Required<br />');
 
@@ -533,7 +539,9 @@
   define('TEXT_REMAINING','remaining');
 
 // Shipping Estimator
-  define('CART_SHIPPING_OPTIONS', 'Estimate Shipping Costs');
+// BOF COWOA
+  define('CART_SHIPPING_OPTIONS', 'Estimate Shipping Costs - Enter your Postal Code &amp; State below and click update button');
+// EOF COWOA
   define('CART_SHIPPING_OPTIONS_LOGIN', 'Please <a href="' . zen_href_link(FILENAME_LOGIN, '', 'SSL') . '"><span class="pseudolink">Log In</span></a>, to display your personal shipping costs.');
   define('CART_SHIPPING_METHOD_TEXT', 'Available Shipping Methods');
   define('CART_SHIPPING_METHOD_RATES', 'Rates');
@@ -598,18 +606,24 @@
   define('TABLE_HEADING_TOTAL', 'Total');
 
 // create account - login shared
-  define('TABLE_HEADING_PRIVACY_CONDITIONS', 'Privacy Statement');
-  define('TEXT_PRIVACY_CONDITIONS_DESCRIPTION', 'Please acknowledge you agree with our privacy statement by ticking the following box. The privacy statement can be read <a href="' . zen_href_link(FILENAME_PRIVACY, '', 'SSL') . '"><span class="pseudolink">here</span></a>.');
-  define('TEXT_PRIVACY_CONDITIONS_CONFIRM', 'I have read and agreed to your privacy statement.');
-  define('TABLE_HEADING_ADDRESS_DETAILS', 'Address Details');
-  define('TABLE_HEADING_PHONE_FAX_DETAILS', 'Additional Contact Details');
+// BOF COWOA
+  define('TABLE_HEADING_PRIVACY_CONDITIONS', 'Our Policies');
+  define('TEXT_PRIVACY_CONDITIONS_DESCRIPTION', 'Please acknowledge you agree with our privacy policy and conditions of use by ticking the following box. The privacy policy can be read <a href="' . zen_href_link(FILENAME_PRIVACY, '', 'SSL') . '"><span class="pseudolink">here</span></a>. Our conditions of use policy can be read <a href="' . zen_href_link(FILENAME_CONDITIONS, '', 'SSL') . '"><span class="pseudolink">here</span></a>.');
+  define('TEXT_PRIVACY_CONDITIONS_CONFIRM', 'I have read and agreed to your privacy policy and conditions of use.');
+  define('TABLE_HEADING_ADDRESS_DETAILS', 'Billing Address Information');
+  define('TABLE_HEADING_PHONE_FAX_DETAILS', 'Billing Contact Information');
+// EOF COWOA
   define('TABLE_HEADING_DATE_OF_BIRTH', 'Verify Your Age');
-  define('TABLE_HEADING_LOGIN_DETAILS', 'Login Details');
+// BOF COWOA
+  define('TABLE_HEADING_LOGIN_DETAILS', 'Create a Password (required to track your packages)');
+// EOF COWOA
   define('TABLE_HEADING_REFERRAL_DETAILS', 'Were You Referred to Us?');
 
   define('ERROR_TEXT_COUNTRY_DISABLED_PLEASE_CHANGE', 'Sorry, but we no longer accept billing or shipping addresses in "%s".  Please update this address to continue.');
 
-  define('ENTRY_EMAIL_PREFERENCE','Newsletter and Email Details');
+// BOF COWOA
+  define('ENTRY_EMAIL_PREFERENCE','Email Preferences');
+// EOF COWOA
   define('ENTRY_EMAIL_HTML_DISPLAY','HTML');
   define('ENTRY_EMAIL_TEXT_DISPLAY','TEXT-Only');
   define('EMAIL_SEND_FAILED','ERROR: Failed sending email to: "%s" <%s> with subject: "%s"');

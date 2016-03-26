@@ -34,7 +34,7 @@ $salemaker = $db->Execute("select count(*) as count from " . TABLE_SALEMAKER_SAL
 $salemaker_act = $db->Execute("select count(*) as count from " . TABLE_SALEMAKER_SALES . " where sale_status = '1'");
 
 ?>
-<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!doctype html>
 <html <?php echo HTML_PARAMS; ?>>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET; ?>">
@@ -43,7 +43,7 @@ $salemaker_act = $db->Execute("select count(*) as count from " . TABLE_SALEMAKER
     <meta name="robots" content="noindex, nofollow" />
     <link href="includes/stylesheet.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="includes/cssjsmenuhover.css" media="all" id="hoverJS" />
-    <script language="JavaScript" src="includes/menu.js" type="text/javascript"></script>
+    <script src="includes/menu.js" type="text/javascript"></script>
     <script type="text/javascript">
         <!--
             function init()

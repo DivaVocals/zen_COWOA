@@ -87,7 +87,7 @@ if (in_array($current_page_base,explode(",",'no_account,create_account,account,a
   }
   require($template->get_template_dir('tpl_header.php',DIR_WS_TEMPLATE, $current_page_base,'common'). '/tpl_header.php');?>
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0" id="contentMainWrapper">
+<table id="contentMainWrapper">
   <tr>
 <?php
 if (COLUMN_LEFT_STATUS == 0 || (CUSTOMERS_APPROVAL == '1' and $_SESSION['customer_id'] == '') || (CUSTOMERS_APPROVAL_AUTHORIZATION == 1 && CUSTOMERS_AUTHORIZATION_COLUMN_LEFT_OFF == 'true' and ($_SESSION['customers_authorization'] != 0 or $_SESSION['customer_id'] == ''))) {
@@ -108,7 +108,7 @@ if (!isset($flag_disable_left) || !$flag_disable_left) {
 <?php
 }
 ?>
-    <td valign="top">
+    <td id="navColumnMain" class="columnCenter">
 <!-- bof  breadcrumb -->
 <?php if (DEFINE_BREADCRUMB_STATUS == '1' || (DEFINE_BREADCRUMB_STATUS == '2' && !$this_is_home_page) ) { ?>
     <div id="navBreadCrumb"><?php echo $breadcrumb->trail(BREAD_CRUMBS_SEPARATOR); ?></div>

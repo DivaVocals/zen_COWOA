@@ -384,7 +384,7 @@ if (COWOA_ORDER_STATUS == 'false') {
     }
   }
 ?>
-<!doctype html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!doctype html>
 <html <?php echo HTML_PARAMS; ?>>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=<?php echo CHARSET; ?>">
@@ -392,8 +392,8 @@ if (COWOA_ORDER_STATUS == 'false') {
 <link rel="stylesheet" type="text/css" href="includes/stylesheet.css">
 <link rel="stylesheet" type="text/css" media="print" href="includes/stylesheet_print.css">
 <link rel="stylesheet" type="text/css" href="includes/cssjsmenuhover.css" media="all" id="hoverJS">
-<script language="javascript" src="includes/menu.js"></script>
-<script language="javascript" src="includes/general.js"></script>
+<script type="text/javascript" src="includes/menu.js"></script>
+<script type="text/javascript" src="includes/general.js"></script>
 <script type="text/javascript">
   <!--
   function init()
@@ -407,11 +407,11 @@ if (COWOA_ORDER_STATUS == 'false') {
   }
   // -->
 </script>
-<script language="javascript" type="text/javascript"><!--
+<script type="text/javascript">
 function couponpopupWindow(url) {
   window.open(url,'popupWindow','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,copyhistory=no,width=450,height=280,screenX=150,screenY=150,top=150,left=150')
 }
-//--></script>
+</script>
 </head>
 <body onLoad="init()">
 <!-- header //-->
@@ -917,16 +917,16 @@ $new_fields . "
     if (isset($_GET['cID'])) {
       $cID = (int)zen_db_prepare_input($_GET['cID']);
       $orders_query_raw .= " WHERE o.customers_id = " . (int)$cID;
-//echo '<BR><BR>I SEE A: ' . $orders_query_raw . '<BR><BR>';
+//echo '<br /><br />I SEE A: ' . $orders_query_raw . '<br /><br />';
 
     } elseif ($_GET['status'] != '') {
       $status = (int)zen_db_prepare_input($_GET['status']);
       $orders_query_raw .= " WHERE s.orders_status_id = " . (int)$status . $search;
-//echo '<BR><BR>I SEE B: ' . $orders_query_raw . '<BR><BR>';
+//echo '<br /><br />I SEE B: ' . $orders_query_raw . '<br /><br />';
 
     } else {
       $orders_query_raw .= (trim($search) != '') ? preg_replace('/ *AND /i', ' WHERE ', $search) : '';
-//echo '<BR><BR>I SEE C: ' . $orders_query_raw . '<BR><BR>';
+//echo '<br /><br />I SEE C: ' . $orders_query_raw . '<br /><br />';
     }
 
     $orders_query_raw .= " order by o.orders_id DESC";
