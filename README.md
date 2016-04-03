@@ -1,10 +1,12 @@
 COWOA Module for Zen Cart v2.6
 ============
 
-## This is a development version of COWOA only.. DEVELOPMENT meaning it's BETA, NOT YET RELEASED, USE WITH CAUTION ON A LIVE SITE.. GOOD LORD IS THAT CLEAR ENOUGH NOW!!!!
-#### If you are looking to install the latest version from zencart please visit [this page](http://www.zen-cart.com/downloads.php?do=file&id=1416)
+## While this is the most updated version of COWOA, is a development version of COWOA only.. DEVELOPMENT meaning it's BETA, NOT YET RELEASED, USE WITH CAUTION ON A LIVE SITE.. GOOD LORD IS THAT CLEAR ENOUGH NOW!!!!
+#### If you are looking to install the most recent officialy released version of COWOA from the Zen Cart module/plugin downloads section please visit [this page](http://www.zen-cart.com/downloads.php?do=file&id=1416)
 
-If you need basic installation help, and the included readme does not help you, please visit the [COWOA Support Thread](http://www.zen-cart.com/showthread.php?196995-COWOA-Updated-and-Combined-for-ZC-v1-5-x)
+If you need basic installation help with the officialy released version, and the included readme does not help you, please visit the [COWOA Support Thread](http://www.zen-cart.com/showthread.php?196995-COWOA-Updated-and-Combined-for-ZC-v1-5-x)
+
+If you need help with this beta version, please post an issue here on Github https://github.com/DivaVocals/zen_COWOA/issues 
 
 CHANGELOG
 ------------
