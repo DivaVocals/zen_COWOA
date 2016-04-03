@@ -8,7 +8,7 @@ If you need basic installation help with the officialy released version, and the
 
 If you need help with this beta version, please post an issue here on Github https://github.com/DivaVocals/zen_COWOA/issues
 
-This version will be released once folks test and REPORT back any issues or successes. We don't want to release a version of COWOA that hasn't been THROUGHLY beta tested. Don't just quietly install this, PROVIDE SOME FEEDBACK!! Let us know when it WORKS not JUST when it DOESN'T!
+COWOA v2.7 will be released officially once folks test and REPORT BACK not only their issues but their successes with COWOA 2.7 as well. We don't want to release a version of COWOA that hasn't been THROUGHLY beta tested. So don't just quietly install this, PROVIDE SOME FEEDBACK!! Definitely report bugs/issues, also let us know when it WORKS too!!
 
 CHANGELOG
 ------------
