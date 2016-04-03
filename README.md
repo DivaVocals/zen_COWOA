@@ -1,4 +1,4 @@
-COWOA Module for Zen Cart v2.6
+COWOA Module for Zen Cart v2.7
 ============
 
 ## While this is the most updated version of COWOA, is a development version of COWOA only.. DEVELOPMENT meaning it's BETA, NOT YET RELEASED, USE WITH CAUTION ON A LIVE SITE.. GOOD LORD IS THAT CLEAR ENOUGH NOW!!!!
