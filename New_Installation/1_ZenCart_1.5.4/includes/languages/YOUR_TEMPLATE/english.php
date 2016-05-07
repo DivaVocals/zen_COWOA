@@ -276,7 +276,7 @@
   define('PREVNEXT_TITLE_PREV_SET_OF_NO_PAGE', 'Previous Set of %d Pages');
   define('PREVNEXT_TITLE_NEXT_SET_OF_NO_PAGE', 'Next Set of %d Pages');
 // BOF COWOA
-  define('PREVNEXT_BUTTON_FIRST', '&laquo;&laquo;FIRST');
+  define('PREVNEXT_BUTTON_FIRST', '&laquo;&laquo;First');
   define('PREVNEXT_BUTTON_PREV', '[&laquo;&laquo;&nbsp;Prev]');
   define('PREVNEXT_BUTTON_NEXT', '[Next&nbsp;&raquo;&raquo;]');
   define('PREVNEXT_BUTTON_LAST', 'LAST&raquo;&raquo;');

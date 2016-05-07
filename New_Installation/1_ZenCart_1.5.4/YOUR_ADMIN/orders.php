@@ -119,8 +119,9 @@
         if ($status < 1) break;
 
         $order_updated = false;
+//order delivery COWOA change
         $check_status = $db->Execute("select customers_name, customers_email_address, orders_status,
-                                      date_purchased, COWOA_order from " . TABLE_ORDERS . " /*COWOA change*/
+                                      date_purchased, COWOA_order from " . TABLE_ORDERS . "
                                       where orders_id = '" . (int)$oID . "'");
 
         if ( ($check_status->fields['orders_status'] != $status) || zen_not_null($comments)) {
