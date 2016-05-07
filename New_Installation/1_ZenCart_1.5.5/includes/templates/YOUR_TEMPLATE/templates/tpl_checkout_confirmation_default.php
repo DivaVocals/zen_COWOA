@@ -48,9 +48,10 @@
 
 <?php if ($messageStack->size('redemptions') > 0) echo $messageStack->output('redemptions'); ?>
 <?php if ($messageStack->size('checkout_confirmation') > 0) echo $messageStack->output('checkout_confirmation'); ?>
-<?php if ($messageStack->size('checkout') > 0) echo $messageStack->output('checkout'); ?>
+<?php if ($messageStack->size('checkout') > 0) echo $messageStack->output('checkout'); 
 
-<?php if ($_SESSION['cart']->show_total() != 0) {  ?>
+ if ($_SESSION['cart']->show_total() != 0) {  ?>
+
 <div id="checkoutShipto" class="back">
 <h4 id="checkoutConfirmDefaultBillingAddress"><?php echo HEADING_BILLING_ADDRESS; ?></h4>
 <?php if (!$flagDisablePaymentAddressChange) { ?>
@@ -210,3 +211,6 @@
 <div class="buttonRow forward"><?php echo TITLE_CONTINUE_CHECKOUT_PROCEDURE . '<br />' . TEXT_CONTINUE_CHECKOUT_PROCEDURE; ?></div>
 
 </div>
+<?php
+  }
+?>
