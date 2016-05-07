@@ -21,7 +21,11 @@
 <?php if($COWOA) {?>
     <div id="order_steps">
             <div class="order_steps_text">
-			<span class="order_steps_text1_COWOA"><i class="fa fa-file-text-o"></i><br /><?php echo TEXT_ORDER_STEPS_BILLING; ?></span><span class="order_steps_text2_COWOA"><i class="fa fa-truck"></i><br /><?php echo TEXT_ORDER_STEPS_1; ?></span><span class="order_steps_text3_COWOA"><i class="fa fa-credit-card"></i><br /><?php echo TEXT_ORDER_STEPS_2; ?></span><span id="active_step_text_COWOA"><i class="fa  fa-pencil-square"></i><br /><?php echo TEXT_ORDER_STEPS_3; ?></span><span class="order_steps_text4_COWOA"><i class="fa fa-check"></i><br /><?php echo TEXT_ORDER_STEPS_4; ?></span>
+			<span class="order_steps_text1_COWOA"><i class="fa fa-file-text-o"></i><br /><?php echo TEXT_ORDER_STEPS_BILLING; ?></span>
+			<span class="order_steps_text2_COWOA"><i class="fa fa-truck"></i><br /><?php echo TEXT_ORDER_STEPS_1; ?></span>
+			<span class="order_steps_text3_COWOA"><i class="fa fa-credit-card"></i><br /><?php echo TEXT_ORDER_STEPS_2; ?></span>
+			<span id="active_step_text_COWOA"><i class="fa  fa-pencil-square"></i><br /><?php echo TEXT_ORDER_STEPS_3; ?></span>
+			<span class="order_steps_text4_COWOA"><i class="fa fa-check"></i><br /><?php echo TEXT_ORDER_STEPS_4; ?></span>
             </div>
             <div class="order_steps_line_2">
 		  <span class="progressbar_active_COWOA">&nbsp;</span><span class="progressbar_active_COWOA">&nbsp;</span><span class="progressbar_active_COWOA">&nbsp;</span><span class="progressbar_active_COWOA">&nbsp;</span><span class="progressbar_inactive_COWOA">&nbsp;</span>
@@ -30,10 +34,13 @@
 <?php } else {?>
     <div id="order_steps">
             <div class="order_steps_text">
-			<span class="order_steps_text2"><i class="fa fa-truck"></i><br /><?php echo TEXT_ORDER_STEPS_1; ?></span><span class="order_steps_text3"><i class="fa fa-credit-card"></i><br /><?php echo TEXT_ORDER_STEPS_2; ?></span><span id="active_step_text"><i class="fa  fa-pencil-square"></i><br /><?php echo TEXT_ORDER_STEPS_3; ?></span><span class="order_steps_text4"><i class="fa fa-check"></i><br /><?php echo TEXT_ORDER_STEPS_4; ?></span>
+			<span class="order_steps_text2"><i class="fa fa-truck"></i><br /><?php echo TEXT_ORDER_STEPS_1; ?></span>
+			<span class="order_steps_text3"><i class="fa fa-credit-card"></i><br /><?php echo TEXT_ORDER_STEPS_2; ?></span>
+			<span id="active_step_text"><i class="fa  fa-pencil-square"></i><br /><?php echo TEXT_ORDER_STEPS_3; ?></span>
+			<span class="order_steps_text4"><i class="fa fa-check"></i><br /><?php echo TEXT_ORDER_STEPS_4; ?></span>
             </div>
             <div class="order_steps_line_2">
-                <span class="progressbar_active">&nbsp;</span><span class="progressbar_active">&nbsp;</span><span class="progressbar_active">&nbsp;</span><span class="progressbar_inactive">&nbsp;</span>
+            <span class="progressbar_active">&nbsp;</span><span class="progressbar_active">&nbsp;</span><span class="progressbar_active">&nbsp;</span><span class="progressbar_inactive">&nbsp;</span>
             </div>
     </div>
 <?php } ?>
@@ -43,7 +50,7 @@
 <?php if ($messageStack->size('checkout_confirmation') > 0) echo $messageStack->output('checkout_confirmation'); ?>
 <?php if ($messageStack->size('checkout') > 0) echo $messageStack->output('checkout'); ?>
 
- if ($_SESSION['cart']->show_total() != 0) {  ?>
+<?php if ($_SESSION['cart']->show_total() != 0) {  ?>
 <div id="checkoutShipto" class="back">
 <h4 id="checkoutConfirmDefaultBillingAddress"><?php echo HEADING_BILLING_ADDRESS; ?></h4>
 <?php if (!$flagDisablePaymentAddressChange) { ?>
