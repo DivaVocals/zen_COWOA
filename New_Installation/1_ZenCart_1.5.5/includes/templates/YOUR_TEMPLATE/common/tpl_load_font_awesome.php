@@ -4,7 +4,7 @@
 // Adapted for COWOA by Copyright (C) 2015, Over the Hill Web Consulting (C Jones)
 //
 if (!defined ('CSS3_BUTTONS_INCLUDE_FONT_AWESOME')) {
-	if (defined ('FONT_AWESOME_INCLUDE_FONT_AWESOME_CSS_VERSION') && defined ('FONT_AWESOME_INCLUDE_FONT_AWESOME_CSS_AWESOME') && FONT_AWESOME_INCLUDE_FONT_AWESOME_CSS_AWESOME == 'true') {
+	if (defined ('FONT_AWESOME_INCLUDE_FONT_AWESOME_CSS_VERSION') && defined ('FONT_AWESOME_INCLUDE_FONT_AWESOME_CSS') && FONT_AWESOME_INCLUDE_FONT_AWESOME_CSS == 'true') {
 	  echo '<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/font-awesome/' . FONT_AWESOME_INCLUDE_FONT_AWESOME_CSS_VERSION . '/css/font-awesome.min.css" />' . "\n";
 	}
 } else {
